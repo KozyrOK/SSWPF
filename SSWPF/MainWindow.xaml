@@ -1,0 +1,33 @@
+﻿<Window         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                mc:Ignorable="d" 
+                Title="Service Station" Height="600" Width="800" Background="{x:Null}"
+                x:Class = "SSWPF.MainWindow" 
+                Icon="Image/logo.png" 
+                ResizeMode="NoResize"
+                Topmost="True"
+                WindowStartupLocation="CenterScreen">
+    <Grid HorizontalAlignment="Center" Width="800" RenderTransformOrigin="0.061,0.546">
+        <Grid.Background>
+            <LinearGradientBrush 
+                StartPoint="0,0" EndPoint="1,1"
+                MappingMode="RelativeToBoundingBox">
+                <GradientStop Color="#293C78" Offset="0" />
+                <GradientStop Color="#26d3ba" Offset="1.0" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid HorizontalAlignment="Left" Height="470" Margin="0,100,0,0" VerticalAlignment="Top" Width="100" Background="#293C78">
+            <Button x:Name="Main_menu" Content="Main menu" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="80" Height="50" FontSize="14"/>
+            <Button x:Name="Pricelist" Content="Pricelist" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top" Width="80" Height="50" RenderTransformOrigin="0.79,0.813" FontSize="14"/>
+            <Button x:Name="Info" Content="Info" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top" Width="80" Height="50" RenderTransformOrigin="0.49,0.443" FontSize="14"/>
+        </Grid>
+        <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Source="Image/logo.png" RenderTransformOrigin="2.083,0.583"/>
+        <Grid HorizontalAlignment="Left" Height="34" Margin="0,540,0,-1.6" VerticalAlignment="Top" Width="793" Background="#26d3ba">
+            <TextBlock HorizontalAlignment="Center" Margin="259,10,250,0" Text="Ibexsoft 2018" VerticalAlignment="Top" Width="76" Height="14" Background="#26d3ba"/>
+        </Grid>
+        <Image HorizontalAlignment="Left" Height="100" Margin="100,0,0,0" VerticalAlignment="Top" Width="700" Source="Image/logo2.png"/>
+        <Grid HorizontalAlignment="Left" Height="435" Margin="100,100,0,0" VerticalAlignment="Top" Width="690"/>
+    </Grid>
+</Window>
