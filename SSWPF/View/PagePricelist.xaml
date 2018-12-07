@@ -1,0 +1,135 @@
+﻿<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:Model="clr-namespace:SSWPF.Model"  
+      x:Class="SSWPF.View.PagePricelist" 
+      mc:Ignorable="d" 
+      d:DesignHeight="460" d:DesignWidth="660"
+      Title="Page Pricelist">
+    
+    <Grid>        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>            
+            <RowDefinition Height="1.5*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" FontSize="25" 
+                   Foreground="Bisque" HorizontalAlignment="Center" VerticalAlignment="Center">
+                   Service station price list
+        </TextBlock>               
+        
+        <TextBlock Grid.Row="1" Grid.Column="0" Margin="5" FontSize="20" Foreground="Bisque" 
+                   HorizontalAlignment="Left" VerticalAlignment="Center">Car body</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="1"  
+                   Text="{Binding carBody}"                         
+                   Height="25" Width="100" Margin="5" FontSize="20" 
+                   Foreground="Black" Background="Gray" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="1" Margin="5,5,30,5" FontSize="20" Foreground="Bisque" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center">$</TextBlock>
+                    
+        <TextBlock Grid.Row="2" Grid.Column="0" Margin="5" FontSize="20" Foreground="Bisque" 
+                   HorizontalAlignment="Left" VerticalAlignment="Center">Car wheels</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="1" TextAlignment="Center" 
+                   Text="{Binding сarWheels}"                   
+                   Height="25" Width="100" Margin="5" FontSize="20" 
+                   Foreground="Black" Background="Gray" HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" Margin="5,5,30,5" FontSize="20" Foreground="Bisque" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center">$</TextBlock>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Margin="5" FontSize="20" Foreground="Bisque" 
+                   HorizontalAlignment="Left" VerticalAlignment="Center">Car engine</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="1" TextAlignment="Center" 
+                   Text="{Binding сarEngine}" 
+                   Height="25" Width="100" Margin="5" FontSize="20" Foreground="Black" Background="Gray" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="1" Margin="5,5,30,5" FontSize="20" Foreground="Bisque" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center">$</TextBlock>
+
+        <TextBlock Grid.Row="4" Grid.Column="0" Margin="5" FontSize="20" Foreground="Bisque" 
+                   HorizontalAlignment="Left" VerticalAlignment="Center">Car brakes</TextBlock>
+        <TextBlock Grid.Row="4" Grid.Column="1" TextAlignment="Center" 
+                   Text="{Binding carBrakes}" 
+                   Height="25" Width="100" Margin="5" FontSize="20" Foreground="Black" Background="Gray" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Grid.Row="4" Grid.Column="1" Margin="5,5,30,5" FontSize="20" Foreground="Bisque" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center">$</TextBlock>
+
+        <TextBlock Grid.Row="5" Grid.Column="0" Margin="5" FontSize="20" Foreground="Bisque" 
+                   HorizontalAlignment="Left" VerticalAlignment="Center">Car undercarriage</TextBlock>
+        <TextBlock Grid.Row="5" Grid.Column="1" TextAlignment="Center" 
+                   Text="{Binding сarUndercarriage}" 
+                   Height="25" Width="100" Margin="5" FontSize="20" Foreground="Black" Background="Gray" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Grid.Row="5" Grid.Column="1" Margin="5,5,30,5" FontSize="20" Foreground="Bisque" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center">$</TextBlock>
+
+        <TextBlock Grid.Row="6" Grid.Column="0" Margin="5" FontSize="20" Foreground="Bisque" 
+                   HorizontalAlignment="Left" VerticalAlignment="Center">Bus salon</TextBlock>
+        <TextBlock Grid.Row="6" Grid.Column="1" TextAlignment="Center" 
+                   Text="{Binding busSalon}" 
+                   Height="25" Width="100" Margin="5" FontSize="20" Foreground="Black" Background="Gray" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Grid.Row="6" Grid.Column="1" Margin="5,5,30,5" FontSize="20" 
+                   Foreground="Bisque" HorizontalAlignment="Right" VerticalAlignment="Center">$</TextBlock>
+
+        <TextBlock Grid.Row="7" Grid.Column="0" Margin="5" FontSize="20" Foreground="Bisque" 
+                   HorizontalAlignment="Left" VerticalAlignment="Center">Bus handsrails</TextBlock>
+        <TextBlock Grid.Row="7" Grid.Column="1" TextAlignment="Center" 
+                   Height="25" Width="100" Margin="5" FontSize="20" Foreground="Black" Background="Gray"
+                   Text="{Binding busHandsrails}"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Grid.Row="7" Grid.Column="1" Margin="5,5,30,5" FontSize="20" Foreground="Bisque" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center">$</TextBlock>
+
+        <TextBlock Grid.Row="8" Grid.Column="0" Margin="5" FontSize="20" Foreground="Bisque" 
+                   HorizontalAlignment="Left" VerticalAlignment="Center">Bus seats upholstery</TextBlock>
+        <TextBlock Grid.Row="8" Grid.Column="1" TextAlignment="Center" 
+                   Text="{Binding busUpholstery}" 
+                   Height="25" Width="100" Margin="5" FontSize="20" Foreground="Black" Background="Gray" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Grid.Row="8" Grid.Column="1" Margin="5,5,30,5" FontSize="20" Foreground="Bisque" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center">$</TextBlock>
+        
+        <TextBlock Grid.Row="9" Grid.Column="0" Margin="5" FontSize="20" Foreground="Bisque" 
+                   HorizontalAlignment="Left" VerticalAlignment="Center">Car wheels balancing</TextBlock>
+        <TextBlock Grid.Row="9" Grid.Column="1" TextAlignment="Center" 
+                   Text="{Binding pasCarwheelBalancing}" 
+                   Height="25" Width="100" Margin="5" FontSize="20" Foreground="Black" Background="Gray" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Grid.Row="9" Grid.Column="1" Margin="5,5,30,5" FontSize="20" Foreground="Bisque" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center">$</TextBlock>
+
+        <TextBlock Grid.Row="10" Grid.Column="0" Margin="5" FontSize="20" Foreground="Bisque" 
+                   HorizontalAlignment="Left" VerticalAlignment="Center">Truck hydraulics</TextBlock>
+        <TextBlock Grid.Row="10" Grid.Column="1" TextAlignment="Center" 
+                   Text="{Binding truckHydraulics}" 
+                   Height="25" Width="100" Margin="5" FontSize="20" Foreground="Black" Background="Gray" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Grid.Row="10" Grid.Column="1" Margin="5,5,30,5" FontSize="20" Foreground="Bisque" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center">$</TextBlock>
+
+        <DockPanel Grid.Row="11" Grid.ColumnSpan="2">
+            <Button HorizontalAlignment="Left" Margin="5" Height="30" Width="200" FontSize="20" 
+                    Background="Red" Cursor="Hand" Click="Button_Click_Back_Pricelist">Back</Button>
+            <Button HorizontalAlignment="Right" Margin="5" Height="30" Width="200" FontSize="20" 
+                    Cursor="Hand" Background="#FF18FF00" Click="Button_Click_Edit_Pricelist">Edit</Button>            
+        </DockPanel>
+    </Grid>
+</Page>

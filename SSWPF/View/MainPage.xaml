@@ -1,0 +1,39 @@
+﻿<Page x:Class="SSWPF.View.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="460" d:DesignWidth="660"
+      Title="MainMenuPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+       
+        <Button x:Name="New_order_Button" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                Width="250" Height="70" FontSize="25" Grid.Row="0" Grid.Column="0" Cursor="Hand" 
+                Click="New_order_Button_Click">New order</Button>
+        <Button x:Name="Actual_orders_Button" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                Width="250" Height="70" FontSize="25" Grid.Row="1" Grid.Column="0" Cursor="Hand" 
+                Click="Actual_orders_Button_Click">Actual orders</Button>
+        <Button x:Name="Done_orders_Button" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                Width="250" Height="70" FontSize="25" Grid.Row="2" Grid.Column="0" Cursor="Hand" 
+                Click="Done_orders_Button_Click">Done orders</Button>
+        <Image x:Name="New_order_Image" Source="/Image/New_order.png" 
+               HorizontalAlignment="Center" VerticalAlignment="Center" 
+               Height="100" Width="100"  Grid.Row="0" Grid.Column="1"/>
+        <Image x:Name="Actual_orders_Image" Source="/Image/Actual_orders.png" 
+               HorizontalAlignment="Center" VerticalAlignment="Center" 
+               Height="100" Width="100"  Grid.Row="1" Grid.Column="1"/>
+        <Image x:Name="Done_orders_Image" Source="/Image/Done_orders.png" 
+               HorizontalAlignment="Center" VerticalAlignment="Center" 
+               Height="100" Width="100"  Grid.Row="2" Grid.Column="1"/>
+    </Grid>
+</Page>

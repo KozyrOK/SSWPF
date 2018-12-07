@@ -1,0 +1,36 @@
+﻿<Page x:Class="SSWPF.View.DoneOrdersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SSWPF.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="460" d:DesignWidth="660"
+      Title="DoneOrdersPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>           
+        </Grid.ColumnDefinitions>
+        <Image x:Name="Done_orders_Image1" Source="/Image/Done_orders.png" 
+               HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"/>
+        <Image x:Name="Done_orders_Image2" Source="/Image/Done_orders.png" 
+               HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1"/>
+        <TextBlock Foreground="Bisque" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                   Grid.Row="0" Grid.ColumnSpan="2">Done orders</TextBlock>
+        <DataGrid x:Name="DataGridActualOrders" Grid.Row="1" AutoGenerateColumns="False" HorizontalGridLinesBrush="DarkGray"
+    RowBackground="LightGray" AlternatingRowBackground="White" FontSize="20" ItemsSource="{Binding}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="# Order" Binding="{Binding Path=Id}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Car number" Binding="{Binding Path=NumberCar}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Cost order" Binding="{Binding Path=CostOrder}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Order paid" Binding="{Binding Path=OrderPaid}" Width="*"></DataGridTextColumn>
+                <DataGridHyperlinkColumn Header="Edit" Width="0.5*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>
