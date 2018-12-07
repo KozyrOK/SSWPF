@@ -8,7 +8,9 @@ namespace SSWPF
 {
     public partial class MainWindow : Window
     {       
-        //Инициализация базы данных цены ремонта
+        //Создание контекста
+        //Инициализация базы данных цены ремонта, если цена не установлена
+        
         public MainWindow()
         {
             InitializeComponent();
