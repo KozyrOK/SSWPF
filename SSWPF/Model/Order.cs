@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace SSWPF.Model
@@ -6,11 +7,22 @@ namespace SSWPF.Model
     public class Order : INotifyPropertyChanged
     {       
         public int OrderId { get; set; }
+        public DateTime dateTimeOrder;
         public string stateOrder;
-        public string modelCar;
-        public string numberCar;
+        public Car orderCar;
+        public Price orderPrice;
         public decimal costOrder;
         public decimal orderPaid;
+
+        public DateTime DateTimeOrder
+        {
+            get { return dateTimeOrder; }
+            set
+            {
+                dateTimeOrder = value;
+                OnPropertyChanged("DateOrder");
+            }
+        }
 
         public string StateOrder
         {
@@ -21,24 +33,27 @@ namespace SSWPF.Model
                 OnPropertyChanged("StateOrder");
             }
         }
-        public string ModelCar
+
+        public Car OrderCar
         {
-            get { return modelCar; }
+            get { return orderCar; }
             set
             {
-                modelCar = value;
-                OnPropertyChanged("ModelCar");
+                orderCar = value;
+                OnPropertyChanged("OrderCar");
             }
         }
-        public string NumberCar
+
+        public Price OrderPrice
         {
-            get { return numberCar; }
+            get { return orderPrice; }
             set
             {
-                numberCar = value;
-                OnPropertyChanged("NumberCar");
+                orderPrice = value;
+                OnPropertyChanged("OrderPrice");
             }
         }
+
         public decimal CostOrder
         {
             get { return costOrder; }

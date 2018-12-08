@@ -4,7 +4,7 @@ namespace SSWPF.Model
 {
     class ApplicationContext : DbContext
     {
-        public ApplicationContext() : base("SswpfConnection")
+        public ApplicationContext() : base("sswpfConnection")
         {
         }
         
