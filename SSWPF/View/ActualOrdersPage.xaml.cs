@@ -14,9 +14,7 @@ namespace SSWPF.View
         {
             InitializeComponent();
             
-        }
-
-       
+        }       
 
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace SSWPF.Model
@@ -6,6 +8,7 @@ namespace SSWPF.Model
     public class Price : INotifyPropertyChanged
     {        
         public int PriceId { get; set; }
+        public DateTime dataTimePrice;
         private decimal carBody;
         private decimal carWheels;
         private decimal carEngine;
@@ -15,8 +18,17 @@ namespace SSWPF.Model
         private decimal busHandsrails;
         private decimal busUpholstery;
         private decimal pasCarwheelBalancing;
-        private decimal truckHydraulics; 
+        private decimal truckHydraulics;
 
+        public DateTime DataTimePrice
+        {
+            get { return dataTimePrice; }
+            set
+            {
+                dataTimePrice = value;
+                OnPropertyChanged("DataTimePrice");
+            }
+        }
         public decimal СarBody
         {
             get { return carBody; }
@@ -113,5 +125,22 @@ namespace SSWPF.Model
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
+        static public Price GetCurrentValuePrice()
+        {
+            using (var priceContext = new ApplicationContext())
+            {
+                return priceContext.Prices.LastOrDefault();
+            }
+        }
+
+        static public void AddNewPrice(Price p)
+        {
+            using (var priceContext = new ApplicationContext()) 
+            {
+                priceContext.Prices.Add(p);
+                priceContext.SaveChanges();
+            }            
+        }
+
     }
 }
