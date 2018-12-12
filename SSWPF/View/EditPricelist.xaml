@@ -9,9 +9,10 @@
       d:DesignHeight="460" d:DesignWidth="660"
       Title="EditPricelist">    
       
-      <Grid>
+      <Grid Name="EditPricelistGrid">
           <Grid.RowDefinitions>
               <RowDefinition Height="1.5*"/>
+              <RowDefinition Height="*"/>
               <RowDefinition Height="*"/>
               <RowDefinition Height="*"/>
               <RowDefinition Height="*"/>
@@ -34,7 +35,7 @@
           <TextBlock Grid.Row="1" Grid.Column="0" Margin="5" FontSize="20" Foreground="Bisque" 
                      HorizontalAlignment="Left" VerticalAlignment="Center">Car body</TextBlock>
           <TextBox Grid.Row="1" Grid.Column="1" TextAlignment="Center" 
-                   Text="{Binding carBody, Mode=TwoWay}"  
+                   Text="{Binding ElementName=EditPricelistVariable, Path=carBody, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  
                    Height="25" Width="100" Margin="5" FontSize="20" Foreground="Black" 
                    HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
           <TextBlock Grid.Row="1" Grid.Column="1" Margin="5,5,30,5" FontSize="20" Foreground="Bisque" 
@@ -43,7 +44,7 @@
           <TextBlock Grid.Row="2" Grid.Column="0" Margin="5" FontSize="20" Foreground="Bisque" 
                      HorizontalAlignment="Left" VerticalAlignment="Center">Car wheels</TextBlock>
           <TextBox Grid.Row="2" Grid.Column="1" TextAlignment="Center" 
-                   Text="{Binding carWheels, Mode=TwoWay}"  
+                   Text="{Binding ElementName=EditPricelistVariable, Path=carWheels, Mode=TwoWay}"  
                    Height="25" Width="100" Margin="5" FontSize="20" Foreground="Black" 
                    HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
           <TextBlock Grid.Row="2" Grid.Column="1" Margin="5,5,30,5" FontSize="20" Foreground="Bisque" 
@@ -52,7 +53,7 @@
           <TextBlock Grid.Row="3" Grid.Column="0" Margin="5" FontSize="20" Foreground="Bisque" 
                      HorizontalAlignment="Left" VerticalAlignment="Center">Car engine</TextBlock>
           <TextBox Grid.Row="3" Grid.Column="1" TextAlignment="Center" 
-                   Text="{Binding carEngine, Mode=TwoWay}" 
+                   Text="{Binding ElementName=EditPricelistVariable, Path=carEngine, Mode=TwoWay}" 
                    Height="25" Width="100" Margin="5" FontSize="20" Foreground="Black" 
                    HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
           <TextBlock Grid.Row="3" Grid.Column="1" Margin="5,5,30,5" FontSize="20" Foreground="Bisque" 
@@ -61,7 +62,7 @@
           <TextBlock Grid.Row="4" Grid.Column="0" Margin="5" FontSize="20" Foreground="Bisque" 
                      HorizontalAlignment="Left" VerticalAlignment="Center">Car brakes</TextBlock>
           <TextBox Grid.Row="4" Grid.Column="1" TextAlignment="Center" 
-                   Text="{Binding carBrakes, Mode=TwoWay}" 
+                   Text="{Binding ElementName=EditPricelistVariable, Path=carBrakes, Mode=TwoWay}" 
                    Height="25" Width="100" Margin="5" FontSize="20" Foreground="Black" 
                    HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
           <TextBlock Grid.Row="4" Grid.Column="1" Margin="5,5,30,5" FontSize="20" Foreground="Bisque" 
@@ -70,7 +71,7 @@
           <TextBlock Grid.Row="5" Grid.Column="0" Margin="5" FontSize="20" Foreground="Bisque" 
                      HorizontalAlignment="Left" VerticalAlignment="Center">Car undercarriage</TextBlock>
           <TextBox Grid.Row="5" Grid.Column="1" TextAlignment="Center" 
-                   Text="{Binding carUndercarriage, Mode=TwoWay}" 
+                   Text="{Binding ElementName=EditPricelistVariable, Path=carUndercarriage, Mode=TwoWay}" 
                    Height="25" Width="100" Margin="5" FontSize="20" Foreground="Black" 
                    HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
           <TextBlock Grid.Row="5" Grid.Column="1" Margin="5,5,30,5" FontSize="20" Foreground="Bisque" 
@@ -79,7 +80,7 @@
           <TextBlock Grid.Row="6" Grid.Column="0" Margin="5" FontSize="20" Foreground="Bisque" 
                      HorizontalAlignment="Left" VerticalAlignment="Center">Bus salon</TextBlock>
           <TextBox Grid.Row="6" Grid.Column="1" TextAlignment="Center" 
-                   Text="{Binding busSalon, Mode=TwoWay}" 
+                   Text="{Binding ElementName=EditPricelistVariable, Path=busSalon, Mode=TwoWay}" 
                    Height="25" Width="100" Margin="5" FontSize="20" Foreground="Black" 
                    HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
           <TextBlock Grid.Row="6" Grid.Column="1" Margin="5,5,30,5" FontSize="20" Foreground="Bisque" 
@@ -88,31 +89,41 @@
           <TextBlock Grid.Row="7" Grid.Column="0" Margin="5" FontSize="20" Foreground="Bisque" 
                        HorizontalAlignment="Left" VerticalAlignment="Center">Bus handsrails</TextBlock>
           <TextBox Grid.Row="7" Grid.Column="1" TextAlignment="Center" 
-                   Text="{Binding busHandsrails, Mode=TwoWay}" 
+                   Text="{Binding ElementName=EditPricelistVariable, Path=busHandsrails, Mode=TwoWay}" 
                    Height="25" Width="100" Margin="5" FontSize="20" Foreground="Black" 
                    HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
           <TextBlock Grid.Row="7" Grid.Column="1" Margin="5,5,30,5" FontSize="20" 
                        Foreground="Bisque" HorizontalAlignment="Right" VerticalAlignment="Center">$</TextBlock>
 
-          <TextBlock Grid.Row="8" Grid.Column="0" Margin="5" FontSize="20" Foreground="Bisque" 
-                       HorizontalAlignment="Left" VerticalAlignment="Center">Car wheels balancing</TextBlock>
-          <TextBox Grid.Row="8" Grid.Column="1" TextAlignment="Center" 
-                   Text="{Binding pasCarwheelBalancing, Mode=TwoWay}" 
-                     Height="25" Width="100" Margin="5" FontSize="20" Foreground="Black" 
-                     HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
-          <TextBlock Grid.Row="8" Grid.Column="1" Margin="5,5,30,5" FontSize="20" Foreground="Bisque" 
-                       HorizontalAlignment="Right" VerticalAlignment="Center">$</TextBlock>
+        <TextBlock Grid.Row="8" Grid.Column="0" Margin="5" FontSize="20" Foreground="Bisque" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center">Bus seats upholstery</TextBlock>
+        <TextBox Grid.Row="8" Grid.Column="1" TextAlignment="Center" 
+                   Text="{Binding ElementName=EditPricelistVariable, Path=busUpholstery, Mode=TwoWay}" 
+                   Height="25" Width="100" Margin="5" FontSize="20" Foreground="Black" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+        <TextBlock Grid.Row="8" Grid.Column="1" Margin="5,5,30,5" FontSize="20" 
+                       Foreground="Bisque" HorizontalAlignment="Right" VerticalAlignment="Center">$</TextBlock>
 
-          <TextBlock Grid.Row="9" Grid.Column="0" Margin="5" FontSize="20" Foreground="Bisque" 
-                       HorizontalAlignment="Left" VerticalAlignment="Center">Truck hydraulics</TextBlock>
+
+        <TextBlock Grid.Row="9" Grid.Column="0" Margin="5" FontSize="20" Foreground="Bisque" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center">Car wheels balancing</TextBlock>
           <TextBox Grid.Row="9" Grid.Column="1" TextAlignment="Center" 
-                   Text="{Binding truckHydraulics, Mode=TwoWay}" 
+                   Text="{Binding ElementName=EditPricelistVariable, Path=pasCarwheelBalancing, Mode=TwoWay}" 
                      Height="25" Width="100" Margin="5" FontSize="20" Foreground="Black" 
                      HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
           <TextBlock Grid.Row="9" Grid.Column="1" Margin="5,5,30,5" FontSize="20" Foreground="Bisque" 
                        HorizontalAlignment="Right" VerticalAlignment="Center">$</TextBlock>
+
+          <TextBlock Grid.Row="10" Grid.Column="0" Margin="5" FontSize="20" Foreground="Bisque" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center">Truck hydraulics</TextBlock>
+          <TextBox Grid.Row="10" Grid.Column="1" TextAlignment="Center" 
+                   Text="{Binding ElementName=EditPricelistVariable, Path=truckHydraulics, Mode=TwoWay}" 
+                     Height="25" Width="100" Margin="5" FontSize="20" Foreground="Black" 
+                     HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+          <TextBlock Grid.Row="10" Grid.Column="1" Margin="5,5,30,5" FontSize="20" Foreground="Bisque" 
+                       HorizontalAlignment="Right" VerticalAlignment="Center">$</TextBlock>
         
-          <DockPanel Grid.Row="12" Grid.ColumnSpan="2">
+          <DockPanel Grid.Row="11" Grid.ColumnSpan="2">
               <Button HorizontalAlignment="Left" Margin="5" Height="30" Width="200" FontSize="20" 
                         Background="Red" Cursor="Hand" Click="Button_Click_Back_EditPricelist">Back</Button>
               <Button HorizontalAlignment="Right" Margin="5" Height="30" Width="200" FontSize="20" 

@@ -11,7 +11,7 @@
             <TextBlock Margin="10" Foreground="Bisque" FontSize="15">
 			Service Station is a test program.<LineBreak/>
 			This program is developed using WPF (Windows Presentation Foundation) technology<LineBreak/>
-            and SQLite (relational database management system).
+            and SQL Server.
             </TextBlock>
             <TextBlock Margin="10" Foreground="Bisque" FontSize="15">
 			Program allows to keep track of the Service Station work, in particular:<LineBreak/>

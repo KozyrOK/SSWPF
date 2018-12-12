@@ -8,114 +8,114 @@ namespace SSWPF.Model
     public class Price : INotifyPropertyChanged
     {        
         public int PriceId { get; set; }
-        public DateTime dataTimePrice;
-        private decimal carBody;
-        private decimal carWheels;
-        private decimal carEngine;
-        private decimal carBrakes;
-        private decimal carUndercarriage;
-        private decimal busSalon;
-        private decimal busHandsrails;
-        private decimal busUpholstery;
-        private decimal pasCarwheelBalancing;
-        private decimal truckHydraulics;
+        public DateTime _dataTimePrice;
+        private decimal _carBody;
+        private decimal _carWheels;
+        private decimal _carEngine;
+        private decimal _carBrakes;
+        private decimal _carUndercarriage;
+        private decimal _busSalon;
+        private decimal _busHandsrails;
+        private decimal _busUpholstery;
+        private decimal _pasCarwheelBalancing;
+        private decimal _truckHydraulics;
 
         public DateTime DataTimePrice
         {
-            get { return dataTimePrice; }
+            get { return _dataTimePrice; }
             set
             {
-                dataTimePrice = value;
+                _dataTimePrice = value;
                 OnPropertyChanged("DataTimePrice");
             }
         }
-        public decimal СarBody
+        public decimal CarBody
         {
-            get { return carBody; }
+            get { return _carBody; }
             set
             {
-                carBody = value;
+                _carBody = value;
                 OnPropertyChanged("CarBody");
             }
         }
         public decimal CarWheels
         {
-            get { return carWheels; }
+            get { return _carWheels; }
             set
             {
-                carWheels = value;
+                _carWheels = value;
                 OnPropertyChanged("CarWheels");
             }
         }
         public decimal CarEngine
         {
-            get { return carEngine; }
+            get { return _carEngine; }
             set
             {
-                carEngine = value;
+                _carEngine = value;
                 OnPropertyChanged("CarEngine");
             }
         }
         public decimal CarBrakes
         {
-            get { return carBrakes; }
+            get { return _carBrakes; }
             set
             {
-                carBrakes = value;
+                _carBrakes = value;
                 OnPropertyChanged("CarBrakes");
             }
         }
         public decimal CarUndercarriage
         {
-            get { return carUndercarriage; }
+            get { return _carUndercarriage; }
             set
             {
-                carUndercarriage = value;
+                _carUndercarriage = value;
                 OnPropertyChanged("CarUndercarriage");
             }
         }
         public decimal BusSalon
         {
-            get { return busSalon; }
+            get { return _busSalon; }
             set
             {
-                busSalon = value;
+                _busSalon = value;
                 OnPropertyChanged("BusSalon");
             }
         }
         public decimal BusHandsrails
         {
-            get { return busHandsrails; }
+            get { return _busHandsrails; }
             set
             {
-                busHandsrails = value;
+                _busHandsrails = value;
                 OnPropertyChanged("BusHandsrails");
             }
         }
         public decimal BusUpholstery
         {
-            get { return busUpholstery; }
+            get { return _busUpholstery; }
             set
             {
-                busUpholstery = value;
+                _busUpholstery = value;
                 OnPropertyChanged("BusUpholstery");
             }
         }
         public decimal PasCarwheelBalancing
         {
-            get { return pasCarwheelBalancing; }
+            get { return _pasCarwheelBalancing; }
             set
             {
-                pasCarwheelBalancing = value;
+                _pasCarwheelBalancing = value;
                 OnPropertyChanged("PasCarwheelBalancing");
             }
         }
         public decimal TruckHydraulics
         {
-            get { return truckHydraulics; }
+            get { return _truckHydraulics; }
             set
             {
-                truckHydraulics = value;
+                _truckHydraulics = value;
                 OnPropertyChanged("TruckHydraulics");
             }
         } 
@@ -142,5 +142,23 @@ namespace SSWPF.Model
             }            
         }
 
+        static public void InitializationDataPrice(Price p)
+        {
+            p = Price.GetCurrentValuePrice();
+            if (p == null)                
+                {
+                p.DataTimePrice = DateTime.Now;
+                p.CarBody = 0;
+                p.CarWheels = 0;
+                p.CarEngine = 0;
+                p.CarBrakes = 0;
+                p.CarUndercarriage = 0;
+                p.BusSalon = 0;
+                p.BusHandsrails = 0;
+                p.BusUpholstery = 0;
+                p.PasCarwheelBalancing = 0;
+                p.TruckHydraulics = 0;
+                };
+        }
     }
 }

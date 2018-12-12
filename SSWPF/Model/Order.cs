@@ -82,7 +82,7 @@ namespace SSWPF.Model
         public static decimal CostFixPasCar(Price price, Car currentCar)
         {
             decimal currentPrice =
-                (price.СarBody / 100 * currentCar.CarBody) +
+                (price.CarBody / 100 * currentCar.CarBody) +
                 (price.CarWheels / 100 * currentCar.CarWheels) +
                 (price.CarEngine / 100 * currentCar.CarEngine) +
                 (price.CarBrakes / 100 * currentCar.CarBody) +
@@ -93,7 +93,7 @@ namespace SSWPF.Model
         public static decimal CostFixBus(Price price, Car currentCar)
         {
             decimal currentPrice =
-                (price.СarBody / 100 * currentCar.CarBody) +
+                (price.CarBody / 100 * currentCar.CarBody) +
                 (price.CarWheels / 100 * currentCar.CarWheels) +
                 (price.CarEngine / 100 * currentCar.CarEngine) +
                 (price.CarBrakes / 100 * currentCar.CarBody) +
@@ -106,7 +106,7 @@ namespace SSWPF.Model
         public static decimal CostFixTruck(Price price, Car currentCar)
         {
             decimal currentPrice =
-                (price.СarBody / 100 * currentCar.CarBody) +
+                (price.CarBody / 100 * currentCar.CarBody) +
                 (price.CarWheels / 100 * currentCar.CarWheels) +
                 (price.CarEngine / 100 * currentCar.CarEngine) +
                 (price.CarBrakes / 100 * currentCar.CarBody) +

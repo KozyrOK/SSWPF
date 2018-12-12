@@ -5,7 +5,8 @@ using SSWPF.Model;
 
 namespace SSWPF.View
 {
-    
+    // Отображение актуального плейлиста (последний объект Price в соответсвующей таблицы базы данных
+
     public partial class PagePricelist : Page
     {
        
@@ -25,7 +26,6 @@ namespace SSWPF.View
         private void Button_Click_Edit_Pricelist(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new EditPricelist());
-        }
-                
+        }                
     }
 }

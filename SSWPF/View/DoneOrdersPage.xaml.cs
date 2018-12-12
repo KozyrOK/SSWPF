@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace SSWPF.View
 {
     // Логика выборки законченных заказов и отображение данных в датагрид (их редактирование)
-    // Вывод информационного окна в случае отсутствия даных 
+    // Вывод информационного окна в случае отсутствия данных 
     public partial class DoneOrdersPage : Page
     {
         public DoneOrdersPage()

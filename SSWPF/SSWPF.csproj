@@ -15,6 +15,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,7 +28,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -120,9 +120,6 @@
     <Compile Include="View\PagePricelist.xaml.cs">
       <DependentUpon>PagePricelist.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\WindowInfoMessage.xaml.cs">
-      <DependentUpon>WindowInfoMessage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\WindowOrderResult.xaml.cs">
       <DependentUpon>WindowOrderResult.xaml</DependentUpon>
     </Compile>
@@ -175,10 +172,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PagePricelist.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\WindowInfoMessage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

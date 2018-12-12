@@ -14,7 +14,8 @@ using System.Windows.Shapes;
 
 namespace SSWPF.View
 {
-    
+    // Oкно с данными о заказе и его стоимости и переход на главную страницу
+
     public partial class WindowOrderResult : Window
     {
         public WindowOrderResult()
