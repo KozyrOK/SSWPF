@@ -5,7 +5,8 @@ using SSWPF.Model;
 
 namespace SSWPF.View
 {
-    // Отображение актуального плейлиста (последний объект Price в соответсвующей таблицы базы данных
+    // Логика извлечения и отображения актуального прайслиста (последний объект Price в 
+    // соответствующей таблицы базы данных) и передача данных из прайслиста в EditPricelist()  
 
     public partial class PagePricelist : Page
     {
@@ -17,15 +18,15 @@ namespace SSWPF.View
       
         private void Button_Click_Back_Pricelist(object sender, RoutedEventArgs e)
         {
-            if (this.NavigationService.CanGoBack)
+            if (NavigationService.CanGoBack)
             {
-                this.NavigationService.GoBack();
+                NavigationService.GoBack();
             }
         }
 
         private void Button_Click_Edit_Pricelist(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new EditPricelist());
+            NavigationService.Navigate(new EditPricelist());
         }                
     }
 }

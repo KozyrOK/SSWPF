@@ -7,68 +7,67 @@ namespace SSWPF.Model
     public class Order : INotifyPropertyChanged
     {       
         public int OrderId { get; set; }
-        public DateTime dateTimeOrder;
-        public string stateOrder;
-        public Car orderCar;
-        public Price orderPrice;
-        public decimal costOrder;
-        public decimal orderPaid;
+        public DateTime _dateTimeOrder;
+        public string _modelCar;
+        public string _numberCar;
+        public string _stateOrder;        
+        public decimal _costOrder;
+        public decimal _orderPaid;        
 
         public DateTime DateTimeOrder
         {
-            get { return dateTimeOrder; }
+            get { return _dateTimeOrder; }
             set
             {
-                dateTimeOrder = value;
+                _dateTimeOrder = value;
                 OnPropertyChanged("DateOrder");
+            }
+        }
+        public string ModelCar
+        {
+            get { return _modelCar; }
+            set
+            {
+                _modelCar = value;
+                OnPropertyChanged("ModelCar");
+            }
+        }
+
+        public string NumberCar
+        {
+            get { return _numberCar; }
+            set
+            {
+                _numberCar = value;
+                OnPropertyChanged("NumberCar");
             }
         }
 
         public string StateOrder
         {
-            get { return stateOrder; }
+            get { return _stateOrder; }
             set
             {
-                stateOrder = value;
+                _stateOrder = value;
                 OnPropertyChanged("StateOrder");
             }
-        }
-
-        public Car OrderCar
-        {
-            get { return orderCar; }
-            set
-            {
-                orderCar = value;
-                OnPropertyChanged("OrderCar");
-            }
-        }
-
-        public Price OrderPrice
-        {
-            get { return orderPrice; }
-            set
-            {
-                orderPrice = value;
-                OnPropertyChanged("OrderPrice");
-            }
-        }
-
+        }    
+                
         public decimal CostOrder
         {
-            get { return costOrder; }
+            get { return _costOrder; }
             set
             {
-                costOrder = value;
+                _costOrder = value;
                 OnPropertyChanged("CostOrder");
             }
         }
         public decimal OrderPaid
         {
-            get { return orderPaid; }
+            get { return _orderPaid; }
             set
             {
-                orderPaid = value;
+                _orderPaid = value;
                 OnPropertyChanged("OrderPaid");
             }
         }
@@ -113,6 +112,14 @@ namespace SSWPF.Model
                 (price.CarUndercarriage / 100 * currentCar.CarUndercarriage) +                
                 (price.TruckHydraulics / 100 * currentCar.TruckHydraulics);
             return currentPrice;
+        }
+        public static void AddNewOrder(Order c)
+        {
+            using (var ordersContext = new ApplicationContext())
+            {
+                ordersContext.Orders.Add(c);
+                ordersContext.SaveChanges();
+            }
         }
     }
 }

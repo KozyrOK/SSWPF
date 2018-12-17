@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SSWPF.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,14 +19,15 @@ namespace SSWPF.View
 
     public partial class WindowOrderResult : Window
     {
-        public WindowOrderResult()
+        public WindowOrderResult(Order o)
         {
             InitializeComponent();
+            //GridWindowOrderResult.DataSource = o;
         }
 
         private void ButtonWindowOrderResultOk_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();            
         }
     }
 }

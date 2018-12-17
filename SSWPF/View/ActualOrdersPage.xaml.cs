@@ -8,13 +8,10 @@ namespace SSWPF.View
     // Вывод информационного окна в случае отсутствия данных 
     
     public partial class ActualOrdersPage : Page
-    {
-        
+    {        
         public ActualOrdersPage()
         {
-            InitializeComponent();
-            
-        }       
-
+            InitializeComponent();            
+        }
     }
 }

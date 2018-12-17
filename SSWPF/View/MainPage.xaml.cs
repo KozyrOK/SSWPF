@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using SSWPF.Model;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace SSWPF.View
@@ -12,17 +13,17 @@ namespace SSWPF.View
 
         private void New_order_Button_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new NewOrderPageSelect());
+            NavigationService.Navigate(new NewOrderPageSelect());
         }
 
         private void Actual_orders_Button_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new ActualOrdersPage());            
+            NavigationService.Navigate(new ActualOrdersPage());            
         }        
 
         private void Done_orders_Button_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new DoneOrdersPage());            
+            NavigationService.Navigate(new DoneOrdersPage());            
         }
 
     }

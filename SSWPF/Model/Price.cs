@@ -125,11 +125,15 @@ namespace SSWPF.Model
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
-        static public Price GetCurrentValuePrice()
+        public Price GetCurrentValuePrice()
         {
             using (var priceContext = new ApplicationContext())
             {
-                return priceContext.Prices.LastOrDefault();
+                Price p = new Price();
+                p = priceContext.Prices.LastOrDefault();
+                if (p == null)
+                InitializationDataPrice(p);
+                return p;
             }
         }
 
@@ -144,21 +148,18 @@ namespace SSWPF.Model
 
         static public void InitializationDataPrice(Price p)
         {
-            p = Price.GetCurrentValuePrice();
-            if (p == null)                
-                {
-                p.DataTimePrice = DateTime.Now;
-                p.CarBody = 0;
-                p.CarWheels = 0;
-                p.CarEngine = 0;
-                p.CarBrakes = 0;
-                p.CarUndercarriage = 0;
-                p.BusSalon = 0;
-                p.BusHandsrails = 0;
-                p.BusUpholstery = 0;
-                p.PasCarwheelBalancing = 0;
-                p.TruckHydraulics = 0;
-                };
+            p.PriceId = 1;
+            p.DataTimePrice = DateTime.Now;
+            p.CarBody = 0;
+            p.CarWheels = 0;
+            p.CarEngine = 0;
+            p.CarBrakes = 0;
+            p.CarUndercarriage = 0;
+            p.BusSalon = 0;
+            p.BusHandsrails = 0;
+            p.BusUpholstery = 0;
+            p.PasCarwheelBalancing = 0;
+            p.TruckHydraulics = 0;
         }
     }
 }

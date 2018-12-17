@@ -8,37 +8,19 @@ namespace SSWPF.View
     
     public partial class EditPricelist : Page
     {
-        // Логика редактирования прайслиста и записи изменений
+        // Логика получения актуального прайслиста из страницы PagePricelist(),
+        // его редактирования и записи изменений.
 
-        //public Price EditPricelistVariable { get; set; }
         public EditPricelist()
         {
-            InitializeComponent();
-
-            //EditPricelistVariable = new Price
-            //{
-            //    PriceId = 1,
-            //    DataTimePrice = DateTime.Now,
-            //    CarBody = 0,
-            //    CarWheels = 0,
-            //    CarEngine = 0,
-            //    CarBrakes = 0,
-            //    CarUndercarriage = 0,
-            //    BusSalon = 0,
-            //    BusHandsrails = 0,
-            //    BusUpholstery = 0,
-            //    PasCarwheelBalancing = 0,
-            //    TruckHydraulics = 0
-            //};
-
-            //EditPricelistGrid.DataContext = this;
+            InitializeComponent(); 
         }
 
         private void Button_Click_Back_EditPricelist(object sender, RoutedEventArgs e)
         {
-            if (this.NavigationService.CanGoBack)
+            if (NavigationService.CanGoBack)
             {
-                this.NavigationService.GoBack();
+                NavigationService.GoBack();
             }
         }
 

@@ -32,7 +32,8 @@ namespace SSWPF.View
         }
         private void Button_Click_Submit_NewOrderPageBus(object sender, RoutedEventArgs e)
         {
-
+            Window WindowOrderResult = new WindowOrderResult();
+            WindowOrderResult.Show();            
         }
     }
 }
