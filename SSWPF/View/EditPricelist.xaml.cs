@@ -8,12 +8,13 @@ namespace SSWPF.View
     
     public partial class EditPricelist : Page
     {
-        // Логика получения актуального прайслиста из страницы PagePricelist(),
-        // его редактирования и записи изменений.
-
-        public EditPricelist()
+        private Price e;
+                
+        public EditPricelist(Price p)
         {
-            InitializeComponent(); 
+            InitializeComponent();
+            e = p;
+            EditPricelistGrid.DataContext = p;
         }
 
         private void Button_Click_Back_EditPricelist(object sender, RoutedEventArgs e)
@@ -26,7 +27,7 @@ namespace SSWPF.View
 
         private void Button_Click_Save_Pricelist(object sender, RoutedEventArgs e)
         {
-                  
+            Price.AddNewPrice(this.e);
         }
     }
 }

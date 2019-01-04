@@ -44,5 +44,16 @@ namespace SSWPF.Properties {
                 return ((string)(this["sswtfdatabaseConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\sswpfDB.mdf;I" +
+            "ntegrated Security=True")]
+        public string sswpfDBConnectionString {
+            get {
+                return ((string)(this["sswpfDBConnectionString"]));
+            }
+        }
     }
 }

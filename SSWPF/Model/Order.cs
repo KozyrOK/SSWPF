@@ -113,15 +113,16 @@ namespace SSWPF.Model
                 (price.TruckHydraulics / 100 * currentCar.TruckHydraulics);
             return currentPrice;
         }
-        public static void AddNewOrder(Order c)
+        public static void AddNewOrder(Order o)
         {
-            using (var ordersContext = new ApplicationContext())
+            using (var ordersContext = new SSWPFContextOrder())
             {
-                ordersContext.Orders.Add(c);
+                ordersContext.Orders.Add(o);
                 ordersContext.SaveChanges();
             }
         }
     }
 }
+
 
 

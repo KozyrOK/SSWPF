@@ -19,7 +19,7 @@ namespace SSWPF.View
 
     public partial class WindowOrderResult : Window
     {
-        public WindowOrderResult(Order o)
+        public WindowOrderResult()
         {
             InitializeComponent();
             //GridWindowOrderResult.DataSource = o;

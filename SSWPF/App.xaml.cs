@@ -2,8 +2,7 @@
 using System.Windows;
 
 namespace SSWPF
-{
- 
+{ 
     public partial class App : Application
     {
 

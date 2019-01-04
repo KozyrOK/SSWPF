@@ -7,7 +7,7 @@
       d:DesignHeight="460" d:DesignWidth="660"
       Title="NewOrderPagePasCar">
 
-    <Grid>
+    <Grid Name="NewOrderPagePasCarGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" ></RowDefinition>
             <RowDefinition Height="1.2*" ></RowDefinition>

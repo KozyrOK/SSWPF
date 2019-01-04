@@ -1,12 +1,12 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Linq;
+using System.Data.Entity;
 using System.Runtime.CompilerServices;
 
 namespace SSWPF.Model
-{    
+{
     public class Price : INotifyPropertyChanged
-    {        
+    {
         public int PriceId { get; set; }
         public DateTime _dataTimePrice;
         private decimal _carBody;
@@ -19,6 +19,21 @@ namespace SSWPF.Model
         private decimal _busUpholstery;
         private decimal _pasCarwheelBalancing;
         private decimal _truckHydraulics;
+
+        public Price() 
+        {
+            _dataTimePrice = DateTime.Now;
+            _carBody = 100;
+            _carWheels = 100;
+            _carEngine = 100;
+            _carBrakes = 100;
+            _carUndercarriage = 100;
+            _busSalon = 100;
+            _busHandsrails = 300;
+            _busUpholstery = 100;
+            _pasCarwheelBalancing = 100;
+            _truckHydraulics = 100;
+        }
 
         public DateTime DataTimePrice
         {
@@ -121,45 +136,49 @@ namespace SSWPF.Model
         } 
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         public void OnPropertyChanged([CallerMemberName]string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
-        public Price GetCurrentValuePrice()
+
+        public static void GetCurrentValuePrice(Price p)
         {
-            using (var priceContext = new ApplicationContext())
+            using (SSWPFContextPrice priceContext = new SSWPFContextPrice())
             {
-                Price p = new Price();
-                p = priceContext.Prices.LastOrDefault();
-                if (p == null)
-                InitializationDataPrice(p);
-                return p;
+                priceContext.Prices.Load();
+                int count = priceContext.Prices.Local.Count;
+                
+                if (count > 0)
+                {
+                    Price s = priceContext.Prices.Find(count);
+                    p.DataTimePrice = s.DataTimePrice;
+                    p.CarBody = s.CarBody;
+                    p.CarWheels = s.CarWheels;
+                    p.CarEngine = s.CarEngine;
+                    p.CarBrakes = s.CarBrakes;
+                    p.CarUndercarriage = s.CarUndercarriage;
+                    p.BusSalon = s.BusSalon;
+                    p.BusHandsrails = s.BusHandsrails;
+                    p.BusUpholstery = s.BusUpholstery;
+                    p.PasCarwheelBalancing = s.PasCarwheelBalancing;
+                    p.TruckHydraulics = s.TruckHydraulics;                    
+                }
+                else 
+                {
+                    Price.AddNewPrice(p);                        
+                }                           
+            }    
+        }
+
+        public static void AddNewPrice(Price p)
+        {
+            using (SSWPFContextPrice priceContext = new SSWPFContextPrice())
+            {
+                priceContext.Prices.Add(p);                
+                priceContext.SaveChanges();
             }
         }
-
-        static public void AddNewPrice(Price p)
-        {
-            using (var priceContext = new ApplicationContext()) 
-            {
-                priceContext.Prices.Add(p);
-                priceContext.SaveChanges();
-            }            
-        }
-
-        static public void InitializationDataPrice(Price p)
-        {
-            p.PriceId = 1;
-            p.DataTimePrice = DateTime.Now;
-            p.CarBody = 0;
-            p.CarWheels = 0;
-            p.CarEngine = 0;
-            p.CarBrakes = 0;
-            p.CarUndercarriage = 0;
-            p.BusSalon = 0;
-            p.BusHandsrails = 0;
-            p.BusUpholstery = 0;
-            p.PasCarwheelBalancing = 0;
-            p.TruckHydraulics = 0;
-        }
+               
     }
 }

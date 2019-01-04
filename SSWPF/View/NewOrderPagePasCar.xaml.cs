@@ -11,10 +11,13 @@ namespace SSWPF.View
 
     public partial class NewOrderPagePasCar : Page
     {
+        private Order o;
+        private Car c;        
                
-        public NewOrderPagePasCar(Price p)
+        public NewOrderPagePasCar()
         {
             InitializeComponent();
+            NewOrderPagePasCarGrid.DataContext = c;
         }               
 
         private void Button_Click_Back_NewOrderPage(object sender, RoutedEventArgs e)
@@ -27,9 +30,15 @@ namespace SSWPF.View
 
         private void Button_Click_Submit_NewOrderPagePasCar(object sender, RoutedEventArgs e)
         {
+            Price p = new Price();
+            Price.GetCurrentValuePrice(p);
+            Order.CostFixPasCar(p, c);
+            Order.AddNewOrder(o);
+            NavigationService.Content = new SSWPF.View.MainPage();
             // Логика записи введенных данных и подсчета общей стоимости заказа. 
             // Появление всплывающего окна (WindowOrderResult.xaml) с частью введенных данных 
             // и общей стоимостью заказа.
+
         }
     }
 }
