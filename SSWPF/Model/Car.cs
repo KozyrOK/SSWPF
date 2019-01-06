@@ -5,124 +5,140 @@ namespace SSWPF.Model
 {
     public class Car : INotifyPropertyChanged
     {        
-        public string modelCar;
-        public string numberCar;         
-        public byte carBody;
-        public byte carWheels;
-        public byte carEngine; 
-        public byte carBrakes;
-        public byte carUndercarriage;         
-        public byte busSalon; 
-        public byte busHandsrails; 
-        public byte busUpholstery; 
-        public byte pasCarwheelBalancing;
-        public byte truckHydraulics; 
+        public string _modelCar;
+        public string _numberCar;         
+        public int _carBody;
+        public int _carWheels;
+        public int _carEngine; 
+        public int _carBrakes;
+        public int _carUndercarriage;         
+        public int _busSalon; 
+        public int _busHandsrails; 
+        public int _busUpholstery; 
+        public int _pasCarwheelBalancing;
+        public int _truckHydraulics;
+        
+        public Car()
+        {
+            _modelCar = null;
+            _numberCar = null;
+            _carBody = 100;
+            _carWheels = 100;
+            _carEngine = 100;
+            _carBrakes = 100;
+            _carUndercarriage = 100;
+            _busSalon = 100;
+            _busHandsrails = 100;
+            _busUpholstery = 100;
+            _pasCarwheelBalancing = 100;
+            _truckHydraulics = 100;
+        }
 
         public string ModelCar
         {
-            get { return modelCar; }
+            get { return _modelCar; }
             set
             {
-                modelCar = value;
+                _modelCar = value;
                 OnPropertyChanged("ModelCar");
             }
         }
         public string NumberCar
         {
-            get { return numberCar; }
+            get { return _numberCar; }
             set
             {
-                numberCar = value;
+                _numberCar = value;
                 OnPropertyChanged("NumberCar");
             }
         }
-        public byte CarBody
+        public int CarBody
         {
-            get { return carBody; }
+            get { return _carBody; }
             set
             {
-                carBody = value;
+                _carBody = value;
                 OnPropertyChanged("CarBody");
             }
         }
-        public byte CarWheels
+        public int CarWheels
         {
-            get { return carWheels; }
+            get { return _carWheels; }
             set
             {
-                carWheels = value;
+                _carWheels = value;
                 OnPropertyChanged("CarWheels");
             }
         }
-        public byte CarEngine
+        public int CarEngine
         {
-            get { return carEngine; }
+            get { return _carEngine; }
             set
             {
-                carEngine = value;
+                _carEngine = value;
                 OnPropertyChanged("CarEngine");
             }
         }
-        public byte CarBrakes
+        public int CarBrakes
         {
-            get { return carBrakes; }
+            get { return _carBrakes; }
             set
             {
-                carBrakes = value;
+                _carBrakes = value;
                 OnPropertyChanged("CarBrakes");
             }
         }
-        public byte CarUndercarriage
+        public int CarUndercarriage
         {
-            get { return carUndercarriage; }
+            get { return _carUndercarriage; }
             set
             {
-                carUndercarriage = value;
+                _carUndercarriage = value;
                 OnPropertyChanged("CarUndercarriage");
             }
         }
-        public byte BusSalon
+        public int BusSalon
         {
-            get { return busSalon; }
+            get { return _busSalon; }
             set
             {
-                busSalon = value;
+                _busSalon = value;
                 OnPropertyChanged("BusSalon");
             }
         }
-        public byte BusHandsrails
+        public int BusHandsrails
         {
-            get { return busHandsrails; }
+            get { return _busHandsrails; }
             set
             {
-                busHandsrails = value;
+                _busHandsrails = value;
                 OnPropertyChanged("BusHandsrails");
             }
         }
-        public byte BusUpholstery
+        public int BusUpholstery
         {
-            get { return busUpholstery; }
+            get { return _busUpholstery; }
             set
             {
-                busUpholstery = value;
+                _busUpholstery = value;
                 OnPropertyChanged("BusUpholstery");
             }
         }
-        public byte PasCarwheelBalancing
+        public int PasCarwheelBalancing
         {
-            get { return pasCarwheelBalancing; }
+            get { return _pasCarwheelBalancing; }
             set
             {
-                pasCarwheelBalancing = value;
+                _pasCarwheelBalancing = value;
                 OnPropertyChanged("PasCarwheelBalancing");
             }
         }
-        public byte TruckHydraulics
+        public int TruckHydraulics
         {
-            get { return truckHydraulics; }
+            get { return _truckHydraulics; }
             set
             {
-                truckHydraulics = value;
+                _truckHydraulics = value;
                 OnPropertyChanged("TruckHydraulics");
             }
         }

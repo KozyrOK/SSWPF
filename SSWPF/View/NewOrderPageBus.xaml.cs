@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SSWPF.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,12 +16,16 @@ using System.Windows.Shapes;
 
 namespace SSWPF.View
 {
-    // код аналогичный сранице с заполнением данных по авто 
+    
     public partial class NewOrderPageBus : Page
     {
+        private Order o;
+        private Car c;
+
         public NewOrderPageBus()
         {
             InitializeComponent();
+            NewOrderPageBusGrid.DataContext = c;
         }
 
         private void Button_Click_Back_NewOrderPage(object sender, RoutedEventArgs e)
@@ -32,8 +37,19 @@ namespace SSWPF.View
         }
         private void Button_Click_Submit_NewOrderPageBus(object sender, RoutedEventArgs e)
         {
-            Window WindowOrderResult = new WindowOrderResult();
-            WindowOrderResult.Show();            
+            if (BusSeatsUpholsteryCheckBox.IsChecked == false)
+            {
+                c.PasCarwheelBalancing = 0;
+            }
+            o.ModelCar = NewOrderPageBusTextBoxCarModel.Text;
+            o.NumberCar = NewOrderPagePasBusTextBoxCarNumber.Text;
+            Price p = new Price();
+            Price.GetCurrentValuePrice(p);
+            o.CostOrder = Order.CostFixBus(p, c);
+            Order.AddNewOrder(o);
+            Order lo = new Order();
+            Order.GetLastOrder(lo);
+            NavigationService.Content = new PageOrderResult(lo);
         }
     }
 }

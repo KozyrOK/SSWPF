@@ -22,7 +22,7 @@
                HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1"/>
         <TextBlock Foreground="Bisque" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" 
                    Grid.Row="0" Grid.ColumnSpan="2">Done orders</TextBlock>
-        <DataGrid x:Name="DataGridActualOrders" Grid.Row="1" AutoGenerateColumns="False" HorizontalGridLinesBrush="DarkGray"
+        <DataGrid x:Name="DataGridDoneOrders" Grid.Row="1" AutoGenerateColumns="False" HorizontalGridLinesBrush="DarkGray"
     RowBackground="LightGray" AlternatingRowBackground="White" FontSize="20" ItemsSource="{Binding}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="# Order" Binding="{Binding Path=Id}" Width="*"></DataGridTextColumn>

@@ -1,19 +1,32 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Entity;
+using System.Linq;
 using System.Runtime.CompilerServices;
+using Telerik.Windows.Data;
 
 namespace SSWPF.Model
-{   
+{
     public class Order : INotifyPropertyChanged
-    {       
+    {
         public int OrderId { get; set; }
         public DateTime _dateTimeOrder;
         public string _modelCar;
         public string _numberCar;
-        public string _stateOrder;        
+        public string _stateOrder;
         public decimal _costOrder;
-        public decimal _orderPaid;        
+        public decimal _orderPaid;
 
+        public Order()
+        {
+            _dateTimeOrder = DateTime.Now;
+            _modelCar = null;
+            _numberCar = null;
+            _stateOrder ="actual";
+            _costOrder = 0;
+            _orderPaid = 0;
+        }    
         public DateTime DateTimeOrder
         {
             get { return _dateTimeOrder; }
@@ -32,7 +45,6 @@ namespace SSWPF.Model
                 OnPropertyChanged("ModelCar");
             }
         }
-
         public string NumberCar
         {
             get { return _numberCar; }
@@ -42,7 +54,6 @@ namespace SSWPF.Model
                 OnPropertyChanged("NumberCar");
             }
         }
-
         public string StateOrder
         {
             get { return _stateOrder; }
@@ -51,8 +62,7 @@ namespace SSWPF.Model
                 _stateOrder = value;
                 OnPropertyChanged("StateOrder");
             }
-        }    
-                
+        }                
         public decimal CostOrder
         {
             get { return _costOrder; }
@@ -121,8 +131,42 @@ namespace SSWPF.Model
                 ordersContext.SaveChanges();
             }
         }
+
+        public static void GetLastOrder(Order lo)
+        {
+            using (var ordersContext = new SSWPFContextOrder())
+            {
+                ordersContext.Orders.Load();
+                int count = ordersContext.Orders.Local.Count;
+
+                if (count > 0)
+                {
+                    Order l = ordersContext.Orders.Find(count);
+                    lo.DateTimeOrder = l.DateTimeOrder;
+                    lo.ModelCar = l.ModelCar;
+                    lo.NumberCar = l.NumberCar;
+                    lo.StateOrder = l.StateOrder;
+                    lo.CostOrder = l.CostOrder;
+                    lo.OrderPaid = l.OrderPaid;
+                }    
+                else
+                {
+                    Order.AddNewOrder(lo);
+                }
+
+            }
+        }
+        public static List<Order> GetActualOrders()
+        {
+            SSWPFContextOrder context = new SSWPFContextOrder();            
+            return context.Orders.Where(p => p.StateOrder == "actual").OrderBy(p => p.OrderId).ToList<Order>(); 
+        }
+        public static List<Order> GetDoneOrders()
+        {
+            SSWPFContextOrder context = new SSWPFContextOrder();
+            return context.Orders.Where(p => p.StateOrder == "done").OrderBy(p => p.OrderId).ToList<Order>();
+        }
+
     }
 }
-
-
 

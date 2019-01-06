@@ -5,10 +5,7 @@ using System.Data.Entity;
 
 namespace SSWPF.View
 {
-    // Форма для заполнения данных для нового заказа, его занесения в базу данных
-    // Появление информационного окна с данными о заказе и его стоимости (WindowOrderResult.xaml)
-    // и последующий переход на главную страницу 
-
+    
     public partial class NewOrderPagePasCar : Page
     {
         private Order o;
@@ -29,16 +26,21 @@ namespace SSWPF.View
         }
 
         private void Button_Click_Submit_NewOrderPagePasCar(object sender, RoutedEventArgs e)
-        {
+        {            
+            if (CarWheelsBalancingCheckBox.IsChecked==false)
+            {
+                c.PasCarwheelBalancing = 0;
+            }
+            o.ModelCar = NewOrderPagePasCarTextBoxCarModel.Text;
+            o.NumberCar = NewOrderPagePasCarTextBoxCarNumber.Text;
             Price p = new Price();
             Price.GetCurrentValuePrice(p);
-            Order.CostFixPasCar(p, c);
+            o.CostOrder = Order.CostFixPasCar(p, c);
             Order.AddNewOrder(o);
-            NavigationService.Content = new SSWPF.View.MainPage();
-            // Логика записи введенных данных и подсчета общей стоимости заказа. 
-            // Появление всплывающего окна (WindowOrderResult.xaml) с частью введенных данных 
-            // и общей стоимостью заказа.
-
+            Order lo = new Order();
+            Order.GetLastOrder(lo);
+            NavigationService.Content = new PageOrderResult(lo);
         }
     }
 }
+

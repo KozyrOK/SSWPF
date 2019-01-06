@@ -24,6 +24,7 @@
                HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"/>
         <Image x:Name="Actual_orders_Image2" Source="/Image/Actual_orders.png" 
                HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1"/>
+        
         <DataGrid x:Name="DataGridActualOrders" Grid.Row="1" AutoGenerateColumns="False" 
                   HorizontalGridLinesBrush="DarkGray" CanUserReorderColumns="False" 
                   CanUserResizeColumns="False" CanUserResizeRows="False" 

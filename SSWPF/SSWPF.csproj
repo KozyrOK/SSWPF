@@ -123,8 +123,8 @@
     <Compile Include="View\PagePricelist.xaml.cs">
       <DependentUpon>PagePricelist.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\WindowOrderResult.xaml.cs">
-      <DependentUpon>WindowOrderResult.xaml</DependentUpon>
+    <Compile Include="View\PageOrderResult.xaml.cs">
+      <DependentUpon>PageOrderResult.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -178,7 +178,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\WindowOrderResult.xaml">
+    <Page Include="View\PageOrderResult.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

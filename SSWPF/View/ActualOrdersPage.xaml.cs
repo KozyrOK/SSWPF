@@ -4,14 +4,14 @@ using SSWPF.Model;
 
 namespace SSWPF.View
 { 
-    // Логика выборки актуальных заказов и отображение данных в датагрид (их редактирование)
-    // Вывод информационного окна в случае отсутствия данных 
-    
+            
     public partial class ActualOrdersPage : Page
     {        
         public ActualOrdersPage()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            var actualOrders = Order.GetActualOrders();
+            DataGridActualOrders.ItemsSource = actualOrders;
         }
     }
 }

@@ -1,11 +1,10 @@
 ﻿using SSWPF.Model;
-using System;
 using System.Windows;
 using System.Windows.Controls;
 
 namespace SSWPF.View
 {
-    
+
     public partial class EditPricelist : Page
     {
         private Price e;
