@@ -7,9 +7,7 @@ using System.ComponentModel;
 
 namespace SSWPF.View
 {
-    // Логика извлечения и отображения актуального прайслиста (последний объект Price в 
-    // соответствующей таблице базы данных) и передача данных из прайслиста в EditPricelist()  
-
+    
     public partial class PagePricelist : Page
     {
         Price currentPrice = new Price();

@@ -31,11 +31,10 @@
                   CanUserSortColumns="False"
     RowBackground="LightGray" AlternatingRowBackground="White" FontSize="20" ItemsSource="{Binding}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="# Order" Binding="{Binding Id}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Car number" Binding="{Binding NumberCar}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Cost order" Binding="{Binding CostOrder}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Order paid" Binding="{Binding OrderPaid}" Width="*"></DataGridTextColumn>
-                <DataGridHyperlinkColumn Header="Edit" Width="0.5*"/>
+                <DataGridTextColumn Header="# Order" Binding="{Binding Path=OrderId}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Car number" Binding="{Binding Path=NumberCar}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Cost order" Binding="{Binding Path=CostOrder}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Order paid" Binding="{Binding Path=OrderPaid}" Width="*"></DataGridTextColumn>               
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -8,21 +8,18 @@ namespace SSWPF.View
     
     public partial class NewOrderPagePasCar : Page
     {
-        private Order o;
-        private Car c;        
+        Order o = new Order();
+        Car c = new Car();                         
                
         public NewOrderPagePasCar()
         {
             InitializeComponent();
-            NewOrderPagePasCarGrid.DataContext = c;
+            this.DataContext = c;
         }               
 
         private void Button_Click_Back_NewOrderPage(object sender, RoutedEventArgs e)
         {
-            if (NavigationService.CanGoBack)
-            {
-                NavigationService.GoBack();
-            }
+            NavigationService.GoBack();            
         }
 
         private void Button_Click_Submit_NewOrderPagePasCar(object sender, RoutedEventArgs e)

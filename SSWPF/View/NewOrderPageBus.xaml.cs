@@ -19,21 +19,18 @@ namespace SSWPF.View
     
     public partial class NewOrderPageBus : Page
     {
-        private Order o;
-        private Car c;
+        Order o = new Order();
+        Car c = new Car();
 
         public NewOrderPageBus()
         {
             InitializeComponent();
-            NewOrderPageBusGrid.DataContext = c;
+            this.DataContext = c;
         }
 
         private void Button_Click_Back_NewOrderPage(object sender, RoutedEventArgs e)
         {
-            if (this.NavigationService.CanGoBack)
-            {
-                this.NavigationService.GoBack();
-            }
+            this.NavigationService.GoBack();            
         }
         private void Button_Click_Submit_NewOrderPageBus(object sender, RoutedEventArgs e)
         {

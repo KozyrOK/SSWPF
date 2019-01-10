@@ -10,7 +10,7 @@ namespace SSWPF.Model
 {
     public class Order : INotifyPropertyChanged
     {
-        public int OrderId { get; set; }
+        public int? OrderId { get; set; }
         public DateTime _dateTimeOrder;
         public string _modelCar;
         public string _numberCar;
@@ -20,13 +20,14 @@ namespace SSWPF.Model
 
         public Order()
         {
+            OrderId = null;
             _dateTimeOrder = DateTime.Now;
             _modelCar = null;
             _numberCar = null;
             _stateOrder ="actual";
             _costOrder = 0;
             _orderPaid = 0;
-        }    
+        }        
         public DateTime DateTimeOrder
         {
             get { return _dateTimeOrder; }
@@ -141,7 +142,8 @@ namespace SSWPF.Model
 
                 if (count > 0)
                 {
-                    Order l = ordersContext.Orders.Find(count);
+                    var l = ordersContext.Orders.Find(count);
+                    lo.OrderId = l.OrderId;
                     lo.DateTimeOrder = l.DateTimeOrder;
                     lo.ModelCar = l.ModelCar;
                     lo.NumberCar = l.NumberCar;
@@ -153,7 +155,6 @@ namespace SSWPF.Model
                 {
                     Order.AddNewOrder(lo);
                 }
-
             }
         }
         public static List<Order> GetActualOrders()
@@ -166,7 +167,45 @@ namespace SSWPF.Model
             SSWPFContextOrder context = new SSWPFContextOrder();
             return context.Orders.Where(p => p.StateOrder == "done").OrderBy(p => p.OrderId).ToList<Order>();
         }
-
+        public static void EditOrder(Order updateOrder)
+        {
+            Order oldOrder = new Order();
+            var id = updateOrder.OrderId;
+            using (var ordersContext = new SSWPFContextOrder())
+            {
+                ordersContext.Orders.Load();
+                oldOrder = ordersContext.Orders.Find(id);
+                if (oldOrder != null)
+                {
+                    oldOrder.DateTimeOrder = updateOrder.DateTimeOrder;
+                    oldOrder.ModelCar = updateOrder.ModelCar;
+                    oldOrder.NumberCar = updateOrder.NumberCar;
+                    oldOrder.StateOrder = updateOrder.StateOrder;
+                    oldOrder.CostOrder = updateOrder.CostOrder;
+                    oldOrder.OrderPaid = updateOrder.OrderPaid;
+                    ordersContext.SaveChanges();
+                }
+            }
+        }
+        
+        public void FindOrder(int id)
+        {            
+            using (var ordersContext = new SSWPFContextOrder())
+            {
+                ordersContext.Orders.Load();                
+                var or = ordersContext.Orders.Find(id);
+                if (or != null)
+                {
+                    OrderId = or.OrderId; 
+                    DateTimeOrder = or.DateTimeOrder;
+                    ModelCar = or.ModelCar;
+                    NumberCar = or.NumberCar;
+                    StateOrder = or.StateOrder;
+                    CostOrder = or.CostOrder;
+                    OrderPaid = or.OrderPaid;
+                }
+            }
+        }
     }
 }
 

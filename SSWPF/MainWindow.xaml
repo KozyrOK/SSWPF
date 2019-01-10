@@ -52,7 +52,7 @@
         </Frame>
 
         <StackPanel x:Name="StackPanelFooter" Grid.Row="2" Grid.ColumnSpan="2" Background="#26d3ba">
-            <TextBlock x:Name="TextBlockFooter" Text="Ibexsoft 2018" FontSize="20" 
+            <TextBlock x:Name="TextBlockFooter" Text="Ibexsoft 2019" FontSize="20" 
                        HorizontalAlignment="Center" VerticalAlignment="Center">
             </TextBlock>
         </StackPanel>        

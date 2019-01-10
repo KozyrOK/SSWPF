@@ -20,8 +20,8 @@ namespace SSWPF.Model
         
         public Car()
         {
-            _modelCar = null;
-            _numberCar = null;
+            _modelCar = "Default";
+            _numberCar = "Default";
             _carBody = 100;
             _carWheels = 100;
             _carEngine = 100;

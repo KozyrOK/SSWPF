@@ -1,0 +1,96 @@
+﻿<Page x:Class="SSWPF.View.EditOrderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SSWPF.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="460" d:DesignWidth="660"
+      Title="EditOrderPage">
+
+    <Grid Name="EditOrderPageGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Foreground="Bisque" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2">
+            Edit order
+        </TextBlock>
+        <Image x:Name="New_order_Image1" Source="/Image/edit.png" 
+               HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0"  Grid.ColumnSpan="2"/>
+        <Image x:Name="New_order_Image2" Source="/Image/edit.png" 
+               HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2"/>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Margin="10" FontSize="20" Foreground="Bisque" 
+                     HorizontalAlignment="Left" VerticalAlignment="Center">Order Id</TextBlock>
+        <TextBox Grid.Row="1" Grid.Column="2" TextAlignment="Center" 
+                   Text="{Binding Path=OrderId, Mode=TwoWay}"  
+                   Height="25" Width="100" Margin="5" FontSize="18" Foreground="Black" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Margin="10" FontSize="20" Foreground="Bisque" 
+                     HorizontalAlignment="Left" VerticalAlignment="Center">Order Data</TextBlock>
+        <TextBox Grid.Row="2" Grid.Column="2" TextAlignment="Center" 
+                   Text="{Binding Path=DateTimeOrder, Mode=TwoWay}"  
+                   Height="25" Width="100" Margin="5" FontSize="18" Foreground="Black" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Margin="10" FontSize="20" Foreground="Bisque" 
+                     HorizontalAlignment="Left" VerticalAlignment="Center">Car Model</TextBlock>
+        <TextBox Grid.Row="3" Grid.Column="2" TextAlignment="Center" 
+                   Text="{Binding Path=ModelCar, Mode=TwoWay}"  
+                   Height="25" Width="100" Margin="5" FontSize="18" Foreground="Black" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+
+        <TextBlock Grid.Row="4" Grid.Column="0" Margin="10" FontSize="20" Foreground="Bisque" 
+                     HorizontalAlignment="Left" VerticalAlignment="Center">Car Number</TextBlock>
+        <TextBox Grid.Row="4" Grid.Column="2" TextAlignment="Center" 
+                   Text="{Binding Path=NumberCar, Mode=TwoWay}"  
+                   Height="25" Width="100" Margin="5" FontSize="18" Foreground="Black" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+
+        <TextBlock Grid.Row="5" Grid.Column="0" Margin="10" FontSize="20" Foreground="Bisque" 
+                     HorizontalAlignment="Left" VerticalAlignment="Center">State Order</TextBlock>
+        <ComboBox Grid.Row="5" Grid.Column="2"  
+                   Text="{Binding Path=StateOrder, Mode=TwoWay}"  
+                   Height="25" Width="100" Margin="5" FontSize="16" Foreground="Black" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ComboBoxItem Content="actual"></ComboBoxItem>
+            <ComboBoxItem Content="done"></ComboBoxItem>
+        </ComboBox>           
+
+        <TextBlock Grid.Row="6" Grid.Column="0" Margin="10" FontSize="20" Foreground="Bisque" 
+                     HorizontalAlignment="Left" VerticalAlignment="Center">Cost Order</TextBlock>
+        <TextBox Grid.Row="6" Grid.Column="2" TextAlignment="Center" 
+                   Text="{Binding Path=CostOrder, Mode=TwoWay}"  
+                   Height="25" Width="100" Margin="5" FontSize="18" Foreground="Black" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+
+        <TextBlock Grid.Row="7" Grid.Column="0" Margin="10" FontSize="20" Foreground="Bisque" 
+                     HorizontalAlignment="Left" VerticalAlignment="Center">Order Paid</TextBlock>
+        <TextBox Grid.Row="7" Grid.Column="2" TextAlignment="Center" 
+                   Text="{Binding Path=OrderPaid, Mode=TwoWay}"   
+                   Height="25" Width="100" Margin="5" FontSize="18" Foreground="Black" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+
+        <Button Margin="5" Height="30" Width="200" FontSize="20" Background="Red" 
+                Cursor="Hand" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                Grid.Row="8" Grid.Column="0" Click="Button_Click_Back_EditOrderPage">Back</Button>
+        <Button Margin="5" Height="30" Width="200" FontSize="20" Background="#FF18FF00" 
+                Cursor="Hand" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                Grid.Row="8" Grid.Column="1" Click="Button_Click_OK_EditOrderPage">Save</Button>
+
+    </Grid>
+</Page>

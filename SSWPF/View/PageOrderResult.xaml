@@ -14,6 +14,7 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -25,7 +26,7 @@
                   >Order Summary</TextBlock>        
  
         <TextBlock Grid.Row="1" Grid.Column="0" Margin="5" FontSize="25" Foreground="Bisque" 
-                   HorizontalAlignment="Left" VerticalAlignment="Center">Order</TextBlock>
+                   HorizontalAlignment="Left" VerticalAlignment="Center">Order Id</TextBlock>
         <TextBlock Grid.Row="1" Grid.Column="1"  
                    Text="{Binding Path=OrderId}"                         
                    Height="25" Width="100" Margin="5" FontSize="20" 
@@ -33,23 +34,31 @@
                    HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
 
         <TextBlock Grid.Row="2" Grid.Column="0" Margin="5" FontSize="25" Foreground="Bisque"
-                   HorizontalAlignment="Left" VerticalAlignment="Center">Car number</TextBlock>
+                   HorizontalAlignment="Left" VerticalAlignment="Center">Car Model</TextBlock>
         <TextBlock Grid.Row="2" Grid.Column="1"  
+                   Text="{Binding Path=ModelCar}"                         
+                   Height="25" Width="100" Margin="5" FontSize="20" 
+                   Foreground="Black" Background="Gray" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Margin="5" FontSize="25" Foreground="Bisque"
+                   HorizontalAlignment="Left" VerticalAlignment="Center">Car number</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="1"  
                    Text="{Binding Path=NumberCar}"                         
                    Height="25" Width="100" Margin="5" FontSize="20" 
                    Foreground="Black" Background="Gray" 
                    HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
 
-        <TextBlock Grid.Row="3" Grid.Column="0" Margin="5" FontSize="25" Foreground="Bisque" 
+        <TextBlock Grid.Row="4" Grid.Column="0" Margin="5" FontSize="25" Foreground="Bisque" 
                    HorizontalAlignment="Left" VerticalAlignment="Center">Total cost order</TextBlock>
-        <TextBlock Grid.Row="3" Grid.Column="1"  
+        <TextBlock Grid.Row="4" Grid.Column="1"  
                    Text="{Binding Path=CostOrder}"                         
                    Height="25" Width="100" Margin="5" FontSize="20" 
                    Foreground="Black" Background="Gray" 
                    HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-   
+
         <Button Margin="5" Height="30" Width="150" FontSize="20" Background="#FF18FF00" Cursor="Hand" 
-                VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="4" Grid.ColumnSpan="2" 
+                VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="5" Grid.ColumnSpan="2" 
                 Click="ButtonWindowOrderResultOk_Click">OK</Button>
     </Grid>
 </Page>

@@ -33,7 +33,7 @@
             - to evaluate the general condition of the vehicle (arithmetic mean for all nodes);<LineBreak/>
             - consider the cost of repair and repair every detail;<LineBreak/>
             - The form on which you can register a arrived car, state it each detail, show the general<LineBreak/> 
-            condition, the cost of repairs, indicate additional services and display "To pay X $".<LineBreak/>
+            condition, the cost of repairs, indicate additional services and display order cost.
             </TextBlock>
             <TextBlock Margin="5" Foreground="Bisque" FontSize="13">
 			Program allows to keep track of the Service Station work, in particular:<LineBreak/>

@@ -16,6 +16,11 @@ namespace SSWPF.View
             NavigationService.Navigate(new NewOrderPageSelect());
         }
 
+        private void Edit_order_Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new SearchOrderPage());
+        }
+
         private void Actual_orders_Button_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new ActualOrdersPage());            

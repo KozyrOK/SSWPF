@@ -99,6 +99,9 @@
     <Compile Include="View\DoneOrdersPage.xaml.cs">
       <DependentUpon>DoneOrdersPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\EditOrderPage.xaml.cs">
+      <DependentUpon>EditOrderPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\EditPricelist.xaml.cs">
       <DependentUpon>EditPricelist.xaml</DependentUpon>
     </Compile>
@@ -126,6 +129,9 @@
     <Compile Include="View\PageOrderResult.xaml.cs">
       <DependentUpon>PageOrderResult.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\SearchOrderPage.xaml.cs">
+      <DependentUpon>SearchOrderPage.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -143,6 +149,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DoneOrdersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditOrderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -179,6 +189,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PageOrderResult.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SearchOrderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -245,6 +259,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\giphy.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\edit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

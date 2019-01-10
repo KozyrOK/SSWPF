@@ -107,7 +107,7 @@
                    HorizontalAlignment="Left" VerticalAlignment="Center">Truck hydraulics</TextBlock>
         <Slider Grid.Row="9" Grid.Column="1" Name="SliderTruckHydraulics"  Margin="15,5,15,5" Maximum="100" Minimum="0" 
                 TickFrequency="10" IsSnapToTickEnabled="True" TickPlacement="BottomRight" 
-                Width="250" HorizontalAlignment="Left" Value="{Binding Path=CarHydraulics, Mode=TwoWay}"></Slider>
+                Width="250" HorizontalAlignment="Left" Value="{Binding Path=TruckHydraulics, Mode=TwoWay}"></Slider>
         <TextBlock Grid.Row="9" Grid.Column="1" MinWidth="50" FontSize="20" Foreground="Bisque" 
                    Text="{Binding ElementName=SliderTruckHydraulics, Path=Value}"
                    HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
