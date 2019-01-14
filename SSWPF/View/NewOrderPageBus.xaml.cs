@@ -1,18 +1,7 @@
 ﻿using SSWPF.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SSWPF.View
 {
@@ -34,9 +23,9 @@ namespace SSWPF.View
         }
         private void Button_Click_Submit_NewOrderPageBus(object sender, RoutedEventArgs e)
         {
-            if (BusSeatsUpholsteryCheckBox.IsChecked == false)
+            if (BusSeatsUpholsteryCheckBox.IsChecked == true)
             {
-                c.PasCarwheelBalancing = 0;
+                c.PasCarwheelBalancing = 100;
             }
             o.ModelCar = NewOrderPageBusTextBoxCarModel.Text;
             o.NumberCar = NewOrderPagePasBusTextBoxCarNumber.Text;

@@ -1,5 +1,4 @@
-﻿using System.Data.Entity;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using SSWPF.Model;
 
 namespace SSWPF.View

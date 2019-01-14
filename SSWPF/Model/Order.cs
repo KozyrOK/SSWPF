@@ -95,7 +95,7 @@ namespace SSWPF.Model
                 (price.CarBody / 100 * currentCar.CarBody) +
                 (price.CarWheels / 100 * currentCar.CarWheels) +
                 (price.CarEngine / 100 * currentCar.CarEngine) +
-                (price.CarBrakes / 100 * currentCar.CarBody) +
+                (price.CarBrakes / 100 * currentCar.CarBrakes) +
                 (price.CarUndercarriage / 100 * currentCar.CarUndercarriage) +
                 (price.PasCarwheelBalancing / 100 * currentCar.PasCarwheelBalancing);
             return currentPrice;
@@ -106,7 +106,7 @@ namespace SSWPF.Model
                 (price.CarBody / 100 * currentCar.CarBody) +
                 (price.CarWheels / 100 * currentCar.CarWheels) +
                 (price.CarEngine / 100 * currentCar.CarEngine) +
-                (price.CarBrakes / 100 * currentCar.CarBody) +
+                (price.CarBrakes / 100 * currentCar.CarBrakes) +
                 (price.CarUndercarriage / 100 * currentCar.CarUndercarriage) +
                 (price.BusHandsrails / 100 * currentCar.BusHandsrails) +
                 (price.BusUpholstery / 100 * currentCar.BusUpholstery) +
@@ -119,7 +119,7 @@ namespace SSWPF.Model
                 (price.CarBody / 100 * currentCar.CarBody) +
                 (price.CarWheels / 100 * currentCar.CarWheels) +
                 (price.CarEngine / 100 * currentCar.CarEngine) +
-                (price.CarBrakes / 100 * currentCar.CarBody) +
+                (price.CarBrakes / 100 * currentCar.CarBrakes) +
                 (price.CarUndercarriage / 100 * currentCar.CarUndercarriage) +                
                 (price.TruckHydraulics / 100 * currentCar.TruckHydraulics);
             return currentPrice;

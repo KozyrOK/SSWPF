@@ -22,16 +22,16 @@ namespace SSWPF.Model
         {
             _modelCar = "Default";
             _numberCar = "Default";
-            _carBody = 100;
-            _carWheels = 100;
-            _carEngine = 100;
-            _carBrakes = 100;
-            _carUndercarriage = 100;
-            _busSalon = 100;
-            _busHandsrails = 100;
-            _busUpholstery = 100;
-            _pasCarwheelBalancing = 100;
-            _truckHydraulics = 100;
+            _carBody = 0;
+            _carWheels = 0;
+            _carEngine = 0;
+            _carBrakes = 0;
+            _carUndercarriage = 0;
+            _busSalon = 0;
+            _busHandsrails = 0;
+            _busUpholstery = 0;
+            _pasCarwheelBalancing = 0;
+            _truckHydraulics = 0;
         }
 
         public string ModelCar

@@ -1,5 +1,4 @@
 ﻿using SSWPF.Model;
-using System;
 using System.Windows;
 using System.Windows.Controls;
 

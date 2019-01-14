@@ -1,7 +1,6 @@
 ﻿using SSWPF.Model;
 using System.Windows;
 using System.Windows.Controls;
-using System.Data.Entity;
 
 namespace SSWPF.View
 {
@@ -24,9 +23,9 @@ namespace SSWPF.View
 
         private void Button_Click_Submit_NewOrderPagePasCar(object sender, RoutedEventArgs e)
         {            
-            if (CarWheelsBalancingCheckBox.IsChecked==false)
+            if (CarWheelsBalancingCheckBox.IsChecked==true)
             {
-                c.PasCarwheelBalancing = 0;
+                c.PasCarwheelBalancing = 100;
             }
             o.ModelCar = NewOrderPagePasCarTextBoxCarModel.Text;
             o.NumberCar = NewOrderPagePasCarTextBoxCarNumber.Text;

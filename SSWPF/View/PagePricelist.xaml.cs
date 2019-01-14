@@ -1,9 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using System.Data.Entity;
 using SSWPF.Model;
-using System.Runtime.CompilerServices;
-using System.ComponentModel;
 
 namespace SSWPF.View
 {
