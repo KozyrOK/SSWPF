@@ -43,6 +43,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("ModelCar");
             }
         }
+
         public string NumberCar
         {
             get { return _numberCar; }
@@ -52,6 +53,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("NumberCar");
             }
         }
+
         public int CarBody
         {
             get { return _carBody; }
@@ -61,6 +63,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("CarBody");
             }
         }
+
         public int CarWheels
         {
             get { return _carWheels; }
@@ -70,6 +73,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("CarWheels");
             }
         }
+
         public int CarEngine
         {
             get { return _carEngine; }
@@ -79,6 +83,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("CarEngine");
             }
         }
+
         public int CarBrakes
         {
             get { return _carBrakes; }
@@ -88,6 +93,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("CarBrakes");
             }
         }
+
         public int CarUndercarriage
         {
             get { return _carUndercarriage; }
@@ -97,6 +103,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("CarUndercarriage");
             }
         }
+
         public int BusSalon
         {
             get { return _busSalon; }
@@ -106,6 +113,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("BusSalon");
             }
         }
+
         public int BusHandsrails
         {
             get { return _busHandsrails; }
@@ -115,6 +123,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("BusHandsrails");
             }
         }
+        
         public int BusUpholstery
         {
             get { return _busUpholstery; }
@@ -124,6 +133,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("BusUpholstery");
             }
         }
+
         public int PasCarwheelBalancing
         {
             get { return _pasCarwheelBalancing; }
@@ -133,6 +143,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("PasCarwheelBalancing");
             }
         }
+
         public int TruckHydraulics
         {
             get { return _truckHydraulics; }

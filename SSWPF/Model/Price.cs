@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Data.Entity;
+using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace SSWPF.Model
@@ -44,6 +45,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("DataTimePrice");
             }
         }
+
         public decimal CarBody
         {
             get { return _carBody; }
@@ -53,6 +55,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("CarBody");
             }
         }
+
         public decimal CarWheels
         {
             get { return _carWheels; }
@@ -62,6 +65,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("CarWheels");
             }
         }
+
         public decimal CarEngine
         {
             get { return _carEngine; }
@@ -71,6 +75,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("CarEngine");
             }
         }
+
         public decimal CarBrakes
         {
             get { return _carBrakes; }
@@ -80,6 +85,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("CarBrakes");
             }
         }
+
         public decimal CarUndercarriage
         {
             get { return _carUndercarriage; }
@@ -89,6 +95,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("CarUndercarriage");
             }
         }
+
         public decimal BusSalon
         {
             get { return _busSalon; }
@@ -98,6 +105,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("BusSalon");
             }
         }
+
         public decimal BusHandsrails
         {
             get { return _busHandsrails; }
@@ -107,6 +115,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("BusHandsrails");
             }
         }
+
         public decimal BusUpholstery
         {
             get { return _busUpholstery; }
@@ -116,6 +125,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("BusUpholstery");
             }
         }
+
         public decimal PasCarwheelBalancing
         {
             get { return _pasCarwheelBalancing; }
@@ -125,6 +135,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("PasCarwheelBalancing");
             }
         }
+
         public decimal TruckHydraulics
         {
             get { return _truckHydraulics; }
@@ -142,43 +153,24 @@ namespace SSWPF.Model
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
-        public static void GetCurrentValuePrice(Price p)
+        public Price GetCurrentValuePrice()
         {
-            using (SSWPFContextPrice priceContext = new SSWPFContextPrice())
+            using (SSWPFContext priceContext = new SSWPFContext())
             {
                 priceContext.Prices.Load();
-                int count = priceContext.Prices.Local.Count;
-                
-                if (count > 0)
-                {
-                    Price s = priceContext.Prices.Find(count);
-                    p.DataTimePrice = s.DataTimePrice;
-                    p.CarBody = s.CarBody;
-                    p.CarWheels = s.CarWheels;
-                    p.CarEngine = s.CarEngine;
-                    p.CarBrakes = s.CarBrakes;
-                    p.CarUndercarriage = s.CarUndercarriage;
-                    p.BusSalon = s.BusSalon;
-                    p.BusHandsrails = s.BusHandsrails;
-                    p.BusUpholstery = s.BusUpholstery;
-                    p.PasCarwheelBalancing = s.PasCarwheelBalancing;
-                    p.TruckHydraulics = s.TruckHydraulics;                    
-                }
-                else 
-                {
-                    Price.AddNewPrice(p);                        
-                }                           
+                var lp = priceContext.Prices.Local.Last();
+                return lp;                        
             }    
         }
 
-        public static void AddNewPrice(Price p)
+        public void AddNewPrice()
         {
-            using (SSWPFContextPrice priceContext = new SSWPFContextPrice())
+            using (SSWPFContext priceContext = new SSWPFContext())
             {
-                priceContext.Prices.Add(p);                
+                priceContext.Prices.Add(this);                
                 priceContext.SaveChanges();
             }
-        }
-               
+        }               
     }
 }
+

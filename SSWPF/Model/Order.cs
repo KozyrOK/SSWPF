@@ -27,7 +27,8 @@ namespace SSWPF.Model
             _stateOrder ="actual";
             _costOrder = 0;
             _orderPaid = 0;
-        }        
+        }
+        
         public DateTime DateTimeOrder
         {
             get { return _dateTimeOrder; }
@@ -37,6 +38,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("DateOrder");
             }
         }
+
         public string ModelCar
         {
             get { return _modelCar; }
@@ -46,6 +48,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("ModelCar");
             }
         }
+
         public string NumberCar
         {
             get { return _numberCar; }
@@ -55,6 +58,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("NumberCar");
             }
         }
+
         public string StateOrder
         {
             get { return _stateOrder; }
@@ -63,7 +67,8 @@ namespace SSWPF.Model
                 _stateOrder = value;
                 OnPropertyChanged("StateOrder");
             }
-        }                
+        } 
+        
         public decimal CostOrder
         {
             get { return _costOrder; }
@@ -73,6 +78,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("CostOrder");
             }
         }
+
         public decimal OrderPaid
         {
             get { return _orderPaid; }
@@ -89,123 +95,83 @@ namespace SSWPF.Model
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
-        public static decimal CostFixPasCar(Price price, Car currentCar)
+        public void CostOrderSet()
         {
-            decimal currentPrice =
-                (price.CarBody / 100 * currentCar.CarBody) +
-                (price.CarWheels / 100 * currentCar.CarWheels) +
-                (price.CarEngine / 100 * currentCar.CarEngine) +
-                (price.CarBrakes / 100 * currentCar.CarBrakes) +
-                (price.CarUndercarriage / 100 * currentCar.CarUndercarriage) +
-                (price.PasCarwheelBalancing / 100 * currentCar.PasCarwheelBalancing);
-            return currentPrice;
+            Price price = new Price();
+            price.GetCurrentValuePrice();            
+            this.CostOrder =
+                (price.CarBody / 100 * price.CarBody) +
+                (price.CarWheels / 100 * price.CarWheels) +
+                (price.CarEngine / 100 * price.CarEngine) +
+                (price.CarBrakes / 100 * price.CarBrakes) +
+                (price.CarUndercarriage / 100 * price.CarUndercarriage) +
+                (price.BusHandsrails / 100 * price.BusHandsrails) +
+                (price.BusUpholstery / 100 * price.BusUpholstery) +
+                (price.BusSalon / 100 * price.BusSalon) +
+                (price.TruckHydraulics / 100 * price.TruckHydraulics) +
+                (price.PasCarwheelBalancing / 100 * price.PasCarwheelBalancing);
         }
-        public static decimal CostFixBus(Price price, Car currentCar)
+
+        public void AddNewOrder()
         {
-            decimal currentPrice =
-                (price.CarBody / 100 * currentCar.CarBody) +
-                (price.CarWheels / 100 * currentCar.CarWheels) +
-                (price.CarEngine / 100 * currentCar.CarEngine) +
-                (price.CarBrakes / 100 * currentCar.CarBrakes) +
-                (price.CarUndercarriage / 100 * currentCar.CarUndercarriage) +
-                (price.BusHandsrails / 100 * currentCar.BusHandsrails) +
-                (price.BusUpholstery / 100 * currentCar.BusUpholstery) +
-                (price.BusSalon / 100 * currentCar.BusSalon);
-            return currentPrice;
-        }
-        public static decimal CostFixTruck(Price price, Car currentCar)
-        {
-            decimal currentPrice =
-                (price.CarBody / 100 * currentCar.CarBody) +
-                (price.CarWheels / 100 * currentCar.CarWheels) +
-                (price.CarEngine / 100 * currentCar.CarEngine) +
-                (price.CarBrakes / 100 * currentCar.CarBrakes) +
-                (price.CarUndercarriage / 100 * currentCar.CarUndercarriage) +                
-                (price.TruckHydraulics / 100 * currentCar.TruckHydraulics);
-            return currentPrice;
-        }
-        public static void AddNewOrder(Order o)
-        {
-            using (var ordersContext = new SSWPFContextOrder())
+            using (var ordersContext = new SSWPFContext())
             {
-                ordersContext.Orders.Add(o);
+                ordersContext.Orders.Add(this);
                 ordersContext.SaveChanges();
             }
         }
 
-        public static void GetLastOrder(Order lo)
+        public Order GetLastOrder()
         {
-            using (var ordersContext = new SSWPFContextOrder())
+            using (var ordersContext = new SSWPFContext())
             {
                 ordersContext.Orders.Load();
-                int count = ordersContext.Orders.Local.Count;
-
-                if (count > 0)
-                {
-                    var l = ordersContext.Orders.Find(count);
-                    lo.OrderId = l.OrderId;
-                    lo.DateTimeOrder = l.DateTimeOrder;
-                    lo.ModelCar = l.ModelCar;
-                    lo.NumberCar = l.NumberCar;
-                    lo.StateOrder = l.StateOrder;
-                    lo.CostOrder = l.CostOrder;
-                    lo.OrderPaid = l.OrderPaid;
-                }    
-                else
-                {
-                    Order.AddNewOrder(lo);
-                }
+                var lo = ordersContext.Orders.Local.Last();
+                return lo;               
             }
         }
-        public static List<Order> GetActualOrders()
+        
+        public void EditSameOrderInBase()
         {
-            SSWPFContextOrder context = new SSWPFContextOrder();            
-            return context.Orders.Where(p => p.StateOrder == "actual").OrderBy(p => p.OrderId).ToList<Order>(); 
-        }
-        public static List<Order> GetDoneOrders()
-        {
-            SSWPFContextOrder context = new SSWPFContextOrder();
-            return context.Orders.Where(p => p.StateOrder == "done").OrderBy(p => p.OrderId).ToList<Order>();
-        }
-        public static void EditOrder(Order updateOrder)
-        {
-            Order oldOrder = new Order();
-            var id = updateOrder.OrderId;
-            using (var ordersContext = new SSWPFContextOrder())
+            var id = OrderId;
+            using (var ordersContext = new SSWPFContext())
             {
                 ordersContext.Orders.Load();
-                oldOrder = ordersContext.Orders.Find(id);
-                if (oldOrder != null)
+                var newOrder = ordersContext.Orders.Find(id);
+                if (newOrder != null)
                 {
-                    oldOrder.DateTimeOrder = updateOrder.DateTimeOrder;
-                    oldOrder.ModelCar = updateOrder.ModelCar;
-                    oldOrder.NumberCar = updateOrder.NumberCar;
-                    oldOrder.StateOrder = updateOrder.StateOrder;
-                    oldOrder.CostOrder = updateOrder.CostOrder;
-                    oldOrder.OrderPaid = updateOrder.OrderPaid;
+                    OrderId = newOrder.OrderId;
+                    DateTimeOrder = newOrder.DateTimeOrder;
+                    ModelCar = newOrder.ModelCar;
+                    NumberCar = newOrder.NumberCar;
+                    StateOrder = newOrder.StateOrder;
+                    CostOrder = newOrder.CostOrder;
+                    OrderPaid = newOrder.OrderPaid;
                     ordersContext.SaveChanges();
                 }
             }
         }
-        
-        public void FindOrder(int id)
+
+        public Order FindOrder(int id)
         {            
-            using (var ordersContext = new SSWPFContextOrder())
+            using (var ordersContext = new SSWPFContext())
             {
                 ordersContext.Orders.Load();                
                 var or = ordersContext.Orders.Find(id);
-                if (or != null)
-                {
-                    OrderId = or.OrderId; 
-                    DateTimeOrder = or.DateTimeOrder;
-                    ModelCar = or.ModelCar;
-                    NumberCar = or.NumberCar;
-                    StateOrder = or.StateOrder;
-                    CostOrder = or.CostOrder;
-                    OrderPaid = or.OrderPaid;
-                }
+                return or;               
             }
+        }
+
+        public static List<Order> GetActualOrders()
+        {
+            SSWPFContext context = new SSWPFContext();
+            return context.Orders.Where(p => p.StateOrder == "actual").OrderBy(p => p.OrderId).ToList<Order>();
+        }
+
+        public static List<Order> GetDoneOrders()
+        {
+            SSWPFContext context = new SSWPFContext();
+            return context.Orders.Where(p => p.StateOrder == "done").OrderBy(p => p.OrderId).ToList<Order>();
         }
     }
 }
-

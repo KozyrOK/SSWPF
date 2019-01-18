@@ -7,10 +7,11 @@ namespace SSWPF.View
     {
         public DoneOrdersPage()
         {
-            InitializeComponent();
+            InitializeComponent();            
             var doneOrders = Order.GetDoneOrders();
             DataGridDoneOrders.ItemsSource = doneOrders;
         }
+
                
     }
 }

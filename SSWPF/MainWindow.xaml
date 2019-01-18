@@ -28,15 +28,15 @@
         <StackPanel x:Name="StackPanelSideBar"  Grid.Row="1" Grid.Column="0" Background="#293C78">
             <Button x:Name="Main_menu_button" Content="Main menu" 
                     VerticalAlignment="Center" HorizontalAlignment="Center" 
-                    Width="80" Height="50" FontSize="15" Click="MainMenu_Click" 
+                    Width="80" Height="60" FontSize="15" Click="MainMenu_Click" 
                     Background="#FFD0AEFF" Cursor="Hand" Margin="5,75,5,0"/>
             <Button x:Name="Pricelist_button" Content="Price list" 
                     VerticalAlignment="Center" HorizontalAlignment="Center" 
-                    Width="80" Height="50" FontSize="15" Click="Pricelist_Click" 
+                    Width="80" Height="60" FontSize="15" Click="Pricelist_Click" 
                     Background="#FF27B14B" Cursor="Hand" Margin="5,75,5,0"/>
             <Button x:Name="Info_button" Content="Info" 
                     VerticalAlignment="Center" HorizontalAlignment="Center" 
-                    Width="80" Height="50" FontSize="15" Click="Info_Click" 
+                    Width="80" Height="60" FontSize="15" Click="Info_Click" 
                     Background="#FFBCC310" Cursor="Hand" Margin="5,75,5,0"/>
         </StackPanel>
 
