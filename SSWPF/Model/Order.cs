@@ -17,6 +17,7 @@ namespace SSWPF.Model
         public string _stateOrder;
         public decimal _costOrder;
         public decimal _orderPaid;
+        public int _conditionCar;
 
         public Order()
         {
@@ -27,6 +28,7 @@ namespace SSWPF.Model
             _stateOrder ="actual";
             _costOrder = 0;
             _orderPaid = 0;
+            _conditionCar = 0;
         }
         
         public DateTime DateTimeOrder
@@ -89,6 +91,16 @@ namespace SSWPF.Model
             }
         }
 
+        public int ConditionCar
+        {
+            get { return _conditionCar; }
+            set
+            {
+                _conditionCar = value;
+                OnPropertyChanged("ConditionCar");
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
         {
@@ -131,7 +143,7 @@ namespace SSWPF.Model
             }
         }
         
-        public void EditSameOrderInBase()
+        public void EditOrderInBase()
         {
             var id = OrderId;
             using (var ordersContext = new SSWPFContext())

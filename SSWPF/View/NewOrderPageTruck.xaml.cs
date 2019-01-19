@@ -26,12 +26,12 @@ namespace SSWPF.View
         {
             o.ModelCar = NewOrderPageTruckTextBoxCarModel.Text;
             o.NumberCar = NewOrderPageTruckTextBoxCarNumber.Text;
-            Price p = new Price();
-            Price.GetCurrentValuePrice(p);
-            o.CostOrder = Order.CostFixBus(p, c);
-            Order.AddNewOrder(o);
+
+            o.CostOrderSet();
+            o.AddNewOrder();
+
             Order lo = new Order();
-            Order.GetLastOrder(lo);
+            lo.GetLastOrder();
             NavigationService.Content = new PageOrderResult(lo);
         }
     }

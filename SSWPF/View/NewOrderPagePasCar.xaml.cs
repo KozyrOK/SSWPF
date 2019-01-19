@@ -13,7 +13,7 @@ namespace SSWPF.View
         public NewOrderPagePasCar()
         {
             InitializeComponent();
-            this.DataContext = c;
+            DataContext = c;
         }               
 
         private void Button_Click_Back_NewOrderPage(object sender, RoutedEventArgs e)
@@ -27,14 +27,15 @@ namespace SSWPF.View
             {
                 c.PasCarwheelBalancing = 100;
             }
+
             o.ModelCar = NewOrderPagePasCarTextBoxCarModel.Text;
             o.NumberCar = NewOrderPagePasCarTextBoxCarNumber.Text;
-            Price p = new Price();
-            Price.GetCurrentValuePrice(p);
-            o.CostOrder = Order.CostFixPasCar(p, c);
-            Order.AddNewOrder(o);
+
+            o.CostOrderSet();
+            o.AddNewOrder();
+
             Order lo = new Order();
-            Order.GetLastOrder(lo);
+            lo.GetLastOrder();
             NavigationService.Content = new PageOrderResult(lo);
         }
     }

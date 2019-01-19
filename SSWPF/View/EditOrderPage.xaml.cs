@@ -7,12 +7,13 @@ namespace SSWPF.View
 {    
     public partial class EditOrderPage : Page
     {
-        private Order idOrderEdit;
+
+        Order idOrderEdit = new Order();
 
         public EditOrderPage(Order idOrder)
         {            
             InitializeComponent();
-            this.idOrderEdit = idOrder;
+            idOrderEdit = idOrder;
             EditOrderPageGrid.DataContext = idOrder;            
         }
 
@@ -22,8 +23,8 @@ namespace SSWPF.View
         }
 
         private void Button_Click_OK_EditOrderPage(object sender, RoutedEventArgs e)
-        {            
-            Order.EditOrder(this.idOrderEdit);
+        {
+            idOrderEdit.EditOrderInBase();
             NavigationService.Navigate(new MainPage());
         }
     }

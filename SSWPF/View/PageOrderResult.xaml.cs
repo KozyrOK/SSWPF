@@ -15,7 +15,6 @@ namespace SSWPF.View
 
         private void ButtonWindowOrderResultOk_Click(object sender, RoutedEventArgs e)
         {
-
             NavigationService.Content = new MainPage();         
         }
     }

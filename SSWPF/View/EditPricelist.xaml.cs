@@ -6,12 +6,13 @@ namespace SSWPF.View
 {
     public partial class EditPricelist : Page
     {
-        private Price e;
+
+        Price newp = new Price();
                 
         public EditPricelist(Price p)
         {
             InitializeComponent();
-            e = p;
+            newp = p;
             EditPricelistGrid.DataContext = p;
         }
 
@@ -22,7 +23,7 @@ namespace SSWPF.View
 
         private void Button_Click_Save_Pricelist(object sender, RoutedEventArgs e)
         {
-            Price.AddNewPrice(this.e);
+            newp.AddNewPrice();
             NavigationService.GoBack();
         }
     }

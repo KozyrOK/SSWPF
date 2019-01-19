@@ -13,17 +13,17 @@ namespace SSWPF.View
                 
         private void Button_Click_Cancel_NewOrderPage(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new MainPage());
+            NavigationService.Navigate(new MainPage());
         }
 
         private void Button_Click_Ok_NewOrderPage(object sender, RoutedEventArgs e)
         {
             if (Truck_RadioButton.IsChecked == true)
-                this.NavigationService.Navigate(new NewOrderPageTruck());           
+                NavigationService.Navigate(new NewOrderPageTruck());           
             else if (Bus_RadioButton.IsChecked == true)
-                this.NavigationService.Navigate(new NewOrderPageBus());           
+                NavigationService.Navigate(new NewOrderPageBus());           
             else
-                this.NavigationService.Navigate(new NewOrderPagePasCar());           
+                NavigationService.Navigate(new NewOrderPagePasCar());           
         }
     }
 }
