@@ -8,8 +8,14 @@ namespace SSWPF
     public MainWindow()
         {
             InitializeComponent();
-            MainWindowFrame.Content = new View.MainPage();                        
+            this.Loaded += MainWindow_Loaded;                                   
         }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            MainWindowFrame.Content = new View.MainPage();
+        }
+
         private void Info_Click(object sender, RoutedEventArgs e)
             {
                 MainWindowFrame.Content = new SSWPF.View.PageInfo();

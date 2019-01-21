@@ -9,9 +9,8 @@
                 ResizeMode="CanResizeWithGrip"
                 Topmost="True"
                 WindowStartupLocation="CenterScreen"
-                x:Class = "SSWPF.MainWindow">
-    <Grid>
-        
+                x:Class = "SSWPF.MainWindow">    
+    <Grid>        
         <Grid.RowDefinitions>
             <RowDefinition Height="100"> </RowDefinition>
             <RowDefinition Height="*"> </RowDefinition>

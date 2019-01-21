@@ -110,18 +110,19 @@ namespace SSWPF.Model
         public void CostOrderSet()
         {
             Price price = new Price();
+            CarCondition car = new CarCondition();
             price.GetCurrentValuePrice();            
             this.CostOrder =
-                (price.CarBody / 100 * price.CarBody) +
-                (price.CarWheels / 100 * price.CarWheels) +
-                (price.CarEngine / 100 * price.CarEngine) +
-                (price.CarBrakes / 100 * price.CarBrakes) +
-                (price.CarUndercarriage / 100 * price.CarUndercarriage) +
-                (price.BusHandsrails / 100 * price.BusHandsrails) +
-                (price.BusUpholstery / 100 * price.BusUpholstery) +
-                (price.BusSalon / 100 * price.BusSalon) +
-                (price.TruckHydraulics / 100 * price.TruckHydraulics) +
-                (price.PasCarwheelBalancing / 100 * price.PasCarwheelBalancing);
+                (price.CarBody / 100 * car.CarBody) +
+                (price.CarWheels / 100 * car.CarWheels) +
+                (price.CarEngine / 100 * car.CarEngine) +
+                (price.CarBrakes / 100 * car.CarBrakes) +
+                (price.CarUndercarriage / 100 * car.CarUndercarriage) +
+                (price.BusHandsrails / 100 * car.BusHandsrails) +
+                (price.BusUpholstery / 100 * car.BusUpholstery) +
+                (price.BusSalon / 100 * car.BusSalon) +
+                (price.TruckHydraulics / 100 * car.TruckHydraulics) +
+                (price.PasCarwheelBalancing / 100 * car.PasCarwheelBalancing);
         }
 
         public void AddNewOrder()
