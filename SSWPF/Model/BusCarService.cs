@@ -45,12 +45,6 @@ namespace SSWPF.Model
                 OnPropertyChanged("BusUpholstery");
             }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public new void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
+        
     }
 }

@@ -20,13 +20,6 @@ namespace SSWPF.Model
                 _pasCarwheelBalancing = value;
                 OnPropertyChanged("PasCarwheelBalancing");
             }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public new void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
+        }        
     }
 }

@@ -7,11 +7,9 @@ namespace SSWPF.View
 {
     
     public partial class NewOrderPagePasCar : Page
-    {
-        Order o = new Order();
+    {       
         PasCarCondition c = new PasCarCondition();
-        PasCarService s = new PasCarService();
-        Price p = new Price();          
+        PasCarService s = new PasCarService();               
 
         public NewOrderPagePasCar()
         {
@@ -29,9 +27,10 @@ namespace SSWPF.View
             if (CarWheelsBalancingCheckBox.IsChecked == true) { s.PasCarwheelBalancing = true; }            
         }
 
-        private decimal CalculateCostOrder(PasCarService s, PasCarCondition c, Price p)
+        private decimal CalculateCostOrder(PasCarService s, PasCarCondition c)
         {
-            p.GetCurrentValuePrice();
+            Price p = new Price();
+            p.CurrentValuePrice();
             decimal cost = 0;
             if (s.CarBody)
             {
@@ -39,54 +38,49 @@ namespace SSWPF.View
                 carbody = p.CarBody / 100 * (100 - c.CarBody);
                 cost += carbody;
             }
-
             if (s.CarWheels)
             {
                 decimal carWheels = 0;
                 carWheels = p.CarWheels / 100 * (100 - c.CarWheels);
                 cost += carWheels;
             }
-
             if (s.CarEngine)
             {
                 decimal carEngine = 0;
                 carEngine = p.CarEngine / 100 * (100 - c.CarEngine);
                 cost += carEngine;
             }
-
             if (s.CarBrakes)
             {
                 decimal carBrakes = 0;
                 carBrakes = p.CarBrakes / 100 * (100 - c.CarEngine);
                 cost += carBrakes;
             }
-
             if (s.CarUndercarriage)
             {
                 decimal carUndercarriage = 0;
                 carUndercarriage = p.CarUndercarriage / 100 * (100 - c.CarUndercarriage);
                 cost += carUndercarriage;
             }
-
             if (s.PasCarwheelBalancing)
             {
                 decimal pasCarwheelBalancing = 0;
                 pasCarwheelBalancing = p.PasCarwheelBalancing;
                 cost += pasCarwheelBalancing;
             }
-
             return cost;
         }        
 
         private void NewOrderPagePasCarFillOrder()
         {
+            Order o = new Order();
             o.ModelCar = NewOrderPagePasCarTextBoxCarModel.Text;
             o.NumberCar = NewOrderPagePasCarTextBoxCarNumber.Text;
 
             FillPasCarService(s);
             
-            o.CostOrder = CalculateCostOrder(s, c, p);
-            o.ConditionCar = c.GetTotalCondition;
+            o.CostOrder = CalculateCostOrder(s, c);
+            o.ConditionCar = c.TotalCondition();           
             o.AddNewOrder();
         }
 
@@ -100,7 +94,7 @@ namespace SSWPF.View
             NewOrderPagePasCarFillOrder(); // add lock database
             
             Order lo = new Order();
-            lo.GetLastOrder();
+            lo.LastOrderValue();
             NavigationService.Content = new PageOrderResult(lo);
         }
     }

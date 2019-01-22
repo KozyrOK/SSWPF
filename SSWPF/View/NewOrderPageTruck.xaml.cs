@@ -7,16 +7,14 @@ namespace SSWPF.View
 {
     
     public partial class NewOrderPageTruck : Page
-    {
-        Order o = new Order();
+    {       
         TruckCarCondition c = new TruckCarCondition();
-        TruckCarService s = new TruckCarService();
-        Price p = new Price();
+        TruckCarService s = new TruckCarService();        
 
         public NewOrderPageTruck()
         {
             InitializeComponent();
-            this.DataContext = c;
+            DataContext = c;
         }
 
         private void FillTruckCarService(TruckCarService s)
@@ -29,9 +27,10 @@ namespace SSWPF.View
             if (TruckHydraulicsCheckBox.IsChecked == true) { s.TruckHydraulics = true; }
         }
 
-        private decimal CalculateCostOrder(TruckCarService s, TruckCarCondition c, Price p)
+        private decimal CalculateCostOrder(TruckCarService s, TruckCarCondition c)
         {
-            p.GetCurrentValuePrice();
+            Price p = new Price();
+            p.CurrentValuePrice();
             decimal cost = 0;
             if (s.CarBody)
             {
@@ -39,54 +38,49 @@ namespace SSWPF.View
                 carbody = p.CarBody / 100 * (100 - c.CarBody);
                 cost += carbody;
             }
-
             if (s.CarWheels)
             {
                 decimal carWheels = 0;
                 carWheels = p.CarWheels / 100 * (100 - c.CarWheels);
                 cost += carWheels;
             }
-
             if (s.CarEngine)
             {
                 decimal carEngine = 0;
                 carEngine = p.CarEngine / 100 * (100 - c.CarEngine);
                 cost += carEngine;
             }
-
             if (s.CarBrakes)
             {
                 decimal carBrakes = 0;
                 carBrakes = p.CarBrakes / 100 * (100 - c.CarEngine);
                 cost += carBrakes;
             }
-
             if (s.CarUndercarriage)
             {
                 decimal carUndercarriage = 0;
                 carUndercarriage = p.CarUndercarriage / 100 * (100 - c.CarUndercarriage);
                 cost += carUndercarriage;
-            }
-            
+            }            
             if (s.TruckHydraulics)
             {
                 decimal truckHydraulics = 0;
                 truckHydraulics = p.TruckHydraulics / 100 * (100 - c.TruckHydraulics);
                 cost += truckHydraulics;
             }
-
             return cost;
         }
 
         private void NewOrderPageTruckCarFillOrder()
         {
+            Order o = new Order();
             o.ModelCar = NewOrderPageTruckTextBoxCarModel.Text;
             o.NumberCar = NewOrderPageTruckTextBoxCarNumber.Text;
 
             FillTruckCarService(s);
 
-            o.CostOrder = CalculateCostOrder(s, c, p);
-            o.ConditionCar = c.GetTotalCondition;
+            o.CostOrder = CalculateCostOrder(s, c);
+            o.ConditionCar = c.TotalCondition();
             o.AddNewOrder();
         }
 
@@ -101,7 +95,7 @@ namespace SSWPF.View
             NewOrderPageTruckCarFillOrder(); // add lock database
 
             Order lo = new Order();
-            lo.GetLastOrder();
+            lo.LastOrderValue();
             NavigationService.Content = new PageOrderResult(lo);
         }
     }

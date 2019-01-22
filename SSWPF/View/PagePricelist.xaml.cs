@@ -19,7 +19,7 @@ namespace SSWPF.View
 
         private void PagePricelist_Loaded(object sender, RoutedEventArgs e)
         {
-            currentPrice.GetCurrentValuePrice();
+            currentPrice.CurrentValuePrice();
         }
 
         private void Button_Click_Back_Pricelist(object sender, RoutedEventArgs e)

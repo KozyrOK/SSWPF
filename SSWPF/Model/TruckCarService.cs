@@ -21,12 +21,6 @@ namespace SSWPF.Model
                 OnPropertyChanged("TruckHydraulics");
             }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public new void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
+        
     }
 }

@@ -43,15 +43,9 @@ namespace SSWPF.Model
                 _busUpholstery = value;
                 OnPropertyChanged("BusUpholstery");
             }
-        }
+        }        
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public new void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
-
-        public override int GetTotalCondition()
+        public override int TotalCondition()
         {
             int total = 0;
             total =

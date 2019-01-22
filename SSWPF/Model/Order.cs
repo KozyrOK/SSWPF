@@ -116,7 +116,7 @@ namespace SSWPF.Model
             }
         }
 
-        public Order GetLastOrder()
+        public Order LastOrderValue()
         {
             using (var ordersContext = new SSWPFContext())
             {
