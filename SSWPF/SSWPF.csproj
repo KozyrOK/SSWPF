@@ -108,8 +108,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\BusCar.cs" />
+    <Compile Include="Model\BusCarCondition.cs" />
+    <Compile Include="Model\BusCarService.cs" />
     <Compile Include="Model\CarCondition.cs" />
+    <Compile Include="Model\CarService.cs" />
+    <Compile Include="Model\PasCar.cs" />
+    <Compile Include="Model\PasCarCondition.cs" />
+    <Compile Include="Model\PasCarService.cs" />
     <Compile Include="Model\SSWPFContext.cs" />
+    <Compile Include="Model\TruckCar.cs" />
+    <Compile Include="Model\TruckCarCondition.cs" />
+    <Compile Include="Model\TruckCarService.cs" />
     <Compile Include="View\ActualOrdersPage.xaml.cs">
       <DependentUpon>ActualOrdersPage.xaml</DependentUpon>
     </Compile>

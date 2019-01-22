@@ -9,7 +9,9 @@ namespace SSWPF.View
     public partial class NewOrderPageTruck : Page
     {
         Order o = new Order();
-        Car c = new Car();
+        TruckCarCondition c = new TruckCarCondition();
+        TruckCarService s = new TruckCarService();
+        Price p = new Price();
 
         public NewOrderPageTruck()
         {
@@ -17,57 +19,86 @@ namespace SSWPF.View
             this.DataContext = c;
         }
 
-        private void NewOrderPagePasCarFillCar()
+        private void FillTruckCarService(TruckCarService s)
         {
-            if (CarBodyCheckBox.IsChecked == true)
-            {
-                c.CarBody = 100;
-            }
-
-            if (CarWheelsCheckBox.IsChecked == true)
-            {
-                c.CarWheels = 100;
-            }
-
-            if (CarEngineCheckBox.IsChecked == true)
-            {
-                c.CarEngine = 100;
-            }
-
-            if (CarBrakesCheckBox.IsChecked == true)
-            {
-                c.CarBrakes = 100;
-            }
-
-            if (CarUndercarriageCheckBox.IsChecked == true)
-            {
-                c.CarUndercarriage = 100;
-            }
-
-            if (TruckHydraulicsCheckBox.IsChecked == true)
-            {
-                c.TruckHydraulics = 100;
-            }
+            if (CarBodyCheckBox.IsChecked == true) { s.CarBody = true; }
+            if (CarWheelsCheckBox.IsChecked == true) { s.CarWheels = true; }
+            if (CarEngineCheckBox.IsChecked == true) { s.CarEngine = true; }
+            if (CarBrakesCheckBox.IsChecked == true) { s.CarBrakes = true; }
+            if (CarUndercarriageCheckBox.IsChecked == true) { s.CarUndercarriage = true; }
+            if (TruckHydraulicsCheckBox.IsChecked == true) { s.TruckHydraulics = true; }
         }
 
-        private void NewOrderPageTruckFillOrder()
+        private decimal CalculateCostOrder(TruckCarService s, TruckCarCondition c, Price p)
+        {
+            p.GetCurrentValuePrice();
+            decimal cost = 0;
+            if (s.CarBody)
+            {
+                decimal carbody = 0;
+                carbody = p.CarBody / 100 * (100 - c.CarBody);
+                cost += carbody;
+            }
+
+            if (s.CarWheels)
+            {
+                decimal carWheels = 0;
+                carWheels = p.CarWheels / 100 * (100 - c.CarWheels);
+                cost += carWheels;
+            }
+
+            if (s.CarEngine)
+            {
+                decimal carEngine = 0;
+                carEngine = p.CarEngine / 100 * (100 - c.CarEngine);
+                cost += carEngine;
+            }
+
+            if (s.CarBrakes)
+            {
+                decimal carBrakes = 0;
+                carBrakes = p.CarBrakes / 100 * (100 - c.CarEngine);
+                cost += carBrakes;
+            }
+
+            if (s.CarUndercarriage)
+            {
+                decimal carUndercarriage = 0;
+                carUndercarriage = p.CarUndercarriage / 100 * (100 - c.CarUndercarriage);
+                cost += carUndercarriage;
+            }
+            
+            if (s.TruckHydraulics)
+            {
+                decimal truckHydraulics = 0;
+                truckHydraulics = p.TruckHydraulics / 100 * (100 - c.TruckHydraulics);
+                cost += truckHydraulics;
+            }
+
+            return cost;
+        }
+
+        private void NewOrderPageTruckCarFillOrder()
         {
             o.ModelCar = NewOrderPageTruckTextBoxCarModel.Text;
             o.NumberCar = NewOrderPageTruckTextBoxCarNumber.Text;
-            o.CostOrderSet();
+
+            FillTruckCarService(s);
+
+            o.CostOrder = CalculateCostOrder(s, c, p);
+            o.ConditionCar = c.GetTotalCondition;
             o.AddNewOrder();
         }
 
         private void Button_Click_Back_NewOrderPage(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.GoBack();            
+            NavigationService.GoBack();            
         }
 
         private void Button_Click_Submit_NewOrderPageTruck(object sender, RoutedEventArgs e)
         {
 
-            NewOrderPageTruckFillCar();
-            NewOrderPageTruckFillOrder();
+            NewOrderPageTruckCarFillOrder(); // add lock database
 
             Order lo = new Order();
             lo.GetLastOrder();

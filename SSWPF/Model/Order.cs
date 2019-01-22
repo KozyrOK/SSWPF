@@ -106,25 +106,7 @@ namespace SSWPF.Model
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
-
-        public void CostOrderSet()
-        {
-            Price price = new Price();
-            CarCondition car = new CarCondition();
-            price.GetCurrentValuePrice();            
-            this.CostOrder =
-                (price.CarBody / 100 * car.CarBody) +
-                (price.CarWheels / 100 * car.CarWheels) +
-                (price.CarEngine / 100 * car.CarEngine) +
-                (price.CarBrakes / 100 * car.CarBrakes) +
-                (price.CarUndercarriage / 100 * car.CarUndercarriage) +
-                (price.BusHandsrails / 100 * car.BusHandsrails) +
-                (price.BusUpholstery / 100 * car.BusUpholstery) +
-                (price.BusSalon / 100 * car.BusSalon) +
-                (price.TruckHydraulics / 100 * car.TruckHydraulics) +
-                (price.PasCarwheelBalancing / 100 * car.PasCarwheelBalancing);
-        }
-
+        
         public void AddNewOrder()
         {
             using (var ordersContext = new SSWPFContext())

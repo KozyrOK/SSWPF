@@ -9,7 +9,9 @@ namespace SSWPF.View
     public partial class NewOrderPageBus : Page
     {
         Order o = new Order();
-        Car c = new Car();
+        BusCarCondition c = new BusCarCondition();
+        BusCarService s = new BusCarService();
+        Price p = new Price();
 
         public NewOrderPageBus()
         {
@@ -17,55 +19,82 @@ namespace SSWPF.View
             DataContext = c;
         }
 
-        private void NewOrderPageBusFillCar()
+        private void FillBusCarService(BusCarService s)
         {
-            if (CarBodyCheckBox.IsChecked == true)
-            {
-                c.CarBody = 100;
-            }
-
-            if (CarWheelsCheckBox.IsChecked == true)
-            {
-                c.CarWheels = 100;
-            }
-
-            if (CarEngineCheckBox.IsChecked == true)
-            {
-                c.CarEngine = 100;
-            }
-
-            if (CarBrakesCheckBox.IsChecked == true)
-            {
-                c.CarBrakes = 100;
-            }
-
-            if (CarUndercarriageCheckBox.IsChecked == true)
-            {
-                c.CarUndercarriage = 100;
-            }
-
-            if (BusHandsrailsCheckBox.IsChecked == true)
-            {
-                c.BusHandsrails = 100;
-            }
-
-            if (BusSalonCheckBox.IsChecked == true)
-            {
-                c.BusSalon = 100;
-            }
-
-            if (BusSeatsUpholsteryCheckBox.IsChecked == true)
-            {
-                c.PasCarwheelBalancing = 100;
-            }
+            if (CarBodyCheckBox.IsChecked == true) { s.CarBody = true; }
+            if (CarWheelsCheckBox.IsChecked == true) { s.CarWheels = true; }
+            if (CarEngineCheckBox.IsChecked == true) { s.CarEngine = true; }
+            if (CarBrakesCheckBox.IsChecked == true) { s.CarBrakes = true; }
+            if (CarUndercarriageCheckBox.IsChecked == true) { s.CarUndercarriage = true; }
+            if (BusHandsrailsCheckBox.IsChecked == true) { s.BusHandsrails = true; }
+            if (BusSalonCheckBox.IsChecked == true) { s.BusSalon = true; }            
         }
 
-        private void NewOrderPageBusFillOrder()
+        private decimal CalculateCostOrder(BusCarService s, BusCarCondition c, Price p)
+        {
+            p.GetCurrentValuePrice();
+            decimal cost = 0;
+            if (s.CarBody)
+            {
+                decimal carbody = 0;
+                carbody = p.CarBody / 100 * (100 - c.CarBody);
+                cost += carbody;
+            }
+
+            if (s.CarWheels)
+            {
+                decimal carWheels = 0;
+                carWheels = p.CarWheels / 100 * (100 - c.CarWheels);
+                cost += carWheels;
+            }
+
+            if (s.CarEngine)
+            {
+                decimal carEngine = 0;
+                carEngine = p.CarEngine / 100 * (100 - c.CarEngine);
+                cost += carEngine;
+            }
+
+            if (s.CarBrakes)
+            {
+                decimal carBrakes = 0;
+                carBrakes = p.CarBrakes / 100 * (100 - c.CarEngine);
+                cost += carBrakes;
+            }
+
+            if (s.CarUndercarriage)
+            {
+                decimal carUndercarriage = 0;
+                carUndercarriage = p.CarUndercarriage / 100 * (100 - c.CarUndercarriage);
+                cost += carUndercarriage;
+            }
+            
+            if (s.BusHandsrails)
+            {
+                decimal busHandsrails = 0;
+                busHandsrails = p.BusHandsrails / 100 * (100 - c.BusHandsrails);
+                cost += busHandsrails;
+            }
+
+            if (s.BusSalon)
+            {
+                decimal busSalon = 0;
+                busSalon = p.BusSalon;
+                cost += busSalon;
+            }
+
+            return cost;
+        }
+
+        private void NewOrderPageBusCarFillOrder()
         {
             o.ModelCar = NewOrderPageBusTextBoxCarModel.Text;
             o.NumberCar = NewOrderPagePasBusTextBoxCarNumber.Text;
 
-            o.CostOrderSet();
+            FillBusCarService(s);
+
+            o.CostOrder = CalculateCostOrder(s, c, p);
+            o.ConditionCar = c.GetTotalCondition;
             o.AddNewOrder();
         }
 
@@ -74,10 +103,8 @@ namespace SSWPF.View
             NavigationService.GoBack();            
         }
         private void Button_Click_Submit_NewOrderPageBus(object sender, RoutedEventArgs e)
-        {            
-
-            NewOrderPageBusFillCar();
-            NewOrderPageBusFillOrder();
+        {
+            NewOrderPageBusCarFillOrder(); // add lock database
 
             Order lo = new Order();
             lo.GetLastOrder();

@@ -3,24 +3,24 @@ using System.Runtime.CompilerServices;
 
 namespace SSWPF.Model
 {
-    abstract class CarCondition : INotifyPropertyChanged
+    abstract class CarService : INotifyPropertyChanged
     {
-        public int _carBody;
-        public int _carWheels;
-        public int _carEngine;
-        public int _carBrakes;
-        public int _carUndercarriage;
+        private bool _carBody;
+        private bool _carWheels;
+        private bool _carEngine;
+        private bool _carBrakes;
+        private bool _carUndercarriage;
 
-        public CarCondition()
-        {            
-            _carBody = 100;
-            _carWheels = 100;
-            _carEngine = 100;
-            _carBrakes = 100;
-            _carUndercarriage = 100;           
+        public CarService()
+        {           
+            _carBody = false;
+            _carWheels = false;
+            _carEngine = false;
+            _carBrakes = false;
+            _carUndercarriage = false;
         }
 
-        public int CarBody
+        public bool CarBody
         {
             get { return _carBody; }
             set
@@ -30,7 +30,7 @@ namespace SSWPF.Model
             }
         }
 
-        public int CarWheels
+        public bool CarWheels
         {
             get { return _carWheels; }
             set
@@ -40,7 +40,7 @@ namespace SSWPF.Model
             }
         }
 
-        public int CarEngine
+        public bool CarEngine
         {
             get { return _carEngine; }
             set
@@ -50,7 +50,7 @@ namespace SSWPF.Model
             }
         }
 
-        public int CarBrakes
+        public bool CarBrakes
         {
             get { return _carBrakes; }
             set
@@ -60,7 +60,7 @@ namespace SSWPF.Model
             }
         }
 
-        public int CarUndercarriage
+        public bool CarUndercarriage
         {
             get { return _carUndercarriage; }
             set
@@ -68,14 +68,13 @@ namespace SSWPF.Model
                 _carUndercarriage = value;
                 OnPropertyChanged("CarUndercarriage");
             }
-        }
+        }       
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         public void OnPropertyChanged([CallerMemberName]string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
-
-        public abstract int GetTotalCondition();
+        }        
     }
 }

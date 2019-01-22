@@ -153,15 +153,26 @@ namespace SSWPF.Model
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
-        public Price GetCurrentValuePrice()
+        public void GetCurrentValuePrice()
         {
             using (SSWPFContext priceContext = new SSWPFContext())
             {
                 priceContext.Prices.Load();
                 var lp = priceContext.Prices.Local.Last();
-                return lp;                        
-            }    
+                if (lp != null)
+                CarBody = lp.CarBody;
+                CarWheels = lp.CarWheels;
+                CarEngine = lp.CarEngine;
+                CarBrakes = lp.CarBrakes;
+                CarUndercarriage = lp.CarUndercarriage;
+                BusSalon = lp.BusSalon;
+                BusHandsrails = lp.BusHandsrails;
+                BusUpholstery = lp.BusHandsrails;
+                PasCarwheelBalancing = lp.PasCarwheelBalancing;
+                TruckHydraulics = lp.TruckHydraulics;
+            }
         }
+        
 
         public void AddNewPrice()
         {

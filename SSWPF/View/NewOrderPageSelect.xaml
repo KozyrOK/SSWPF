@@ -23,7 +23,7 @@
         <Image x:Name="New_order_Image1" Source="/Image/New_order.png" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"/>
         <Image x:Name="New_order_Image2" Source="/Image/New_order.png" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1"/>
 
-        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Margin="35" Foreground="Bisque" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Center" >Please, select type car:</TextBlock>        
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Margin="30" Foreground="Bisque" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Center" >Please, select type car:</TextBlock>        
         
         <StackPanel Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"  Background="#FF2C4679" MinWidth="300" MinHeight="100">
             <RadioButton Name="Passenger_car_RadioButton" IsChecked="True" Style="{StaticResource RadioButtonPageSelect}">Passenger car</RadioButton>
