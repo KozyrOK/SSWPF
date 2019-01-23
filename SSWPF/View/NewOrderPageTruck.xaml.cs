@@ -9,7 +9,8 @@ namespace SSWPF.View
     public partial class NewOrderPageTruck : Page
     {       
         TruckCarCondition c = new TruckCarCondition();
-        TruckCarService s = new TruckCarService();        
+        TruckCarService s = new TruckCarService();
+        Order o = new Order();
 
         public NewOrderPageTruck()
         {
@@ -34,9 +35,9 @@ namespace SSWPF.View
             decimal cost = 0;
             if (s.CarBody)
             {
-                decimal carbody = 0;
-                carbody = p.CarBody / 100 * (100 - c.CarBody);
-                cost += carbody;
+                decimal carBody = 0;
+                carBody = p.CarBody / 100 * (100 - c.CarBody);
+                cost += carBody;
             }
             if (s.CarWheels)
             {
@@ -73,16 +74,15 @@ namespace SSWPF.View
 
         private void NewOrderPageTruckCarFillOrder()
         {
-            Order o = new Order();
-            o.ModelCar = NewOrderPageTruckTextBoxCarModel.Text;
-            o.NumberCar = NewOrderPageTruckTextBoxCarNumber.Text;
-
             FillTruckCarService(s);
 
+            o.ModelCar = NewOrderPageTruckTextBoxCarModel.Text;
+            o.NumberCar = NewOrderPageTruckTextBoxCarNumber.Text;
             o.CostOrder = CalculateCostOrder(s, c);
             o.ConditionCar = c.TotalCondition();
+            
             o.AddNewOrder();
-        }
+        }        
 
         private void Button_Click_Back_NewOrderPage(object sender, RoutedEventArgs e)
         {
@@ -91,12 +91,10 @@ namespace SSWPF.View
 
         private void Button_Click_Submit_NewOrderPageTruck(object sender, RoutedEventArgs e)
         {
-
-            NewOrderPageTruckCarFillOrder(); // add lock database
-
-            Order lo = new Order();
-            lo.LastOrderValue();
-            NavigationService.Content = new PageOrderResult(lo);
+            NewOrderPageTruckCarFillOrder();
+                        
+            o.LastOrderId();
+            NavigationService.Content = new PageOrderResult(o);
         }
     }
 }

@@ -9,9 +9,9 @@ namespace SSWPF.View
     {
         public PageOrderResult(Order o)
         {
-            InitializeComponent();
+            InitializeComponent();           
             GridPageOrderResult.DataContext = o;
-        }
+        }        
 
         private void ButtonWindowOrderResultOk_Click(object sender, RoutedEventArgs e)
         {

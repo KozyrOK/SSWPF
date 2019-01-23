@@ -28,10 +28,10 @@
         <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=OrderId}" Style="{StaticResource TextBlockOutputInfoMiddle}"></TextBlock>
 
         <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Car Model</TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Path=ModelCar}" Style="{StaticResource TextBlockOutputInfoMiddle}"></TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Path=ModelCar}" Style="{StaticResource TextBlockOutputInfoBig}"></TextBlock>
 
         <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Car number</TextBlock>
-        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Path=NumberCar}" Style="{StaticResource TextBlockOutputInfoMiddle}"></TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Path=NumberCar}" Style="{StaticResource TextBlockOutputInfoBig}"></TextBlock>
 
         <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Total cost order</TextBlock>
         <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding Path=CostOrder}" Style="{StaticResource TextBlockOutputInfoMiddle}"></TextBlock>
@@ -39,7 +39,7 @@
         <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Total cost order</TextBlock>
         <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding Path=CostOrder}" Style="{StaticResource TextBlockOutputInfoMiddle}"></TextBlock>
 
-        <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Total condition car</TextBlock>
+        <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Total condition car (from 0 to 100%)</TextBlock>
         <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding Path=ConditionCar}" Style="{StaticResource TextBlockOutputInfoMiddle}"></TextBlock>
 
         <Button Grid.Row="6" Grid.ColumnSpan="2" Click="ButtonWindowOrderResultOk_Click" Style="{StaticResource GreenButtonSubmit}">OK</Button>

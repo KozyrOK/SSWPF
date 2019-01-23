@@ -9,7 +9,8 @@ namespace SSWPF.View
     public partial class NewOrderPageBus : Page
     {        
         BusCarCondition c = new BusCarCondition();
-        BusCarService s = new BusCarService();        
+        BusCarService s = new BusCarService();
+        Order o = new Order();
 
         public NewOrderPageBus()
         {
@@ -25,7 +26,8 @@ namespace SSWPF.View
             if (CarBrakesCheckBox.IsChecked == true) { s.CarBrakes = true; }
             if (CarUndercarriageCheckBox.IsChecked == true) { s.CarUndercarriage = true; }
             if (BusHandsrailsCheckBox.IsChecked == true) { s.BusHandsrails = true; }
-            if (BusSalonCheckBox.IsChecked == true) { s.BusSalon = true; }            
+            if (BusSalonCheckBox.IsChecked == true) { s.BusSalon = true; }
+            if (BusSeatsUpholsteryCheckBox.IsChecked == true) { s.BusUpholstery = true; }
         }
 
         private decimal CalculateCostOrder(BusCarService s, BusCarCondition c)
@@ -35,9 +37,9 @@ namespace SSWPF.View
             decimal cost = 0;
             if (s.CarBody)
             {
-                decimal carbody = 0;
-                carbody = p.CarBody / 100 * (100 - c.CarBody);
-                cost += carbody;
+                decimal carBody = 0;
+                carBody = p.CarBody / 100 * (100 - c.CarBody);
+                cost += carBody;
             }
             if (s.CarWheels)
             {
@@ -54,7 +56,7 @@ namespace SSWPF.View
             if (s.CarBrakes)
             {
                 decimal carBrakes = 0;
-                carBrakes = p.CarBrakes / 100 * (100 - c.CarEngine);
+                carBrakes = p.CarBrakes / 100 * (100 - c.CarBrakes);
                 cost += carBrakes;
             }
             if (s.CarUndercarriage)
@@ -72,26 +74,30 @@ namespace SSWPF.View
             if (s.BusSalon)
             {
                 decimal busSalon = 0;
-                busSalon = p.BusSalon;
+                busSalon = p.BusSalon / 100 * (100 - c.BusSalon);
                 cost += busSalon;
+            }
+            if (s.BusUpholstery)
+            {
+                decimal busUpholstery = 0;
+                busUpholstery = p.BusUpholstery;
+                cost += busUpholstery;
             }
             return cost;
         }
 
         private void NewOrderPageBusCarFillOrder()
         {
-            Order o = new Order();
-            o.ModelCar = NewOrderPageBusTextBoxCarModel.Text;
-            o.NumberCar = NewOrderPagePasBusTextBoxCarNumber.Text;
-
             FillBusCarService(s);
 
-            o.CostOrder = CalculateCostOrder(s, c);           
-            o.ConditionCar = c.TotalCondition();
+            o.ModelCar = NewOrderPageBusTextBoxCarModel.Text;
+            o.NumberCar = NewOrderPagePasBusTextBoxCarNumber.Text;
+            o.CostOrder = CalculateCostOrder(s, c);
+            o.ConditionCar = c.TotalCondition();           
 
             o.AddNewOrder();
         }
-
+        
         private void Button_Click_Back_NewOrderPage(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();            
@@ -99,11 +105,10 @@ namespace SSWPF.View
 
         private void Button_Click_Submit_NewOrderPageBus(object sender, RoutedEventArgs e)
         {
-            NewOrderPageBusCarFillOrder(); // add lock database
-
-            Order lo = new Order();
-            lo.LastOrderValue();
-            NavigationService.Content = new PageOrderResult(lo);
+            NewOrderPageBusCarFillOrder(); 
+            
+            o.LastOrderId();
+            NavigationService.Content = new PageOrderResult(o);
         }
     }
 }

@@ -27,7 +27,7 @@
               <ColumnDefinition Width="*"/>              
           </Grid.ColumnDefinitions>
 
-          <TextBlock Grid.Row="0" Grid.ColumnSpan="1" FontSize="25" Foreground="Bisque" HorizontalAlignment="Center" VerticalAlignment="Center">Price list editor</TextBlock>
+          <TextBlock Grid.Row="0" Grid.ColumnSpan="2" FontSize="25" Foreground="Bisque" HorizontalAlignment="Center" VerticalAlignment="Center">Price list editor</TextBlock>
 
           <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Car body</TextBlock>
           <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=CarBody, Mode=TwoWay}" Style="{StaticResource TextBoxMiddle}"></TextBox>

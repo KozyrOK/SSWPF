@@ -9,7 +9,8 @@ namespace SSWPF.View
     public partial class NewOrderPagePasCar : Page
     {       
         PasCarCondition c = new PasCarCondition();
-        PasCarService s = new PasCarService();               
+        PasCarService s = new PasCarService();
+        Order o = new Order();
 
         public NewOrderPagePasCar()
         {
@@ -34,9 +35,9 @@ namespace SSWPF.View
             decimal cost = 0;
             if (s.CarBody)
             {
-                decimal carbody = 0;
-                carbody = p.CarBody / 100 * (100 - c.CarBody);
-                cost += carbody;
+                decimal carBody = 0;
+                carBody = p.CarBody / 100 * (100 - c.CarBody);
+                cost += carBody;
             }
             if (s.CarWheels)
             {
@@ -53,7 +54,7 @@ namespace SSWPF.View
             if (s.CarBrakes)
             {
                 decimal carBrakes = 0;
-                carBrakes = p.CarBrakes / 100 * (100 - c.CarEngine);
+                carBrakes = p.CarBrakes / 100 * (100 - c.CarBrakes);
                 cost += carBrakes;
             }
             if (s.CarUndercarriage)
@@ -69,18 +70,17 @@ namespace SSWPF.View
                 cost += pasCarwheelBalancing;
             }
             return cost;
-        }        
+        }
 
         private void NewOrderPagePasCarFillOrder()
         {
-            Order o = new Order();
+            FillPasCarService(s);
+
             o.ModelCar = NewOrderPagePasCarTextBoxCarModel.Text;
             o.NumberCar = NewOrderPagePasCarTextBoxCarNumber.Text;
-
-            FillPasCarService(s);
-            
             o.CostOrder = CalculateCostOrder(s, c);
-            o.ConditionCar = c.TotalCondition();           
+            o.ConditionCar = c.TotalCondition();
+           
             o.AddNewOrder();
         }
 
@@ -91,11 +91,10 @@ namespace SSWPF.View
 
         private void Button_Click_Submit_NewOrderPagePasCar(object sender, RoutedEventArgs e)
         {
-            NewOrderPagePasCarFillOrder(); // add lock database
-            
-            Order lo = new Order();
-            lo.LastOrderValue();
-            NavigationService.Content = new PageOrderResult(lo);
+            NewOrderPagePasCarFillOrder(); 
+                        
+            o.LastOrderId();
+            NavigationService.Content = new PageOrderResult(o);
         }
     }
 }

@@ -64,7 +64,7 @@
 
         <TextBlock Grid.Row="8" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Car undercarriage</TextBlock>
         <CheckBox Name="CarUndercarriageCheckBox" Grid.Row="8" Grid.Column="1" Style="{StaticResource NewOrderCheckBox}"></CheckBox>
-        <Slider Grid.Row="8" Grid.Column="2" Name="SliderCarUndercarriage" Value="{Binding Path=CarEngine, Mode=TwoWay}" Style="{StaticResource NewOrderSlider}"></Slider>
+        <Slider Grid.Row="8" Grid.Column="2" Name="SliderCarUndercarriage" Value="{Binding Path=CarUndercarriage, Mode=TwoWay}" Style="{StaticResource NewOrderSlider}"></Slider>
         <TextBlock Grid.Row="8" Grid.Column="2" Text="{Binding ElementName=SliderCarUndercarriage, Path=Value}" Style="{StaticResource TextBlockNewOrderSlider}"></TextBlock>
 
         <TextBlock Grid.Row="9" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Bus handsrails</TextBlock>

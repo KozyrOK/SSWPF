@@ -12,13 +12,13 @@ namespace SSWPF.View
         public DoneOrdersPage()
         {
             InitializeComponent();
-            this.Loaded += DoneOrdersPage_Loaded;
-            DataGridDoneOrders.ItemsSource = doneOrders;
+            Loaded += DoneOrdersPage_Loaded;            
         }
 
         private void DoneOrdersPage_Loaded(object sender, RoutedEventArgs e)
         {
             doneOrders = Order.GetDoneOrders();
+            DataGridDoneOrders.ItemsSource = doneOrders;
         }
     }
 }

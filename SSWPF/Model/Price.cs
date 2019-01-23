@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Data.Entity;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
@@ -21,7 +20,7 @@ namespace SSWPF.Model
         private decimal _pasCarwheelBalancing;
         private decimal _truckHydraulics;
 
-        public Price() 
+        public Price()
         {
             _dataTimePrice = DateTime.Now;
             _carBody = 100;
@@ -30,8 +29,8 @@ namespace SSWPF.Model
             _carBrakes = 100;
             _carUndercarriage = 100;
             _busSalon = 100;
-            _busHandsrails = 300;
-            _busUpholstery = 100;
+            _busHandsrails = 100;
+            _busUpholstery = 300;
             _pasCarwheelBalancing = 100;
             _truckHydraulics = 100;
         }
@@ -156,9 +155,13 @@ namespace SSWPF.Model
         public void CurrentValuePrice()
         {
             using (SSWPFContext priceContext = new SSWPFContext())
-            {
-                priceContext.Prices.Load();
-                var lp = priceContext.Prices.Local.Last();
+            {                
+                int last = priceContext.Prices.Count();
+                if (last < 1)
+                {
+                    AddNewPrice();
+                }
+                var lp = priceContext.Prices.Find(last);
                 if (lp != null)
                 {
                     CarBody = lp.CarBody;
@@ -168,7 +171,7 @@ namespace SSWPF.Model
                     CarUndercarriage = lp.CarUndercarriage;
                     BusSalon = lp.BusSalon;
                     BusHandsrails = lp.BusHandsrails;
-                    BusUpholstery = lp.BusHandsrails;
+                    BusUpholstery = lp.BusUpholstery;
                     PasCarwheelBalancing = lp.PasCarwheelBalancing;
                     TruckHydraulics = lp.TruckHydraulics;
                 }                
@@ -182,7 +185,7 @@ namespace SSWPF.Model
                 priceContext.Prices.Add(this);                
                 priceContext.SaveChanges();
             }
-        }               
+        }        
     }
 }
 

@@ -65,7 +65,7 @@
             <Setter Property="TextBlock.Margin" Value="5"></Setter>
             <Setter Property="TextBlock.HorizontalAlignment" Value="Left"></Setter>
             <Setter Property="TextBlock.VerticalAlignment" Value="Center"></Setter>
-        </Style>      
+        </Style>         
         
         <Style x:Key="TextBlockUSD">
             <Setter Property="TextBlock.FontSize" Value="20"></Setter>
@@ -104,6 +104,18 @@
             <Setter Property="TextBlock.TextAlignment" Value="Center"></Setter>
         </Style>
 
+        <Style x:Key="TextBlockOutputInfoBig">
+            <Setter Property="TextBlock.Margin" Value="5"></Setter>
+            <Setter Property="TextBlock.Width" Value="200"></Setter>
+            <Setter Property="TextBlock.Foreground" Value="Black"></Setter>
+            <Setter Property="TextBlock.Height" Value="25"></Setter>
+            <Setter Property="TextBlock.FontSize" Value="20"></Setter>
+            <Setter Property="TextBlock.Background" Value="Gray"></Setter>
+            <Setter Property="TextBlock.HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="TextBlock.VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="TextBlock.TextAlignment" Value="Center"></Setter>
+        </Style>
+
         <Style x:Key="TextBoxBig">
             <Setter Property="TextBox.Foreground" Value="Black"></Setter>
             <Setter Property="TextBox.FontSize" Value="15"></Setter>
@@ -116,14 +128,15 @@
         
         <Style x:Key="TextBoxMiddle">
             <Setter Property="TextBox.Foreground" Value="Black"></Setter>
-            <Setter Property="TextBox.FontSize" Value="15"></Setter>
+            <Setter Property="TextBox.FontSize" Value="20"></Setter>
+            <Setter Property="TextBlock.Height" Value="25"></Setter>
             <Setter Property="TextBox.TextAlignment" Value="Center"></Setter>
             <Setter Property="TextBox.Margin" Value="5"></Setter>
             <Setter Property="TextBox.HorizontalAlignment" Value="Center"></Setter>
             <Setter Property="TextBox.VerticalAlignment" Value="Center"></Setter>
             <Setter Property="TextBox.Width" Value="100"></Setter>
         </Style>
-
+      
         <Style x:Key="NewOrderCheckBox">
             <Setter Property="CheckBox.FontSize" Value="5"></Setter>
             <Setter Property="CheckBox.HorizontalAlignment" Value="Center"></Setter>

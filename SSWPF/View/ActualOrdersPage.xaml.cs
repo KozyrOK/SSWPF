@@ -12,14 +12,14 @@ namespace SSWPF.View
 
         public ActualOrdersPage()
         {
-            InitializeComponent();
-            this.Loaded += ActualOrdersPage_Loaded;            
-            DataGridActualOrders.ItemsSource = actualOrders;
+            InitializeComponent();           
+            Loaded += ActualOrdersPage_Loaded;           
         }
-        
+
         private void ActualOrdersPage_Loaded(object sender, RoutedEventArgs e)
         {
             actualOrders = Order.GetActualOrders();
-        }          
+            DataGridActualOrders.ItemsSource = actualOrders;
+        }
     }
 }

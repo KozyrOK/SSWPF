@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data.Entity;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using Telerik.Windows.Data;
@@ -30,7 +29,26 @@ namespace SSWPF.Model
             _orderPaid = 0;
             _conditionCar = 0;
         }
-        
+
+        public Order(int id)
+        {
+            using (var ordersContext = new SSWPFContext())
+            {
+                var or = ordersContext.Orders.Find(id);
+                if (or != null)
+                {
+                    OrderId = or.OrderId;
+                    _dateTimeOrder = or.DateTimeOrder;
+                    _modelCar = or.ModelCar;
+                    _numberCar = or.NumberCar;
+                    _stateOrder = or.StateOrder;
+                    _costOrder = or.CostOrder;
+                    _orderPaid = or.OrderPaid;
+                    _conditionCar = or.ConditionCar;
+                }
+            }
+        }
+
         public DateTime DateTimeOrder
         {
             get { return _dateTimeOrder; }
@@ -116,13 +134,12 @@ namespace SSWPF.Model
             }
         }
 
-        public Order LastOrderValue()
+        public void LastOrderId()
         {
             using (var ordersContext = new SSWPFContext())
             {
-                ordersContext.Orders.Load();
-                var lo = ordersContext.Orders.Local.Last();
-                return lo;               
+                int id = ordersContext.Orders.Count();                
+                OrderId = id;               
             }
         }
         
@@ -131,31 +148,20 @@ namespace SSWPF.Model
             var id = OrderId;
             using (var ordersContext = new SSWPFContext())
             {
-                ordersContext.Orders.Load();
-                var newOrder = ordersContext.Orders.Find(id);
-                if (newOrder != null)
-                {
-                    OrderId = newOrder.OrderId;
-                    DateTimeOrder = newOrder.DateTimeOrder;
-                    ModelCar = newOrder.ModelCar;
-                    NumberCar = newOrder.NumberCar;
-                    StateOrder = newOrder.StateOrder;
-                    CostOrder = newOrder.CostOrder;
-                    OrderPaid = newOrder.OrderPaid;
-                    ordersContext.SaveChanges();
-                }
-            }
-        }
+                Order newOrder = ordersContext.Orders.Find(id);
 
-        public Order FindOrder(int id)
-        {            
-            using (var ordersContext = new SSWPFContext())
-            {
-                ordersContext.Orders.Load();                
-                var or = ordersContext.Orders.Find(id);
-                return or;               
+                newOrder.OrderId = OrderId;
+                newOrder.DateTimeOrder = DateTimeOrder;
+                newOrder.ModelCar = ModelCar;
+                newOrder.NumberCar = NumberCar;
+                newOrder.StateOrder = StateOrder;
+                newOrder.CostOrder = CostOrder;
+                newOrder.OrderPaid = OrderPaid;
+                newOrder.ConditionCar = ConditionCar;
+
+                ordersContext.SaveChanges();                
             }
-        }
+        }        
 
         public static List<Order> GetActualOrders()
         {

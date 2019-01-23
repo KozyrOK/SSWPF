@@ -7,7 +7,6 @@ namespace SSWPF.View
 {    
     public partial class EditOrderPage : Page
     {
-
         Order idOrderEdit = new Order();
 
         public EditOrderPage(Order idOrder)

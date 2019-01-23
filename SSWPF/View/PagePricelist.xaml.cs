@@ -7,13 +7,12 @@ namespace SSWPF.View
     
     public partial class PagePricelist : Page
     {
-
         Price currentPrice = new Price();
         
         public PagePricelist()
         {            
             InitializeComponent();
-            this.Loaded += PagePricelist_Loaded;            
+            Loaded += PagePricelist_Loaded;            
             PagePricelistGrid.DataContext = currentPrice;
         }
 

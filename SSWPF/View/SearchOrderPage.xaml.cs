@@ -1,5 +1,4 @@
 ﻿using SSWPF.Model;
-using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -20,19 +19,19 @@ namespace SSWPF.View
 
         private void Button_Click_OK_SearchOrderPage(object sender, RoutedEventArgs e)
         {            
-            var content = InputOrderIdButton.Text;            
-            Order o = new Order();
+            var content = InputOrderIdButton.Text;           
 
-            if (int.TryParse(content, out int id))
-            {
-                id = Int32.Parse(content);
-                o.FindOrder(id);
+            bool success = int.TryParse(content, out int id);
+
+            if (success)
+            {                
+                Order o = new Order(id);          
+
                 if (o.OrderId != null)
                     NavigationService.Navigate(new EditOrderPage(o));
                 else
                     NavigationService.GoBack();
-            }
+            }                       
         }
-
     }
 }
