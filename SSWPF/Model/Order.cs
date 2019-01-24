@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -162,17 +161,5 @@ namespace SSWPF.Model
                 ordersContext.SaveChanges();                
             }
         }        
-
-        public static List<Order> GetActualOrders()
-        {
-            SSWPFContext context = new SSWPFContext();
-            return context.Orders.Where(p => p.StateOrder == "actual").OrderBy(p => p.OrderId).ToList<Order>();
-        }
-
-        public static List<Order> GetDoneOrders()
-        {
-            SSWPFContext context = new SSWPFContext();
-            return context.Orders.Where(p => p.StateOrder == "done").OrderBy(p => p.OrderId).ToList<Order>();
-        }
     }
 }

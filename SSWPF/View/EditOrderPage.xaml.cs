@@ -14,9 +14,9 @@ namespace SSWPF.View
             InitializeComponent();
             idOrderEdit = idOrder;
             EditOrderPageGrid.DataContext = idOrder;            
-        }
+        }       
 
-        private void Button_Click_Back_EditOrderPage(object sender, RoutedEventArgs e)
+            private void Button_Click_Back_EditOrderPage(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
         }

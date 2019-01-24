@@ -108,6 +108,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\ActualOrDoneOrders.cs" />
     <Compile Include="Model\BusCarCondition.cs" />
     <Compile Include="Model\BusCarService.cs" />
     <Compile Include="Model\CarCondition.cs" />

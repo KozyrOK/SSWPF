@@ -30,8 +30,14 @@ namespace SSWPF.View
 
         private decimal CalculateCostOrder(PasCarService s, PasCarCondition c)
         {
-            Price p = new Price();
-            p.CurrentValuePrice();
+            Price p = new Price();            
+            p.LastPriceId();
+            if (p.PriceId > 0)
+            {
+                int id = p.PriceId;
+                p = new Price(id);
+            }
+
             decimal cost = 0;
             if (s.CarBody)
             {

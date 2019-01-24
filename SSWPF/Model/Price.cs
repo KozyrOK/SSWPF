@@ -35,6 +35,27 @@ namespace SSWPF.Model
             _truckHydraulics = 100;
         }
 
+        public Price(int id)
+        {
+            using (var priceContext = new SSWPFContext())
+            {
+                var lp = priceContext.Prices.Find(id);
+                if (lp != null)
+                {
+                    _carBody = lp.CarBody;
+                    _carWheels = lp.CarWheels;
+                    _carEngine = lp.CarEngine;
+                    _carBrakes = lp.CarBrakes;
+                    _carUndercarriage = lp.CarUndercarriage;
+                    _busSalon = lp.BusSalon;
+                    _busHandsrails = lp.BusHandsrails;
+                    _busUpholstery = lp.BusUpholstery;
+                    _pasCarwheelBalancing = lp.PasCarwheelBalancing;
+                    _truckHydraulics = lp.TruckHydraulics;
+                }
+            }
+        }       
+
         public DateTime DataTimePrice
         {
             get { return _dataTimePrice; }
@@ -152,37 +173,45 @@ namespace SSWPF.Model
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
-        public void CurrentValuePrice()
-        {
-            using (SSWPFContext priceContext = new SSWPFContext())
-            {                
-                int last = priceContext.Prices.Count();
-                if (last < 1)
-                {
-                    AddNewPrice();
-                }
-                var lp = priceContext.Prices.Find(last);
-                if (lp != null)
-                {
-                    CarBody = lp.CarBody;
-                    CarWheels = lp.CarWheels;
-                    CarEngine = lp.CarEngine;
-                    CarBrakes = lp.CarBrakes;
-                    CarUndercarriage = lp.CarUndercarriage;
-                    BusSalon = lp.BusSalon;
-                    BusHandsrails = lp.BusHandsrails;
-                    BusUpholstery = lp.BusUpholstery;
-                    PasCarwheelBalancing = lp.PasCarwheelBalancing;
-                    TruckHydraulics = lp.TruckHydraulics;
-                }                
-            }
-        }        
-
-        public void AddNewPrice()
+        public int LastPriceId()
         {
             using (SSWPFContext priceContext = new SSWPFContext())
             {
-                priceContext.Prices.Add(this);                
+                int id = priceContext.Prices.Count();
+                return id;
+            }
+        }
+
+        public void AddFirstPriceDB()
+        {
+            Price p = new Price();
+
+            using (SSWPFContext priceContext = new SSWPFContext())
+            {
+                priceContext.Prices.Add(p);
+                priceContext.SaveChanges();
+            }
+        }
+
+        public void AddNewPriceDB()
+        {
+            Price p = new Price
+            {
+                CarBody = CarBody,
+                CarWheels = CarWheels,
+                CarEngine = CarEngine,
+                CarBrakes = CarBrakes,
+                CarUndercarriage = CarUndercarriage,
+                BusSalon = BusSalon,
+                BusHandsrails = BusHandsrails,
+                BusUpholstery = BusUpholstery,
+                PasCarwheelBalancing = PasCarwheelBalancing,
+                TruckHydraulics = TruckHydraulics
+            };
+
+            using (SSWPFContext priceContext = new SSWPFContext())
+            {                
+                priceContext.Prices.Add(p);                
                 priceContext.SaveChanges();
             }
         }        
