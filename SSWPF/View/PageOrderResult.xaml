@@ -24,7 +24,7 @@
 
         <TextBlock Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Foreground="Bisque">Order Summary</TextBlock>
 
-        <TextBlock Grid.Row="1" Grid.Column="0" FontSize="25" Style="{StaticResource TextBlockСaption}">Order Id</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Order Id</TextBlock>
         <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=OrderId}" Style="{StaticResource TextBlockOutputInfoMiddle}"></TextBlock>
 
         <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Car Model</TextBlock>

@@ -20,6 +20,8 @@ namespace SSWPF.Model
         private decimal _pasCarwheelBalancing;
         private decimal _truckHydraulics;
 
+        static readonly object locker = new object();
+
         public Price()
         {
             _dataTimePrice = DateTime.Now;
@@ -37,7 +39,7 @@ namespace SSWPF.Model
 
         public Price(int id)
         {
-            using (var priceContext = new SSWPFContext())
+            using (SSWPFContext priceContext = new SSWPFContext())
             {
                 var lp = priceContext.Prices.Find(id);
                 if (lp != null)
@@ -175,23 +177,15 @@ namespace SSWPF.Model
 
         public int LastPriceId()
         {
-            using (SSWPFContext priceContext = new SSWPFContext())
+            lock (locker)
             {
-                int id = priceContext.Prices.Count();
-                return id;
+                using (SSWPFContext priceContext = new SSWPFContext())
+                {
+                    int id = priceContext.Prices.Count();
+                    return id;
+                }
             }
-        }
-
-        public void AddFirstPriceDB()
-        {
-            Price p = new Price();
-
-            using (SSWPFContext priceContext = new SSWPFContext())
-            {
-                priceContext.Prices.Add(p);
-                priceContext.SaveChanges();
-            }
-        }
+        }        
 
         public void AddNewPriceDB()
         {

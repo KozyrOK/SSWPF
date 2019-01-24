@@ -113,6 +113,7 @@
     <Compile Include="Model\BusCarService.cs" />
     <Compile Include="Model\CarCondition.cs" />
     <Compile Include="Model\CarService.cs" />
+    <Compile Include="Model\ContextInitializer.cs" />
     <Compile Include="Model\PasCarCondition.cs" />
     <Compile Include="Model\PasCarService.cs" />
     <Compile Include="Model\SSWPFContext.cs" />

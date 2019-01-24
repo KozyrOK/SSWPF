@@ -7,25 +7,19 @@
       d:DesignHeight="460" d:DesignWidth="660"
       Title="PageInfo">
     <Grid>
-            <StackPanel Margin="5">
-            <TextBlock Margin="5" Foreground="Bisque" FontSize="15">
-            Information about this WPF aplication
-            </TextBlock>   
-            <TextBlock Margin="5" Foreground="Bisque" FontSize="13">
+            <StackPanel Margin="10">
+            <TextBlock Margin="5" Foreground="Bisque" FontSize="15">Information about this WPF aplication</TextBlock>
+            <TextBlock Style="{StaticResource TextBlockPageInfo}">
 			Service Station is a test program.<LineBreak/>
-			This program is developed using WPF (Windows Presentation Foundation) technology
-            and SQL Server.<LineBreak/>
+			This program is developed using WPF (Windows Presentation Foundation) technology and SQL Server.<LineBreak/>
             It's the solution to the task described below.
             </TextBlock>
-            <TextBlock Margin="5" Foreground="Bisque" FontSize="13">
+            <TextBlock Style="{StaticResource TextBlockPageInfo}">
             Task: To simulate the work of the Service station.<LineBreak/>
-            The following types of vehicles can be serviced at the Service station:
-            passenger car, truck and bus. <LineBreak/>
-            The service station diagnoses the following nodes:
-            car bodes, wheels, engines, brakes, undercarriages, <LineBreak/>
-            hydraulics (only for truck) and handsrails (only for bus).<LineBreak/>
-            For each listed node there is a current state from 0 to 100 points (100 points - new,
-            0 points - not working). <LineBreak/>
+            The following types of vehicles can be serviced at the Service station: passenger car, truck and bus. <LineBreak/>
+            The service station diagnoses the following nodes: car bodes, wheels, engines, brakes, undercarriages, <LineBreak/>
+            hydraulics (only for truck) bus seats upholstery and handsrails (only for bus).<LineBreak/>
+            For each listed node there is a current state from 0 to 100 points (100 points - new, 0 points - not working). <LineBreak/>
             Additional services (at the request of the client):<LineBreak/>
             - wheel balancing for passenger car;<LineBreak/>
             - changing the upholstery of the seats in the cabin for bus.<LineBreak/>
@@ -35,11 +29,12 @@
             - The form on which you can register a arrived car, state it each detail, show the general<LineBreak/> 
             condition, the cost of repairs, indicate additional services and display order cost.
             </TextBlock>
-            <TextBlock Margin="5" Foreground="Bisque" FontSize="13">
+            <TextBlock Style="{StaticResource TextBlockPageInfo}">
 			Program allows to keep track of the Service Station work, in particular:<LineBreak/>
             - to enter and save car data;<LineBreak/>
             - the cost of service stations;<LineBreak/>
             - to calculate the cost of orders.<LineBreak/>
+            - to calculate the average state of the detail <LineBreak/>
             </TextBlock>           
         </StackPanel>     
     </Grid>

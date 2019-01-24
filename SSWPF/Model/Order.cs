@@ -17,6 +17,8 @@ namespace SSWPF.Model
         public decimal _orderPaid;
         public int _conditionCar;
 
+        static readonly object locker = new object();
+
         public Order()
         {
             OrderId = null;
@@ -31,7 +33,7 @@ namespace SSWPF.Model
 
         public Order(int id)
         {
-            using (var ordersContext = new SSWPFContext())
+            using (SSWPFContext ordersContext = new SSWPFContext())
             {
                 var or = ordersContext.Orders.Find(id);
                 if (or != null)
@@ -126,39 +128,46 @@ namespace SSWPF.Model
         
         public void AddNewOrder()
         {
-            using (var ordersContext = new SSWPFContext())
+            using (SSWPFContext ordersContext = new SSWPFContext())
             {
                 ordersContext.Orders.Add(this);
                 ordersContext.SaveChanges();
             }
         }
 
-        public void LastOrderId()
+        public void LastOrderId() 
         {
-            using (var ordersContext = new SSWPFContext())
+            lock (locker)
             {
-                int id = ordersContext.Orders.Count();                
-                OrderId = id;               
+
+                using (SSWPFContext ordersContext = new SSWPFContext())
+                {
+                    int id = ordersContext.Orders.Count();
+                    OrderId = id;
+                }
             }
         }
         
         public void EditOrderInBase()
         {
-            var id = OrderId;
-            using (var ordersContext = new SSWPFContext())
+            lock (locker)
             {
-                Order newOrder = ordersContext.Orders.Find(id);
+                var id = OrderId;
+                using (SSWPFContext ordersContext = new SSWPFContext())
+                {
+                    Order newOrder = ordersContext.Orders.Find(id);
 
-                newOrder.OrderId = OrderId;
-                newOrder.DateTimeOrder = DateTimeOrder;
-                newOrder.ModelCar = ModelCar;
-                newOrder.NumberCar = NumberCar;
-                newOrder.StateOrder = StateOrder;
-                newOrder.CostOrder = CostOrder;
-                newOrder.OrderPaid = OrderPaid;
-                newOrder.ConditionCar = ConditionCar;
+                    newOrder.OrderId = OrderId;
+                    newOrder.DateTimeOrder = DateTimeOrder;
+                    newOrder.ModelCar = ModelCar;
+                    newOrder.NumberCar = NumberCar;
+                    newOrder.StateOrder = StateOrder;
+                    newOrder.CostOrder = CostOrder;
+                    newOrder.OrderPaid = OrderPaid;
+                    newOrder.ConditionCar = ConditionCar;
 
-                ordersContext.SaveChanges();                
+                    ordersContext.SaveChanges();
+                }
             }
         }        
     }

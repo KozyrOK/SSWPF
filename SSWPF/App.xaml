@@ -3,7 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="MainWindow.xaml" Activated="Application_Activated">             
     <Application.Resources>
-                        
+        
+        <Style x:Key="SideBarButton">
+            <Setter Property="Button.Cursor" Value="Hand"></Setter>
+            <Setter Property="Button.FontSize" Value="15"></Setter>
+            <Setter Property="Button.Height" Value="60"></Setter>
+            <Setter Property="Button.Width" Value="80"></Setter>
+            <Setter Property="Button.Margin" Value="5,75,5,0"></Setter>
+            <Setter Property="Button.HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="Button.VerticalAlignment" Value="Center"></Setter>
+        </Style>
+
         <Style x:Key="MainNenuButton">           
             <Setter Property="Button.Cursor" Value="Hand"></Setter>
             <Setter Property="Button.FontSize" Value="25"></Setter>
@@ -11,8 +21,8 @@
             <Setter Property="Button.Width" Value="250"></Setter>
             <Setter Property="Button.HorizontalAlignment" Value="Center"></Setter>
             <Setter Property="Button.VerticalAlignment" Value="Center"></Setter>                
-        </Style>
-                
+        </Style>    
+
         <Style x:Key="MainNenuImage">            
             <Setter Property="Image.Height" Value="70"></Setter>
             <Setter Property="Image.Width" Value="250"></Setter>
@@ -49,6 +59,12 @@
             <Setter Property="RadioButton.Foreground" Value="Bisque"></Setter>
             <Setter Property="RadioButton.HorizontalAlignment" Value="Left"></Setter>
             <Setter Property="RadioButton.VerticalAlignment" Value="Center"></Setter>
+        </Style>
+        
+        <Style x:Key="TextBlockPageInfo">            
+            <Setter Property="TextBlock.FontSize" Value="13"></Setter>
+            <Setter Property="TextBlock.Foreground" Value="Bisque"></Setter>
+            <Setter Property="TextBlock.Margin" Value="5"></Setter>            
         </Style>
 
         <Style x:Key="TextBlockInputDataForNewOrder">

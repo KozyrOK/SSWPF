@@ -19,15 +19,7 @@ namespace SSWPF.View
         {
             Price forId = new Price(); 
             int id = forId.LastPriceId();            
-            if (id > 0)
-            {                
-                currentPrice = new Price(id);
-            }
-            else
-            {
-                currentPrice = new Price();
-                currentPrice.AddFirstPriceDB();
-            }
+            currentPrice = new Price(id);            
             PagePricelistGrid.DataContext = currentPrice;
         }
 

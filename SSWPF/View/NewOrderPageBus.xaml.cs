@@ -32,13 +32,9 @@ namespace SSWPF.View
 
         private decimal CalculateCostOrder(BusCarService s, BusCarCondition c)
         {
-            Price p = new Price();
-            p.LastPriceId();
-            if (p.PriceId > 0)
-            {
-                int id = p.PriceId;
-                p = new Price(id);
-            }
+            Price forId = new Price();
+            int id = forId.LastPriceId();
+            Price p = new Price(id);
 
             decimal cost = 0;
             if (s.CarBody)
