@@ -17,30 +17,15 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-       
-        <Button x:Name="New_order_Button" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Width="250" Height="70" FontSize="25" Grid.Row="0" Grid.Column="0" Cursor="Hand" 
-                Click="New_order_Button_Click">New order</Button>
-        <Button x:Name="Edit_order_Button" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Width="250" Height="70" FontSize="25" Grid.Row="1" Grid.Column="0" Cursor="Hand" 
-                Click="Edit_order_Button_Click">Edit order</Button>
-        <Button x:Name="Actual_orders_Button" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Width="250" Height="70" FontSize="25" Grid.Row="2" Grid.Column="0" Cursor="Hand" 
-                Click="Actual_orders_Button_Click">Actual orders</Button>
-        <Button x:Name="Done_orders_Button" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Width="250" Height="70" FontSize="25" Grid.Row="3" Grid.Column="0" Cursor="Hand" 
-                Click="Done_orders_Button_Click">Done orders</Button>
-        <Image x:Name="New_order_Image" Source="/Image/New_order.png" 
-               HorizontalAlignment="Center" VerticalAlignment="Center" 
-               Height="100" Width="100"  Grid.Row="0" Grid.Column="1"/>
-        <Image x:Name="Edit_order_Image" Source="/Image/edit.png" 
-               HorizontalAlignment="Center" VerticalAlignment="Center" 
-               Height="100" Width="100"  Grid.Row="1" Grid.Column="1"/>
-        <Image x:Name="Actual_orders_Image" Source="/Image/Actual_orders.png" 
-               HorizontalAlignment="Center" VerticalAlignment="Center" 
-               Height="100" Width="100"  Grid.Row="2" Grid.Column="1"/>
-        <Image x:Name="Done_orders_Image" Source="/Image/Done_orders.png" 
-               HorizontalAlignment="Center" VerticalAlignment="Center" 
-               Height="100" Width="100"  Grid.Row="3" Grid.Column="1"/>
+
+        <Button x:Name="New_order_Button" Grid.Row="0" Grid.Column="0" Click="New_order_Button_Click" Style="{StaticResource MainNenuButton}">New order</Button>
+        <Button x:Name="Edit_order_Button" Grid.Row="1" Grid.Column="0" Click="Edit_order_Button_Click" Style="{StaticResource MainNenuButton}">Edit order</Button>
+        <Button x:Name="Actual_orders_Button" Grid.Row="2" Grid.Column="0" Click="Actual_orders_Button_Click" Style="{StaticResource MainNenuButton}">Actual orders</Button>
+        <Button x:Name="Done_orders_Button" Grid.Row="3" Grid.Column="0" Click="Done_orders_Button_Click" Style="{StaticResource MainNenuButton}">Done orders</Button>
+
+        <Image x:Name="New_order_Image" Source="/Image/New_order.png" Grid.Row="0" Grid.Column="1" Style="{StaticResource MainNenuImage}"/>
+        <Image x:Name="Edit_order_Image" Source="/Image/edit.png" Grid.Row="1" Grid.Column="1" Style="{StaticResource MainNenuImage}"/>
+        <Image x:Name="Actual_orders_Image" Source="/Image/Actual_orders.png" Grid.Row="2" Grid.Column="1" Style="{StaticResource MainNenuImage}"/>
+        <Image x:Name="Done_orders_Image" Source="/Image/Done_orders.png" Grid.Row="3" Grid.Column="1" Style="{StaticResource MainNenuImage}"/>
     </Grid>
 </Page>

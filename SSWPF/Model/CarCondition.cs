@@ -3,35 +3,25 @@ using System.Runtime.CompilerServices;
 
 namespace SSWPF.Model
 {
-    public class Car : INotifyPropertyChanged
-    {        
+    abstract class CarCondition : INotifyPropertyChanged
+    {
         public string _modelCar;
-        public string _numberCar;         
+        public string _numberCar;
         public int _carBody;
         public int _carWheels;
-        public int _carEngine; 
+        public int _carEngine;
         public int _carBrakes;
-        public int _carUndercarriage;         
-        public int _busSalon; 
-        public int _busHandsrails; 
-        public int _busUpholstery; 
-        public int _pasCarwheelBalancing;
-        public int _truckHydraulics;
-        
-        public Car()
+        public int _carUndercarriage;
+
+        public CarCondition()
         {
             _modelCar = "Default";
             _numberCar = "Default";
-            _carBody = 0;
-            _carWheels = 0;
-            _carEngine = 0;
-            _carBrakes = 0;
-            _carUndercarriage = 0;
-            _busSalon = 0;
-            _busHandsrails = 0;
-            _busUpholstery = 0;
-            _pasCarwheelBalancing = 0;
-            _truckHydraulics = 0;
+            _carBody = 100;
+            _carWheels = 100;
+            _carEngine = 100;
+            _carBrakes = 100;
+            _carUndercarriage = 100;           
         }
 
         public string ModelCar
@@ -43,6 +33,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("ModelCar");
             }
         }
+
         public string NumberCar
         {
             get { return _numberCar; }
@@ -52,6 +43,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("NumberCar");
             }
         }
+
         public int CarBody
         {
             get { return _carBody; }
@@ -61,6 +53,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("CarBody");
             }
         }
+
         public int CarWheels
         {
             get { return _carWheels; }
@@ -70,6 +63,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("CarWheels");
             }
         }
+
         public int CarEngine
         {
             get { return _carEngine; }
@@ -79,6 +73,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("CarEngine");
             }
         }
+
         public int CarBrakes
         {
             get { return _carBrakes; }
@@ -88,6 +83,7 @@ namespace SSWPF.Model
                 OnPropertyChanged("CarBrakes");
             }
         }
+
         public int CarUndercarriage
         {
             get { return _carUndercarriage; }
@@ -97,56 +93,13 @@ namespace SSWPF.Model
                 OnPropertyChanged("CarUndercarriage");
             }
         }
-        public int BusSalon
-        {
-            get { return _busSalon; }
-            set
-            {
-                _busSalon = value;
-                OnPropertyChanged("BusSalon");
-            }
-        }
-        public int BusHandsrails
-        {
-            get { return _busHandsrails; }
-            set
-            {
-                _busHandsrails = value;
-                OnPropertyChanged("BusHandsrails");
-            }
-        }
-        public int BusUpholstery
-        {
-            get { return _busUpholstery; }
-            set
-            {
-                _busUpholstery = value;
-                OnPropertyChanged("BusUpholstery");
-            }
-        }
-        public int PasCarwheelBalancing
-        {
-            get { return _pasCarwheelBalancing; }
-            set
-            {
-                _pasCarwheelBalancing = value;
-                OnPropertyChanged("PasCarwheelBalancing");
-            }
-        }
-        public int TruckHydraulics
-        {
-            get { return _truckHydraulics; }
-            set
-            {
-                _truckHydraulics = value;
-                OnPropertyChanged("TruckHydraulics");
-            }
-        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
+
+        public abstract int TotalCondition();
     }
 }

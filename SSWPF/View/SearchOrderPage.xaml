@@ -19,25 +19,14 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Foreground="Bisque" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2">
-            Edit order
-        </TextBlock>
-        <Image x:Name="New_order_Image1" Source="/Image/edit.png" 
-               HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0"  Grid.ColumnSpan="2"/>
-        <Image x:Name="New_order_Image2" Source="/Image/edit.png" 
-               HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2"/>
+        <TextBlock Foreground="Bisque" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2">Edit order</TextBlock>
+        <Image x:Name="New_order_Image1" Source="/Image/edit.png" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0"  Grid.ColumnSpan="2"/>
+        <Image x:Name="New_order_Image2" Source="/Image/edit.png" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2"/>
 
-        <TextBlock Grid.Row="1" Grid.Column="0" Margin="5" FontSize="27" Foreground="Bisque" 
-                     HorizontalAlignment="Center" VerticalAlignment="Center">Please, input order Id</TextBlock>
-        <TextBox Name ="InputOrderIdButton" Grid.Row="1" Grid.Column="2" TextAlignment="Center"                     
-                   Height="25" Width="100" Margin="5" FontSize="20" Foreground="Black" 
-                   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
-        
-        <Button Margin="35" Height="30" Width="200" FontSize="20" Background="Red" 
-                Cursor="Hand" VerticalAlignment="Center" HorizontalAlignment="Center" 
-                Grid.Row="3" Grid.Column="0" Click="Button_Click_Cancel_SearchOrderPage">Cancel</Button>
-        <Button Margin="35" Height="30" Width="200" FontSize="20" Background="#FF18FF00" 
-                Cursor="Hand" VerticalAlignment="Center" HorizontalAlignment="Center" 
-                Grid.Row="3" Grid.Column="1" Click="Button_Click_OK_SearchOrderPage">OK</Button>        
+        <TextBlock Grid.Row="1" Grid.Column="0" Margin="5" FontSize="27" Foreground="Bisque" HorizontalAlignment="Center" VerticalAlignment="Center">Please, input order Id</TextBlock>
+        <TextBox Name ="InputOrderIdButton" Grid.Row="1" Grid.Column="2" Style="{StaticResource TextBoxMiddle}"></TextBox>
+
+        <Button Grid.Row="3" Grid.Column="0" Click="Button_Click_Cancel_SearchOrderPage" Style="{StaticResource RedButtonBack}">Cancel</Button>
+        <Button Grid.Row="3" Grid.Column="1" Click="Button_Click_OK_SearchOrderPage" Style="{StaticResource GreenButtonSubmit}">OK</Button>        
     </Grid>     
 </Page>

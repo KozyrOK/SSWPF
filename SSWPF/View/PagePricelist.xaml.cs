@@ -7,15 +7,21 @@ namespace SSWPF.View
     
     public partial class PagePricelist : Page
     {
-        Price currentPrice = new Price();
-        
+        Price currentPrice;
+
         public PagePricelist()
         {            
             InitializeComponent();
-            Price.GetCurrentValuePrice(currentPrice);
+            Loaded += PagePricelist_Loaded;            
+        }
+
+        private void PagePricelist_Loaded(object sender, RoutedEventArgs e)
+        {
+            Price forId = new Price(); 
+            int id = forId.LastPriceId();            
+            currentPrice = new Price(id);            
             PagePricelistGrid.DataContext = currentPrice;
         }
-               
 
         private void Button_Click_Back_Pricelist(object sender, RoutedEventArgs e)
         {
@@ -28,6 +34,6 @@ namespace SSWPF.View
         private void Button_Click_Edit_Pricelist(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new EditPricelist(currentPrice));
-        }                
+        }
     }
 }

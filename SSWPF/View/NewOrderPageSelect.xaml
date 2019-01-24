@@ -2,50 +2,36 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:SSWPF.View"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"       
       mc:Ignorable="d" 
       d:DesignHeight="460" d:DesignWidth="800"
       Title="NewOrderPageSelect">
 
     <Grid>
         <Grid.RowDefinitions>            
-            <RowDefinition Height="0.1*" ></RowDefinition>
+            <RowDefinition Height="0.5*" ></RowDefinition>
+            <RowDefinition Height="*" ></RowDefinition>
+            <RowDefinition Height="2.5*" ></RowDefinition>
             <RowDefinition Height="*" ></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource TextBlockInputDataForNewOrder}"></TextBlock>
+        <Image x:Name="New_order_Image1" Source="/Image/New_order.png" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"/>
+        <Image x:Name="New_order_Image2" Source="/Image/New_order.png" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1"/>
 
-        <TextBlock Foreground="Bisque" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2">
-            Input data for new order
-        </TextBlock>
-        <Image x:Name="New_order_Image1" Source="/Image/New_order.png" 
-               HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0"/>
-        <Image x:Name="New_order_Image2" Source="/Image/New_order.png" 
-               HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0"/>
-
-        <TextBlock Margin="35" Foreground="Bisque" FontSize="22" 
-                   VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="1">
-            Please, select type car:
-        </TextBlock>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" 
-                    Grid.Row="2" Grid.ColumnSpan="2" Background="#FF2C4679" 
-                    MinWidth="300" MinHeight="100">
-            <RadioButton Name="Passenger_car_RadioButton" Margin="5" 
-                         VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Bisque" 
-                         FontSize="22" IsChecked="True" Cursor="Hand">Passenger car</RadioButton>
-            <RadioButton Name="Truck_RadioButton" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left" 
-                         Foreground="Bisque" FontSize="22" Cursor="Hand">Truck</RadioButton>
-            <RadioButton Name="Bus_RadioButton" Margin="5" 
-                         VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Bisque" 
-                         FontSize="22" Cursor="Hand">Bus</RadioButton>
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Margin="30" Foreground="Bisque" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Center" >Please, select type car:</TextBlock>        
+        
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"  Background="#FF2C4679" MinWidth="300" MinHeight="100">
+            <RadioButton Name="Passenger_car_RadioButton" IsChecked="True" Style="{StaticResource RadioButtonPageSelect}">Passenger car</RadioButton>
+            <RadioButton Name="Truck_RadioButton" Style="{StaticResource RadioButtonPageSelect}">Truck</RadioButton>
+            <RadioButton Name="Bus_RadioButton" Style="{StaticResource RadioButtonPageSelect}">Bus</RadioButton>
         </StackPanel>
-        <Button Margin="35" Height="30" Width="200" FontSize="20" Background="Red" 
-                Cursor="Hand" VerticalAlignment="Bottom" HorizontalAlignment="Left" 
-                Grid.Row="3" Grid.Column="0" Click="Button_Click_Cancel_NewOrderPage">Cancel</Button>
-        <Button Margin="35" Height="30" Width="200" FontSize="20" Background="#FF18FF00" 
-                Cursor="Hand" VerticalAlignment="Bottom" HorizontalAlignment="Right" 
-                Grid.Row="3" Grid.Column="1" Click="Button_Click_Ok_NewOrderPage">OK</Button>
+
+        <Button Grid.Row="3" Grid.Column="0" Click="Button_Click_Cancel_NewOrderPage" Style="{StaticResource RedButtonBack}">Cancel</Button>
+        <Button Grid.Row="3" Grid.Column="1" Click="Button_Click_Ok_NewOrderPage" Style="{StaticResource GreenButtonSubmit}">OK</Button>
     </Grid>
 </Page>

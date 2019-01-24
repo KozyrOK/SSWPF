@@ -25,72 +25,36 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Foreground="Bisque" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2">
-            Edit order
-        </TextBlock>
-        <Image x:Name="New_order_Image1" Source="/Image/edit.png" 
-               HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0"  Grid.ColumnSpan="2"/>
-        <Image x:Name="New_order_Image2" Source="/Image/edit.png" 
-               HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2"/>
+        <TextBlock Foreground="Bisque" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2">Edit order</TextBlock>
+        <Image x:Name="New_order_Image1" Source="/Image/edit.png" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0"  Grid.ColumnSpan="2"/>
+        <Image x:Name="New_order_Image2" Source="/Image/edit.png" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2"/>
 
-        <TextBlock Grid.Row="1" Grid.Column="0" Margin="10" FontSize="20" Foreground="Bisque" 
-                     HorizontalAlignment="Left" VerticalAlignment="Center">Order Id</TextBlock>
-        <TextBox Grid.Row="1" Grid.Column="2" TextAlignment="Center" 
-                   Text="{Binding Path=OrderId, Mode=TwoWay}"  
-                   Height="25" Width="100" Margin="5" FontSize="18" Foreground="Black" 
-                   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+        <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Order Id</TextBlock>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=OrderId, Mode=TwoWay}" Style="{StaticResource TextBoxBig}"></TextBox>
 
-        <TextBlock Grid.Row="2" Grid.Column="0" Margin="10" FontSize="20" Foreground="Bisque" 
-                     HorizontalAlignment="Left" VerticalAlignment="Center">Order Data</TextBlock>
-        <TextBox Grid.Row="2" Grid.Column="2" TextAlignment="Center" 
-                   Text="{Binding Path=DateTimeOrder, Mode=TwoWay}"  
-                   Height="25" Width="100" Margin="5" FontSize="18" Foreground="Black" 
-                   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+        <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Order Data</TextBlock>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=DateTimeOrder, Mode=TwoWay}" Style="{StaticResource TextBoxBig}"></TextBox>
 
-        <TextBlock Grid.Row="3" Grid.Column="0" Margin="10" FontSize="20" Foreground="Bisque" 
-                     HorizontalAlignment="Left" VerticalAlignment="Center">Car Model</TextBlock>
-        <TextBox Grid.Row="3" Grid.Column="2" TextAlignment="Center" 
-                   Text="{Binding Path=ModelCar, Mode=TwoWay}"  
-                   Height="25" Width="100" Margin="5" FontSize="18" Foreground="Black" 
-                   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+        <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Car Model</TextBlock>
+        <TextBox Grid.Row="3" Grid.Column="1" TextAlignment="Center" Text="{Binding Path=ModelCar, Mode=TwoWay}" Style="{StaticResource TextBoxBig}"></TextBox>
 
-        <TextBlock Grid.Row="4" Grid.Column="0" Margin="10" FontSize="20" Foreground="Bisque" 
-                     HorizontalAlignment="Left" VerticalAlignment="Center">Car Number</TextBlock>
-        <TextBox Grid.Row="4" Grid.Column="2" TextAlignment="Center" 
-                   Text="{Binding Path=NumberCar, Mode=TwoWay}"  
-                   Height="25" Width="100" Margin="5" FontSize="18" Foreground="Black" 
-                   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+        <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Car Number</TextBlock>
+        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path=NumberCar, Mode=TwoWay}" Style="{StaticResource TextBoxBig}"></TextBox>
 
-        <TextBlock Grid.Row="5" Grid.Column="0" Margin="10" FontSize="20" Foreground="Bisque" 
-                     HorizontalAlignment="Left" VerticalAlignment="Center">State Order</TextBlock>
-        <ComboBox Grid.Row="5" Grid.Column="2"  
-                   Text="{Binding Path=StateOrder, Mode=TwoWay}"  
-                   Height="25" Width="100" Margin="5" FontSize="16" Foreground="Black" 
-                   HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource TextBlockСaption}">State Order</TextBlock>
+        <ComboBox Grid.Row="5" Grid.Column="2" Text="{Binding Path=StateOrder, Mode=TwoWay}" Height="25" Width="100" Margin="5" FontSize="16" 
+                  Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center">
             <ComboBoxItem Content="actual"></ComboBoxItem>
             <ComboBoxItem Content="done"></ComboBoxItem>
-        </ComboBox>           
+        </ComboBox>
 
-        <TextBlock Grid.Row="6" Grid.Column="0" Margin="10" FontSize="20" Foreground="Bisque" 
-                     HorizontalAlignment="Left" VerticalAlignment="Center">Cost Order</TextBlock>
-        <TextBox Grid.Row="6" Grid.Column="2" TextAlignment="Center" 
-                   Text="{Binding Path=CostOrder, Mode=TwoWay}"  
-                   Height="25" Width="100" Margin="5" FontSize="18" Foreground="Black" 
-                   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+        <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Cost Order</TextBlock>
+        <TextBox Grid.Row="6" Grid.Column="2" Text="{Binding Path=CostOrder, Mode=TwoWay}" Style="{StaticResource TextBoxBig}" ></TextBox>
 
-        <TextBlock Grid.Row="7" Grid.Column="0" Margin="10" FontSize="20" Foreground="Bisque" 
-                     HorizontalAlignment="Left" VerticalAlignment="Center">Order Paid</TextBlock>
-        <TextBox Grid.Row="7" Grid.Column="2" TextAlignment="Center" 
-                   Text="{Binding Path=OrderPaid, Mode=TwoWay}"   
-                   Height="25" Width="100" Margin="5" FontSize="18" Foreground="Black" 
-                   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+        <TextBlock Grid.Row="7" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Order Paid</TextBlock>
+        <TextBox Grid.Row="7" Grid.Column="2" Text="{Binding Path=OrderPaid, Mode=TwoWay}" Style="{StaticResource TextBoxBig}"></TextBox>
 
-        <Button Margin="5" Height="30" Width="200" FontSize="20" Background="Red" 
-                Cursor="Hand" VerticalAlignment="Center" HorizontalAlignment="Center" 
-                Grid.Row="8" Grid.Column="0" Click="Button_Click_Back_EditOrderPage">Back</Button>
-        <Button Margin="5" Height="30" Width="200" FontSize="20" Background="#FF18FF00" 
-                Cursor="Hand" VerticalAlignment="Center" HorizontalAlignment="Center" 
-                Grid.Row="8" Grid.Column="1" Click="Button_Click_OK_EditOrderPage">Save</Button>
-
+        <Button Grid.Row="8" Grid.Column="0" Click="Button_Click_Back_EditOrderPage" Style="{StaticResource RedButtonBack}"></Button>
+        <Button Grid.Row="8" Grid.Column="1" Click="Button_Click_OK_EditOrderPage" Style="{StaticResource GreenButtonSubmit}">Edit</Button>
     </Grid>
 </Page>
