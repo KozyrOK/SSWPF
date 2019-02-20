@@ -32,42 +32,42 @@
         <Image x:Name="New_order_Image2" Source="/Image/New_order.png" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 
         <TextBlock  Grid.Row="1" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Car Model</TextBlock>
-        <TextBox Name="NewOrderPageTruckTextBoxCarModel" Grid.Row="1" Grid.ColumnSpan="3" Style="{StaticResource TextBoxBig}"></TextBox>
+        <TextBox Name="NewOrderPageTruckTextBoxCarModel" Grid.Row="1" Grid.ColumnSpan="3" Text="{Binding Path=ModelCar, Mode=OneWay}" Style="{StaticResource TextBoxBig}"></TextBox>
 
         <TextBlock  Grid.Row="2" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Car Number</TextBlock>
-        <TextBox Name="NewOrderPageTruckTextBoxCarNumber" Grid.Row="2" Grid.ColumnSpan="3" Style="{StaticResource TextBoxBig}"></TextBox>
+        <TextBox Name="NewOrderPageTruckTextBoxCarNumber" Grid.Row="2" Grid.ColumnSpan="3" Text="{Binding Path=NumberCar, Mode=OneWay}" Style="{StaticResource TextBoxBig}"></TextBox>
 
         <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource TextBlockParameterSelection}"></TextBlock>
         <TextBlock Grid.Row="3" Grid.Column="2" Style="{StaticResource TextBlockDetailCondition}"></TextBlock>
 
         <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Car body</TextBlock>
-        <CheckBox Name="CarBodyCheckBox" Grid.Row="4" Grid.Column="1" Style="{StaticResource NewOrderCheckBox}"></CheckBox>
-        <Slider Grid.Row="4" Grid.Column="2" Name="SliderCarNumber" Value="{Binding Path=CarBody, Mode=TwoWay}" Style="{StaticResource NewOrderSlider}"></Slider>
+        <CheckBox Name="CarBodyCheckBox" Grid.Row="4" Grid.Column="1" IsChecked="{Binding Path=CarBodyIsService}" Style="{StaticResource NewOrderCheckBox}"></CheckBox>
+        <Slider Grid.Row="4" Grid.Column="2" Name="SliderCarNumber" Value="{Binding Path=CarBodyCondition, Mode=TwoWay}" Style="{StaticResource NewOrderSlider}"></Slider>
         <TextBlock Grid.Row="4" Grid.Column="2" Text="{Binding ElementName=SliderCarNumber, Path=Value}" Style="{StaticResource TextBlockNewOrderSlider}"></TextBlock>
 
         <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Car wheels</TextBlock>
-        <CheckBox Name="CarWheelsCheckBox" Grid.Row="5" Grid.Column="1" Style="{StaticResource NewOrderCheckBox}"></CheckBox>
-        <Slider Grid.Row="5" Grid.Column="2" Name="SliderCarWheels" Value="{Binding Path=CarWheels, Mode=TwoWay}" Style="{StaticResource NewOrderSlider}"></Slider>
+        <CheckBox Name="CarWheelsCheckBox" Grid.Row="5" Grid.Column="1" IsChecked="{Binding Path=CarWheelsIsService}" Style="{StaticResource NewOrderCheckBox}"></CheckBox>
+        <Slider Grid.Row="5" Grid.Column="2" Name="SliderCarWheels" Value="{Binding Path=CarWheelsCondition, Mode=TwoWay}" Style="{StaticResource NewOrderSlider}"></Slider>
         <TextBlock Grid.Row="5" Grid.Column="2" Text="{Binding ElementName=SliderCarWheels, Path=Value}" Style="{StaticResource TextBlockNewOrderSlider}"></TextBlock>
 
         <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Car engine</TextBlock>
-        <CheckBox Name="CarEngineCheckBox" Grid.Row="6" Grid.Column="1" Style="{StaticResource NewOrderCheckBox}"></CheckBox>
-        <Slider Grid.Row="6" Grid.Column="2" Name="SliderCarEngine" Value="{Binding Path=CarEngine, Mode=TwoWay}" Style="{StaticResource NewOrderSlider}"></Slider>
+        <CheckBox Name="CarEngineCheckBox" Grid.Row="6" Grid.Column="1" IsChecked="{Binding Path=CarEngineIsService}" Style="{StaticResource NewOrderCheckBox}"></CheckBox>
+        <Slider Grid.Row="6" Grid.Column="2" Name="SliderCarEngine" Value="{Binding Path=CarEngineCondition, Mode=TwoWay}" Style="{StaticResource NewOrderSlider}"></Slider>
         <TextBlock Grid.Row="6" Grid.Column="2" Text="{Binding ElementName=SliderCarEngine, Path=Value}" Style="{StaticResource TextBlockNewOrderSlider}"></TextBlock>
 
         <TextBlock Grid.Row="7" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Car brakes</TextBlock>
-        <CheckBox Name="CarBrakesCheckBox" Grid.Row="7" Grid.Column="1" Style="{StaticResource NewOrderCheckBox}"></CheckBox>
-        <Slider Grid.Row="7" Grid.Column="2" Name="SliderCarBrakes" Value="{Binding Path=CarBrakes, Mode=TwoWay}" Style="{StaticResource NewOrderSlider}"></Slider>
+        <CheckBox Name="CarBrakesCheckBox" Grid.Row="7" Grid.Column="1" IsChecked="{Binding Path=CarBrakesIsService}" Style="{StaticResource NewOrderCheckBox}"></CheckBox>
+        <Slider Grid.Row="7" Grid.Column="2" Name="SliderCarBrakes" Value="{Binding Path=CarBrakesCondition, Mode=TwoWay}" Style="{StaticResource NewOrderSlider}"></Slider>
         <TextBlock Grid.Row="7" Grid.Column="2" Text="{Binding ElementName=SliderCarBrakes, Path=Value}" Style="{StaticResource TextBlockNewOrderSlider}"></TextBlock>
 
         <TextBlock Grid.Row="8" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Car undercarriage</TextBlock>
-        <CheckBox Name="CarUndercarriageCheckBox" Grid.Row="8" Grid.Column="1" Style="{StaticResource NewOrderCheckBox}"></CheckBox>
-        <Slider Grid.Row="8" Grid.Column="2" Name="SliderCarUndercarriage" Value="{Binding Path=CarUndercarriage, Mode=TwoWay}" Style="{StaticResource NewOrderSlider}"></Slider>
+        <CheckBox Name="CarUndercarriageCheckBox" Grid.Row="8" Grid.Column="1" IsChecked="{Binding Path=CarUndercarriageIsService}" Style="{StaticResource NewOrderCheckBox}"></CheckBox>
+        <Slider Grid.Row="8" Grid.Column="2" Name="SliderCarUndercarriage" Value="{Binding Path=CarUndercarriageCondition, Mode=TwoWay}" Style="{StaticResource NewOrderSlider}"></Slider>
         <TextBlock Grid.Row="8" Grid.Column="2" Text="{Binding ElementName=SliderCarUndercarriage, Path=Value}" Style="{StaticResource TextBlockNewOrderSlider}"></TextBlock>
 
         <TextBlock Grid.Row="9" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Truck hydraulics</TextBlock>
-        <CheckBox Name="TruckHydraulicsCheckBox" Grid.Row="9" Grid.Column="1" Style="{StaticResource NewOrderCheckBox}"></CheckBox>
-        <Slider Grid.Row="9" Grid.Column="2" Name="SliderTruckHydraulics" Value="{Binding Path=TruckHydraulics, Mode=TwoWay}" Style="{StaticResource NewOrderSlider}"></Slider>
+        <CheckBox Name="TruckHydraulicsCheckBox" Grid.Row="9" Grid.Column="1" IsChecked="{Binding Path=TruckHydraulicsIsService}"  Style="{StaticResource NewOrderCheckBox}"></CheckBox>
+        <Slider Grid.Row="9" Grid.Column="2" Name="SliderTruckHydraulics" Value="{Binding Path=TruckHydraulicsCondition, Mode=TwoWay}" Style="{StaticResource NewOrderSlider}"></Slider>
         <TextBlock Grid.Row="9" Grid.Column="2" Text="{Binding ElementName=SliderTruckHydraulics, Path=Value}" Style="{StaticResource TextBlockNewOrderSlider}"></TextBlock>
 
         <Button Grid.Row="10" Grid.Column="0" Click="Button_Click_Back_NewOrderPage" Style="{StaticResource RedButtonBack}"></Button>

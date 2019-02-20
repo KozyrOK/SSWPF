@@ -25,9 +25,9 @@ namespace SSWPF.View
 
             if (success)
             {                
-                Order o = new Order(id);          
+                OrderDB o = new OrderDB(id);          
 
-                if (o.OrderId != null)
+                if (o.OrderDBId != null)
                     NavigationService.Navigate(new EditOrderPage(o));
                 else
                     NavigationService.GoBack();

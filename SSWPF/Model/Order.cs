@@ -1,54 +1,35 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using Telerik.Windows.Data;
 
 namespace SSWPF.Model
 {
-    public class Order : INotifyPropertyChanged
+    public enum StateOrder
     {
-        public int? OrderId { get; set; }
-        public DateTime _dateTimeOrder;
-        public string _modelCar;
-        public string _numberCar;
-        public string _stateOrder;
-        public decimal _costOrder;
-        public decimal _orderPaid;
-        public int _conditionCar;
+        Actual = 0,
+        Done = 1
+    }
 
-        static readonly object locker = new object();
+    public class Order : INotifyPropertyChanged
+    {        
+        protected DateTime _dateTimeOrder;
+        protected string _modelCar;
+        protected string _numberCar;
+        protected StateOrder _stateOrder;
+        protected decimal _costOrder;
+        protected decimal _orderPaid;
+        protected int _conditionCar;        
 
         public Order()
-        {
-            OrderId = null;
+        {            
             _dateTimeOrder = DateTime.Now;
             _modelCar = null;
             _numberCar = null;
-            _stateOrder ="actual";
+            _stateOrder = 0;
             _costOrder = 0;
             _orderPaid = 0;
             _conditionCar = 0;
-        }
-
-        public Order(int id)
-        {
-            using (SSWPFContext ordersContext = new SSWPFContext())
-            {
-                var or = ordersContext.Orders.Find(id);
-                if (or != null)
-                {
-                    OrderId = or.OrderId;
-                    _dateTimeOrder = or.DateTimeOrder;
-                    _modelCar = or.ModelCar;
-                    _numberCar = or.NumberCar;
-                    _stateOrder = or.StateOrder;
-                    _costOrder = or.CostOrder;
-                    _orderPaid = or.OrderPaid;
-                    _conditionCar = or.ConditionCar;
-                }
-            }
-        }
+        }        
 
         public DateTime DateTimeOrder
         {
@@ -80,7 +61,7 @@ namespace SSWPF.Model
             }
         }
 
-        public string StateOrder
+        public StateOrder StateOrder
         {
             get { return _stateOrder; }
             set
@@ -125,50 +106,6 @@ namespace SSWPF.Model
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
-        
-        public void AddNewOrder()
-        {
-            using (SSWPFContext ordersContext = new SSWPFContext())
-            {
-                ordersContext.Orders.Add(this);
-                ordersContext.SaveChanges();
-            }
-        }
-
-        public void LastOrderId() 
-        {
-            lock (locker)
-            {
-
-                using (SSWPFContext ordersContext = new SSWPFContext())
-                {
-                    int id = ordersContext.Orders.Count();
-                    OrderId = id;
-                }
-            }
-        }
-        
-        public void EditOrderInBase()
-        {
-            lock (locker)
-            {
-                var id = OrderId;
-                using (SSWPFContext ordersContext = new SSWPFContext())
-                {
-                    Order newOrder = ordersContext.Orders.Find(id);
-
-                    newOrder.OrderId = OrderId;
-                    newOrder.DateTimeOrder = DateTimeOrder;
-                    newOrder.ModelCar = ModelCar;
-                    newOrder.NumberCar = NumberCar;
-                    newOrder.StateOrder = StateOrder;
-                    newOrder.CostOrder = CostOrder;
-                    newOrder.OrderPaid = OrderPaid;
-                    newOrder.ConditionCar = ConditionCar;
-
-                    ordersContext.SaveChanges();
-                }
-            }
-        }        
+                
     }
 }

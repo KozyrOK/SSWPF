@@ -8,7 +8,7 @@ namespace SSWPF
     public MainWindow()
         {
             InitializeComponent();
-            this.Loaded += MainWindow_Loaded;                                   
+            Loaded += MainWindow_Loaded;                                   
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)

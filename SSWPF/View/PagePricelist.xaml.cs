@@ -7,7 +7,7 @@ namespace SSWPF.View
     
     public partial class PagePricelist : Page
     {
-        Price currentPrice;
+        PriceDB currentPrice;
 
         public PagePricelist()
         {            
@@ -17,9 +17,9 @@ namespace SSWPF.View
 
         private void PagePricelist_Loaded(object sender, RoutedEventArgs e)
         {
-            Price forId = new Price(); 
+            PriceDB forId = new PriceDB(); 
             int id = forId.LastPriceId();            
-            currentPrice = new Price(id);            
+            currentPrice = new PriceDB(id);            
             PagePricelistGrid.DataContext = currentPrice;
         }
 

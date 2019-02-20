@@ -6,7 +6,7 @@ namespace SSWPF.Model
     {
         static SSWPFContext() { Database.SetInitializer<SSWPFContext>(new ContextInitializer()); }
 
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<Price> Prices { get; set; }
+        public DbSet<OrderDB> Orders { get; set; }
+        public DbSet<PriceDB> Prices { get; set; }
     }
 }

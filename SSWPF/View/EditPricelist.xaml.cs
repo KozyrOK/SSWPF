@@ -6,9 +6,9 @@ namespace SSWPF.View
 {
     public partial class EditPricelist : Page
     {
-        Price newP = new Price();        
+        PriceDB newP = new PriceDB();        
 
-        public EditPricelist(Price currentPrice)
+        public EditPricelist(PriceDB currentPrice)
         {
             InitializeComponent();
             newP = currentPrice;
