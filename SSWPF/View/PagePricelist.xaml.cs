@@ -3,11 +3,10 @@ using System.Windows.Controls;
 using SSWPF.Model;
 
 namespace SSWPF.View
-{
-    
+{    
     public partial class PagePricelist : Page
     {
-        Price currentPrice;
+        public Price currentPrice;
 
         public PagePricelist()
         {            
@@ -17,9 +16,8 @@ namespace SSWPF.View
 
         private void PagePricelist_Loaded(object sender, RoutedEventArgs e)
         {
-            Price forId = new Price(); 
-            int id = forId.LastPriceId();            
-            currentPrice = new Price(id);            
+            Price price = new Price(1);
+            currentPrice = price;
             PagePricelistGrid.DataContext = currentPrice;
         }
 

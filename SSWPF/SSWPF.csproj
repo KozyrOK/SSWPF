@@ -26,7 +26,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>1</ApplicationRevision>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -108,17 +109,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\ActualOrDoneOrders.cs" />
-    <Compile Include="Model\BusCarCondition.cs" />
-    <Compile Include="Model\BusCarService.cs" />
-    <Compile Include="Model\CarCondition.cs" />
-    <Compile Include="Model\CarService.cs" />
+    <Compile Include="Model\Order.cs" />
+    <Compile Include="Model\BusCarServiceStation.cs" />
+    <Compile Include="Model\Car.cs" />
+    <Compile Include="Model\CarServiceStation.cs" />
     <Compile Include="Model\ContextInitializer.cs" />
-    <Compile Include="Model\PasCarCondition.cs" />
-    <Compile Include="Model\PasCarService.cs" />
+    <Compile Include="Model\PasCarServiceStation.cs" />
+    <Compile Include="Model\Price.cs" />
     <Compile Include="Model\SSWPFContext.cs" />
-    <Compile Include="Model\TruckCarCondition.cs" />
-    <Compile Include="Model\TruckCarService.cs" />
+    <Compile Include="Model\TruckCarServiceStation.cs" />
     <Compile Include="View\ActualOrdersPage.xaml.cs">
       <DependentUpon>ActualOrdersPage.xaml</DependentUpon>
     </Compile>
@@ -224,8 +223,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Order.cs" />
-    <Compile Include="Model\Price.cs" />
+    <Compile Include="Model\Orderlist.cs" />
+    <Compile Include="Model\Pricelist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -17,7 +17,7 @@ namespace SSWPF.View
 
         private void DoneOrdersPage_Loaded(object sender, RoutedEventArgs e)
         {
-            ActualOrDoneOrders order = new ActualOrDoneOrders();
+            Order order = new Order();
             doneOrders = order.GetDoneOrders();
             DataGridDoneOrders.ItemsSource = doneOrders;
         }

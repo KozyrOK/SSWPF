@@ -16,14 +16,14 @@ namespace SSWPF.View
             EditOrderPageGrid.DataContext = idOrder;            
         }       
 
-            private void Button_Click_Back_EditOrderPage(object sender, RoutedEventArgs e)
+        private void Button_Click_Back_EditOrderPage(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
         }
 
         private void Button_Click_OK_EditOrderPage(object sender, RoutedEventArgs e)
         {
-            idOrderEdit.EditOrderInBase();
+            idOrderEdit.EditOrder();
             NavigationService.Navigate(new MainPage());
         }
     }
