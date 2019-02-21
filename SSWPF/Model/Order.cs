@@ -1,111 +1,93 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using System.Linq;
 
 namespace SSWPF.Model
 {
-    public enum StateOrder
+    public class Order : Orderlist, INotifyPropertyChanged
     {
-        Actual = 0,
-        Done = 1
-    }
+        static readonly object locker = new object();
+        public int? OrderId { get; set; }
 
-    public class Order : INotifyPropertyChanged
-    {        
-        protected DateTime _dateTimeOrder;
-        protected string _modelCar;
-        protected string _numberCar;
-        protected StateOrder _stateOrder;
-        protected decimal _costOrder;
-        protected decimal _orderPaid;
-        protected int _conditionCar;        
+        public Order() { }
 
-        public Order()
-        {            
-            _dateTimeOrder = DateTime.Now;
-            _modelCar = null;
-            _numberCar = null;
-            _stateOrder = 0;
-            _costOrder = 0;
-            _orderPaid = 0;
-            _conditionCar = 0;
+        public Order(int id)
+        {
+            using (SSWPFContext ordersContext = new SSWPFContext())
+            {
+                var or = ordersContext.Orders.Find(id);
+                if (or != null)
+                {
+                    OrderId = or.OrderId;
+                    _dateTimeOrder = or.DateTimeOrder;
+                    _modelCar = or.ModelCar;
+                    _numberCar = or.NumberCar;
+                    _stateOrder = or.StateOrder;
+                    _costOrder = or.CostOrder;
+                    _orderPaid = or.OrderPaid;
+                    _conditionCar = or.ConditionCar;
+                }
+            }
+        }
+
+        public void AddNewOrder()
+        {
+            using (SSWPFContext ordersContext = new SSWPFContext())
+            {
+                ordersContext.Orders.Add(this);
+                ordersContext.SaveChanges();
+            }
+        }
+
+        public int GetLastOrderId()
+        {
+            lock (locker)
+            {
+                using (SSWPFContext ordersContext = new SSWPFContext())
+                {
+                    int id = ordersContext.Orders.Count();
+                    return id;
+                }
+            }
+        }
+
+        public void EditOrder()
+        {
+            lock (locker)
+            {
+                int? id = OrderId;
+                using (SSWPFContext ordersContext = new SSWPFContext())
+                {
+                    Order newOrder = ordersContext.Orders.Find(id);
+
+                    newOrder.OrderId = OrderId;
+                    newOrder.DateTimeOrder = DateTimeOrder;
+                    newOrder.ModelCar = ModelCar;
+                    newOrder.NumberCar = NumberCar;
+                    newOrder.StateOrder = StateOrder;
+                    newOrder.CostOrder = CostOrder;
+                    newOrder.OrderPaid = OrderPaid;
+                    newOrder.ConditionCar = ConditionCar;
+
+                    ordersContext.SaveChanges();
+                }
+            }
         }        
 
-        public DateTime DateTimeOrder
+        public List<Orderlist> GetActualOrders()
         {
-            get { return _dateTimeOrder; }
-            set
+            using (SSWPFContext context = new SSWPFContext())
             {
-                _dateTimeOrder = value;
-                OnPropertyChanged("DateOrder");
+                return context.Orders.Where(p => p.StateOrder == 0).OrderBy(p => p.OrderId).ToList<Orderlist>();
             }
         }
 
-        public string ModelCar
+        public List<Orderlist> GetDoneOrders()
         {
-            get { return _modelCar; }
-            set
+            using (SSWPFContext context = new SSWPFContext())
             {
-                _modelCar = value;
-                OnPropertyChanged("ModelCar");
+                return context.Orders.Where(p => p.StateOrder == (StateOrder)1).OrderBy(p => p.OrderId).ToList<Orderlist>();
             }
         }
-
-        public string NumberCar
-        {
-            get { return _numberCar; }
-            set
-            {
-                _numberCar = value;
-                OnPropertyChanged("NumberCar");
-            }
-        }
-
-        public StateOrder StateOrder
-        {
-            get { return _stateOrder; }
-            set
-            {
-                _stateOrder = value;
-                OnPropertyChanged("StateOrder");
-            }
-        } 
-        
-        public decimal CostOrder
-        {
-            get { return _costOrder; }
-            set
-            {
-                _costOrder = value;
-                OnPropertyChanged("CostOrder");
-            }
-        }
-
-        public decimal OrderPaid
-        {
-            get { return _orderPaid; }
-            set
-            {
-                _orderPaid = value;
-                OnPropertyChanged("OrderPaid");
-            }
-        }
-
-        public int ConditionCar
-        {
-            get { return _conditionCar; }
-            set
-            {
-                _conditionCar = value;
-                OnPropertyChanged("ConditionCar");
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
-                
     }
 }

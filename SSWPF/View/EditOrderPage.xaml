@@ -30,7 +30,7 @@
         <Image x:Name="New_order_Image2" Source="/Image/edit.png" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2"/>
 
         <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Order Id</TextBlock>
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=OrderDBId, Mode=TwoWay}" Style="{StaticResource TextBoxBig}"></TextBox>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=OrderId, Mode=TwoWay}" Style="{StaticResource TextBoxBig}"></TextBox>
 
         <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Order Data</TextBlock>
         <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=DateTimeOrder, Mode=TwoWay}" Style="{StaticResource TextBoxBig}"></TextBox>
@@ -44,8 +44,8 @@
         <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource TextBlockСaption}">State Order</TextBlock>
         <ComboBox Grid.Row="5" Grid.Column="2" Text="{Binding Path=StateOrder, Mode=TwoWay}" Height="25" Width="100" Margin="5" FontSize="16" 
                   Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <ComboBoxItem Content="actual"></ComboBoxItem>
-            <ComboBoxItem Content="done"></ComboBoxItem>
+            <ComboBoxItem Content="Actual"></ComboBoxItem>
+            <ComboBoxItem Content="Done"></ComboBoxItem>
         </ComboBox>
 
         <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Cost Order</TextBlock>

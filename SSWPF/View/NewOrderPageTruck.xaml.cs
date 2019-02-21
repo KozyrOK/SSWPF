@@ -9,7 +9,7 @@ namespace SSWPF.View
     public partial class NewOrderPageTruck : Page
     {       
         TruckCarServiceStation s = new TruckCarServiceStation();        
-        OrderDB o = new OrderDB();
+        Order o = new Order();
 
         public NewOrderPageTruck()
         {
@@ -25,8 +25,8 @@ namespace SSWPF.View
         private void Button_Click_Submit_NewOrderPageTruck(object sender, RoutedEventArgs e)
         {
             s.FillOrder(ref o);
-            o.AddNewOrderDB();
-            o.GetLastOrderIdDB();
+            o.AddNewOrder();
+            o.GetLastOrderId();
             NavigationService.Content = new PageOrderResult(o);
         }        
     }

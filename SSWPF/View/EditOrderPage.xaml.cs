@@ -7,9 +7,9 @@ namespace SSWPF.View
 {    
     public partial class EditOrderPage : Page
     {
-        OrderDB idOrderEdit = new OrderDB();
+        Order idOrderEdit = new Order();
 
-        public EditOrderPage(OrderDB idOrder)
+        public EditOrderPage(Order idOrder)
         {            
             InitializeComponent();
             idOrderEdit = idOrder;
@@ -23,7 +23,7 @@ namespace SSWPF.View
 
         private void Button_Click_OK_EditOrderPage(object sender, RoutedEventArgs e)
         {
-            idOrderEdit.EditOrderDB();
+            idOrderEdit.EditOrder();
             NavigationService.Navigate(new MainPage());
         }
     }

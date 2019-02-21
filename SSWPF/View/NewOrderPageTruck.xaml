@@ -32,10 +32,10 @@
         <Image x:Name="New_order_Image2" Source="/Image/New_order.png" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 
         <TextBlock  Grid.Row="1" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Car Model</TextBlock>
-        <TextBox Name="NewOrderPageTruckTextBoxCarModel" Grid.Row="1" Grid.ColumnSpan="3" Text="{Binding Path=ModelCar, Mode=OneWay}" Style="{StaticResource TextBoxBig}"></TextBox>
+        <TextBox Name="NewOrderPageTruckTextBoxCarModel" Grid.Row="1" Grid.ColumnSpan="3" Text="{Binding Path=ModelCar, Mode=TwoWay}" Style="{StaticResource TextBoxBig}"></TextBox>
 
         <TextBlock  Grid.Row="2" Grid.Column="0" Style="{StaticResource TextBlockСaption}">Car Number</TextBlock>
-        <TextBox Name="NewOrderPageTruckTextBoxCarNumber" Grid.Row="2" Grid.ColumnSpan="3" Text="{Binding Path=NumberCar, Mode=OneWay}" Style="{StaticResource TextBoxBig}"></TextBox>
+        <TextBox Name="NewOrderPageTruckTextBoxCarNumber" Grid.Row="2" Grid.ColumnSpan="3" Text="{Binding Path=NumberCar, Mode=TwoWay}" Style="{StaticResource TextBoxBig}"></TextBox>
 
         <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource TextBlockParameterSelection}"></TextBlock>
         <TextBlock Grid.Row="3" Grid.Column="2" Style="{StaticResource TextBlockDetailCondition}"></TextBlock>

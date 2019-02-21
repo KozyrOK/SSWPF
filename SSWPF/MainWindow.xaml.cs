@@ -18,17 +18,17 @@ namespace SSWPF
 
         private void Info_Click(object sender, RoutedEventArgs e)
             {
-                MainWindowFrame.Content = new SSWPF.View.PageInfo();
+                MainWindowFrame.Content = new View.PageInfo();
             }
 
         private void MainMenu_Click(object sender, RoutedEventArgs e)
             {
-                MainWindowFrame.Content = new SSWPF.View.MainPage();
+                MainWindowFrame.Content = new View.MainPage();
             }
 
         private void Pricelist_Click(object sender, RoutedEventArgs e)
             {
-                MainWindowFrame.Content = new SSWPF.View.PagePricelist();
+                MainWindowFrame.Content = new View.PagePricelist();
             }
         
     }

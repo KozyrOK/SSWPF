@@ -143,7 +143,7 @@ namespace SSWPF.Model
         }
 
         public abstract int GetAveragedCarCondition();
-        public abstract decimal CalculateCost(PriceDB price);
-        public abstract void FillOrder(ref OrderDB order);
+        public abstract decimal CalculateCost(Price price);
+        public abstract void FillOrder(ref Order order);
     }
 }

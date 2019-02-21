@@ -9,7 +9,7 @@ namespace SSWPF.View
     public partial class NewOrderPagePasCar : Page
     {       
         PasCarServiceStation s = new PasCarServiceStation();
-        OrderDB o = new OrderDB();
+        Order o = new Order();
 
         public NewOrderPagePasCar()
         {
@@ -25,8 +25,8 @@ namespace SSWPF.View
         private void Button_Click_Submit_NewOrderPagePasCar(object sender, RoutedEventArgs e)
         {
             s.FillOrder(ref o);
-            o.AddNewOrderDB();
-            o.GetLastOrderIdDB();
+            o.AddNewOrder();
+            o.GetLastOrderId();
             NavigationService.Content = new PageOrderResult(o);
         }
     }

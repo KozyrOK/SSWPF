@@ -9,7 +9,7 @@ namespace SSWPF.View
     public partial class NewOrderPageBus : Page
     {        
         BusCarServiceStation s = new BusCarServiceStation();        
-        OrderDB o = new OrderDB();
+        Order o = new Order();
 
         public NewOrderPageBus()
         {
@@ -25,8 +25,8 @@ namespace SSWPF.View
         private void Button_Click_Submit_NewOrderPageBus(object sender, RoutedEventArgs e)
         {
             s.FillOrder(ref o);
-            o.AddNewOrderDB();
-            o.GetLastOrderIdDB();
+            o.AddNewOrder();
+            o.GetLastOrderId();
             NavigationService.Content = new PageOrderResult(o);
         }
     }

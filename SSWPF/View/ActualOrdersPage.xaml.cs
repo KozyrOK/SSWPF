@@ -18,7 +18,7 @@ namespace SSWPF.View
 
         private void ActualOrdersPage_Loaded(object sender, RoutedEventArgs e)
         {
-            OrderDB order = new OrderDB();
+            Order order = new Order();
             actualOrders = order.GetActualOrders();
             DataGridActualOrders.ItemsSource = actualOrders;
         }

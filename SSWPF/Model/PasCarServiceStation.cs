@@ -35,8 +35,8 @@ namespace SSWPF.Model
 
         public override int TotalSumCarCondition()
         {
-            int totalSum = 0;
             int sum = base.TotalSumCarCondition();
+            int totalSum = 0;            
             totalSum = sum;
             return totalSum;
         }
@@ -48,9 +48,8 @@ namespace SSWPF.Model
             return averagedCarCondition;
         }
 
-        public override decimal CalculateCost(PriceDB price)
+        public override decimal CalculateCost(Price price)
         {
-
             decimal cost = 0;
             if (CarBodyIsService)
             {
@@ -91,12 +90,11 @@ namespace SSWPF.Model
             return cost;
         }
 
-        public override void FillOrder(ref OrderDB order)
+        public override void FillOrder(ref Order order)
         {
             order.ModelCar = ModelCar;
             order.NumberCar = NumberCar;
-            PriceDB price = new PriceDB();
-            price.CurrentPrice();
+            Price price = new Price(1);
             order.CostOrder = CalculateCost(price);
             order.ConditionCar = GetAveragedCarCondition();
         }

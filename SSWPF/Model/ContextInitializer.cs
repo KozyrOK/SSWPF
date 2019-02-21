@@ -1,15 +1,13 @@
-﻿using System;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 
 namespace SSWPF.Model
 {
-    class ContextInitializer : DropCreateDatabaseAlways<SSWPFContext>
+    class ContextInitializer : DropCreateDatabaseIfModelChanges<SSWPFContext>
     {
         protected override void Seed(SSWPFContext db)
         {
-            PriceDB price = new PriceDB
-            {
-                DataTimePrice = DateTime.Now,
+            Price price = new Price
+            {               
                 CarBody = 100,
                 CarWheels = 100,
                 CarEngine = 100,
