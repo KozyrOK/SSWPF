@@ -2,7 +2,7 @@
 
 namespace SSWPF.Model
 {    
-    class PasCarServiceStation : CarServiceStation, INotifyPropertyChanged
+    public class PasCarServiceStation : CarServiceStation, INotifyPropertyChanged
     {
         protected int _pasCarwheelBalancingCondition;
         protected bool _pasCarwheelBalancingIsService;

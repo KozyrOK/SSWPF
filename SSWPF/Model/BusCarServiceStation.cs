@@ -2,7 +2,7 @@
 
 namespace SSWPF.Model
 {
-    class BusCarServiceStation : CarServiceStation, INotifyPropertyChanged
+    public class BusCarServiceStation : CarServiceStation, INotifyPropertyChanged
     {
         protected int _busSalonCondition;
         protected bool _busSalonIsService;

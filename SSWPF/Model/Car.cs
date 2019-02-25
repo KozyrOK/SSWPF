@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace SSWPF.Model
 {
-    abstract class Car : INotifyPropertyChanged
+    public abstract class Car : INotifyPropertyChanged
     {
         protected string _modelCar;
         protected string _numberCar;

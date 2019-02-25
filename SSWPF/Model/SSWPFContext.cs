@@ -2,7 +2,7 @@
 
 namespace SSWPF.Model
 {
-    class SSWPFContext : DbContext
+    public class SSWPFContext : DbContext
     {
         static SSWPFContext() { Database.SetInitializer(new ContextInitializer()); }
 

@@ -3,7 +3,7 @@
 namespace SSWPF.Model
 {
     
-    abstract class CarServiceStation : Car, INotifyPropertyChanged
+    public abstract class CarServiceStation : Car, INotifyPropertyChanged
     {
         protected int _carBodyCondition;
         protected bool _carBodyIsService;
